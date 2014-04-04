@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazilian]{babel} % Hifenização e dicionário
 \usepackage[left=3.00cm, right=2.00cm, top=3.00cm, bottom=2.00cm]{geometry}
+\usepackage{tabularx}
 
 \begin{document}
 
@@ -36,7 +37,11 @@
 
     \section{Contextualização}
         \subsection{Descrição do problema}
-            \begin{tabular}{ p{4cm} | p{11cm} }
+                \begin{tabularx}{\textwidth}
+                    {
+                    >{\hsize=.3\hsize}X |
+                    >{\hsize=.7\hsize}X
+                    }
                 \hline
                 \textbf{Problemas} &
                 Os problemas vão aqui \\ \hline
@@ -44,17 +49,22 @@
                 As pessoas atingidas vão aqui \\ \hline
                 \textbf{Cujo impacto é} &
                 O impacto vai aqui \\ \hline
-                \textbf{Uma solução bem sucedida traria} &
+                \textbf{Uma solução bem \newline sucedida traria} &
                 O que a solução traria vai aqui \\ \hline
-            \end{tabular}
+                \end{tabularx}
 
     \subsection{Sentença de posição do produto}
-    % Ou essa tabela está meio estranha, ou não está renderizando direito aqui.
-    % Vou tentar ver em outro computador depois
+    % Ou a tabela do modelo de Márcia está meio estranha, ou não está
+    % renderizando direito aqui. Vou tentar ver em outro computador depois.
 
     \section{Descrição dos stakeholders e dos usuários}
         \subsection{Principais stakeholders e usuários}
-            \begin{tabular}{ p{5cm} | p{5cm} | p{5cm} }
+                \begin{tabularx}{\textwidth}
+                    {
+                    >{\hsize=.333\hsize}X |
+                    >{\hsize=.333\hsize}X |
+                    >{\hsize=.333\hsize}X
+                    }
                 \hline
                 \textbf{Identificação} &
                 \textbf{Responsabilidades} &
@@ -66,9 +76,15 @@
                 Programadores & & \\ \hline
                 Organização & & \\ \hline
                 Usuário & & \\
-            \end{tabular}
+                \end{tabularx}
         \subsection{Necessidades chave dos stakeholders e dos usuários}
-            \begin{tabular}{ p{3.75cm} | p{3.75cm} | p{3.75cm} | p{3.75cm} }
+                \begin{tabularx}{\textwidth}
+                    {
+                    >{\hsize=.25\hsize}X |
+                    >{\hsize=.25\hsize}X |
+                    >{\hsize=.25\hsize}X |
+                    >{\hsize=.25\hsize}X
+                    }
                 \hline
                 \textbf{No.} &
                 \textbf{Descrição} &
@@ -79,12 +95,16 @@
                 & 3 & & \\ \hline
                 & 4 & & \\ \hline
                 & 5 & & \\ \hline
-            \end{tabular}
+                \end{tabularx}
         \subsection{Necessidades chave dos stakeholders e dos usuários}
 
     \section{Visão geral do produto}
         \subsection{Perspectiva do produto}
-            \begin{tabular}{ p{7.5cm} | p{7.5cm} }
+                \begin{tabularx}{\textwidth}
+                    {
+                    >{\hsize=.5\hsize}X |
+                    >{\hsize=.5\hsize}X
+                    }
                 \hline
                 \textbf{Necessidades} &
                 \textbf{Funcionalidades correspondentes} \\ \hline
@@ -93,14 +113,21 @@
                 3. & \\ \hline
                 4. & \\ \hline
                 5. & \\ \hline
-            \end{tabular}
+                \end{tabularx}
         \subsection{Premissas e dependências}
         \subsection{Limites do produto}
 
     \section{Requisitos funcionais do produto}
 
     \section{Precedência e prioridades}
-            \begin{tabular}{ p{3.75cm} | p{3.75cm} | p{3.75cm} | p{3.75cm} }
+            \begin{table}[htbp]
+                \begin{tabularx}{\textwidth}
+                    {
+                    >{\hsize=.25\hsize}X |
+                    >{\hsize=.25\hsize}X |
+                    >{\hsize=.25\hsize}X |
+                    >{\hsize=.25\hsize}X
+                    }
                 \hline
                 \textbf{No.} &
                 \textbf{Funcionalidade} &
@@ -111,7 +138,8 @@
                 & 3 & & \\ \hline
                 & 4 & & \\ \hline
                 & 5 & & \\ \hline
-            \end{tabular}
+                \end{tabularx}
+            \end{table}
 
     \section{Requisitos não-funcionais do produto}
 
