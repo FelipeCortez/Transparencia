@@ -2,9 +2,19 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazilian]{babel} % Hifenização e dicionário
 \usepackage[left=3.00cm, right=2.00cm, top=3.00cm, bottom=2.00cm]{geometry}
+\usepackage{enumitem}
 \usepackage{tabularx}
+\usepackage{tabu}
+
+\tabulinesep=0.75ex
 
 \begin{document}
+
+    \begin{titlepage}
+        \huge
+        \flushright{Sistema de Transparência Pública para a Assembleia
+        Legislativa do RN}
+    \end{titlepage}
 
     \begin{center}
       \textsc{UFRN --- Universidade Federal do Rio Grande do Norte} \\
@@ -31,80 +41,149 @@
 
     \section{Introdução}
         \subsection{Finalidade}
+        A finalidade deste documento é proporcionar uma perspectiva geral do
+        projeto proposto, a fim de que seja possível compreender o seu produto.
+        Assim, será possível entender as necessidades do sistema, as
+        funcionalidades a serem implementadas e as restrições requisitadas.
+        Este documento também visa entender o contexto da aplicação, seus
+        stakeholders, requisitos, bem como desafios que devem ser enfrentados.
+
         \subsection{Escopo do documento}
+        Este documento de visão se aplica ao Portal da Transparência da Assembleia
+        Legislativa do Rio Grande do Norte. Este projeto propõe desenvolver um sistema
+        web (na forma de portal) que deverá disponibilizar, de uma maneira transparente
+        e imparcial, os aspectos que caracterizam os trâmites políticos,
+        administrativos e econômicos da Assembleia Legislativa do Rio Grande do Norte.
+        Como exemplo de tais aspectos estão a atuação dos parlamentares nas seções e
+        nas votações de projetos importantes para a sociedade, bem como os projetos de
+        leis que estão em votação atualmente. Eis o principal problema que deve ser
+        resolvido: coletar informações concretas de tais aspectos e disponibilizá-las
+        em um portal prático, isto é, de fácil manuseio e de pesquisa rápida, de modo a
+        atrair o cidadão para que o mesmo possa usufruir do seu direito à informação.
+
+        % TODO: Colocar diagramas de contexto
+
         \subsection{Definições, acrônimos e abreviações}
+        % TODO: Não se aplicam até agora
+
         \subsection{Referências}
+        % TODO: Este documento poderá ser complementado ao ter em mãos os
+        % documentos descritos...
 
     \section{Contextualização}
         \subsection{Descrição do problema}
-                \begin{tabularx}{\textwidth}
-                    {
-                    >{\hsize=.3\hsize}X |
-                    >{\hsize=.7\hsize}X
-                    }
+            \begin{tabu}{X[1] | X[3]}
                 \hline
-                \textbf{Problemas} &
-                Os problemas vão aqui \\ \hline
-                \textbf{Pessoas atingidas} &
-                As pessoas atingidas vão aqui \\ \hline
-                \textbf{Cujo impacto é} &
-                O impacto vai aqui \\ \hline
-                \textbf{Uma solução bem \newline sucedida traria} &
-                O que a solução traria vai aqui \\ \hline
-                \end{tabularx}
 
-    \subsection{Sentença de posição do produto}
-    % Ou a tabela do modelo de Márcia está meio estranha, ou não está
-    % renderizando direito aqui. Vou tentar ver em outro computador depois.
+                \textbf{Problemas} &
+                \begin{minipage}[t]{\linewidth}
+                \begin{itemize}[itemsep=.5ex,parsep=.0ex,after=\strut]
+                \item Coletar informações acerca dos fatos administrativos,
+                    políticos e econômicos da Assembleia Legislativa do RN
+                \item Garantir a veracidade e integridade destas informações
+                \item Fazê-las chegar aos cidadãos, por um portal de fácil acesso
+                    e manuseio
+                \item Instigar o cidadão a fiscalizar os trâmites legislativos
+                    (o que lhe é de direito) através do uso da web
+                \item Aproximar a Assembleia Legislativa e seus representantes
+                    da população
+                \end{itemize}
+                \end{minipage}
+                \\ \hline
+
+                \textbf{Pessoas atingidas} &
+                O cidadão é o principal agente atingido por este projeto, uma
+                vez que o mesmo poderá inteirar-se acerca do que acontece na
+                Assembleia, bem como das ações tomadas por parte dos seus
+                representantes legislativos. A Assembleia Legislativa também
+                deve ser beneficiada, pois terá a oportunidade de manter sua
+                imagem transparente junto à população.
+                \\ \hline
+
+                \textbf{Cujo impacto é} &
+                O principal impacto é o aprimoramento da visão crítica do
+                cidadão, que poderá melhor discernir sobre suas próprias
+                decisões no âmbito do seu exercício da democracia. A sociedade
+                como um todo deve, portanto, ser beneficiada. A preocupação com
+                a usabilidade facilitaria o acesso às informações.  Outro
+                impacto, de certa forma, será a revelação de possíveis
+                irregularidades que possam acontecer pelo mau uso do sistema
+                representativo.
+                \\ \hline
+
+                \textbf{Uma solução bem \newline sucedida traria} &
+                Traria as informações mais relevantes à população, de modo
+                claro, objetivo e imparcial. Traria também um portal de fácil
+                manuseio e que coloca tais informações em primeiro plano.
+                \\ \hline
+
+            \end{tabu}
+
+        \subsection{Sentença de posição do produto}
+            \begin{tabu}{X[1] | X[3]}
+                \hline
+                \textbf{Para} &
+                A sociedade em geral
+                \\ \hline
+                \textbf{Quem} &
+                Por meio de seu gerente comercial
+                \\ \hline
+                \textbf{O} &
+                É um portal para a transparência da Assembleia Legislativa do RN
+                \\ \hline
+                \textbf{Que} &
+                Proporcionar amplo acesso às informações acerca dos trâmites
+                legislativos
+                \\ \hline
+                \textbf{Diferente de} &
+                Não se aplica
+                \\ \hline
+                \textbf{Nosso produto} &
+                Traz a informação de maneira clara, objetiva e imparcial
+                \\ \hline
+            \end{tabu}
 
     \section{Descrição dos stakeholders e dos usuários}
         \subsection{Principais stakeholders e usuários}
-                \begin{tabularx}{\textwidth}
-                    {
-                    >{\hsize=.333\hsize}X |
-                    >{\hsize=.333\hsize}X |
-                    >{\hsize=.333\hsize}X
-                    }
+            \begin{tabu}{X | X | X}
                 \hline
                 \textbf{Identificação} &
                 \textbf{Responsabilidades} &
-                \textbf{Stakeholders} \\ \hline
-                Gerentes do projeto & & \\ \hline
-                Analistas de requisitos & & \\ \hline
-                Arquiteto do projeto & & \\ \hline
-                Projetista de interfaces do projeto & & \\ \hline
-                Programadores & & \\ \hline
-                Organização & & \\ \hline
-                Usuário & & \\
-                \end{tabularx}
+                \textbf{Stakeholders}
+                \\ \hline
+                Gerentes do projeto & &
+                \\ \hline
+                Analistas de requisitos & &
+                \\ \hline
+                Arquiteto do projeto & &
+                \\ \hline
+                Projetista de interfaces do projeto & &
+                \\ \hline
+                Programadores & &
+                \\ \hline
+                Organização & &
+                \\ \hline
+                Usuário & &
+                \\ \hline
+            \end{tabu}
         \subsection{Necessidades chave dos stakeholders e dos usuários}
-                \begin{tabularx}{\textwidth}
-                    {
-                    >{\hsize=.25\hsize}X |
-                    >{\hsize=.25\hsize}X |
-                    >{\hsize=.25\hsize}X |
-                    >{\hsize=.25\hsize}X
-                    }
+            \begin{tabu}{X[1] | X[3] | X[3] | X[3]}
                 \hline
                 \textbf{No.} &
                 \textbf{Descrição} &
                 \textbf{Prioridade do cliente} &
                 \textbf{Observações} \\ \hline
-                & 1 & & \\ \hline
-                & 2 & & \\ \hline
-                & 3 & & \\ \hline
-                & 4 & & \\ \hline
-                & 5 & & \\ \hline
-                \end{tabularx}
+                1 & & & \\ \hline
+                2 & & & \\ \hline
+                3 & & & \\ \hline
+                4 & & & \\ \hline
+                5 & & & \\ \hline
+            \end{tabu}
         \subsection{Necessidades chave dos stakeholders e dos usuários}
 
     \section{Visão geral do produto}
         \subsection{Perspectiva do produto}
-                \begin{tabularx}{\textwidth}
-                    {
-                    >{\hsize=.5\hsize}X |
-                    >{\hsize=.5\hsize}X
-                    }
+            \begin{tabu}{X | X}
                 \hline
                 \textbf{Necessidades} &
                 \textbf{Funcionalidades correspondentes} \\ \hline
@@ -113,35 +192,99 @@
                 3. & \\ \hline
                 4. & \\ \hline
                 5. & \\ \hline
-                \end{tabularx}
+            \end{tabu}
         \subsection{Premissas e dependências}
+        O sistema é um portal web. Inicialmente deve-se desenvolvê-lo para
+        acesso em qualquer navegador de um computador ligado à Internet.
+        Posteriormente, pode-se pensar em abranger esta ideia para dispositivos
+        móveis, ou até mesmo uma aplicação móvel.
+
         \subsection{Limites do produto}
+        O portal deve atender à legislação vigente quanto à divulgação de
+        informações na Internet. Este projeto propõe uma fiscalização às
+        atividades na Assembleia legislativa, que envolve pessoas, como os
+        parlamentares, assessores e secretários. As publicações no portal,
+        inevitavelmente, devem envolver tais atores, desde que os mesmos
+        participem de alguma atividade caracterizada por seu aspecto público ou
+        que envolva, de algum modo, o uso de recursos públicos. Não serão
+        publicadas, portanto, informações de cunho estritamente pessoal.
 
     \section{Requisitos funcionais do produto}
+    \begin{itemize}
+    \item Ter uma página com o perfil de cada parlamentar: considera-se este
+        requisitos como um dos mais básicos, uma vez que o usuário deverá ter
+        conhecimento sobre cada um dos seus representantes, seus partidos e
+        ideologias;
+    \item Mostrar o envolvimento de cada parlamentar em atividades relacionadas
+        ao uso do poder legislativo, como em votações, seções, comissões,
+        debates e etc
+    \item Estender o requisito anterior para atividades fora da Assembleia,
+        como a participação do parlamentar em causas e ações sociais
+    \item Transparecer os gastos com o dinheiro público. Servirá como uma
+        prestação de contas públicas que será disponibilizada ao cidadão.
+        Atualmente, alguns sites já fazem isso, porém de maneira obscura. A
+        ideia é que os gastos possam ser monitorados e atualizados em períodos
+        regulares (como semanalmente ou mensalmente). Eles podem envolver cada
+        parlamentar individualmente, através do uso de verbas de custeio ou
+        para emendas parlamentares ou podem envolver a Assembleia enquanto
+        instituição, por exemplo, seus gastos com pagamento de assessores,
+        secretários, serviços, compras e licitações.
+    \item Os gastos de cada parlamentar em campanhas eleitorais também devem
+        ser monitorados. De fato, esta é uma atividade que tem a ver com a
+        Assembleia Legislativa, pois apenas serão disponibilizados dados
+        referentes a deputados eleitos pelo voto direto (e que, portanto, estão
+        em exercício do poder legislativo), e que foram declarados à Justiça
+        Eleitoral no momento do registro da candidatura.
+    \item Os dados referentes ao orçamento público devem ter sua devida
+        atenção. Uma vez que a proposta foi aprovada em plenário, o texto deve
+        ser publicado na íntegra. Outra seção deve ser criada para destacar as
+        principais cláusulas do documento, como o valor total do orçamento,
+        destino das verbas e previsões.
+    \item Monitorar os projetos dos parlamentares (das mais diversas naturezas)
+        que estão atualmente em discussão, os que foram aprovados ou
+        reprovados, e os que estão em espera pela pauta. Criar infográficos
+        interativos que separe bem estas categorias, evidenciando a importância
+        da cada usa. Este requisito é importante pois o cidadão terá como
+        conhecer as ideias do parlamento e poderá formar suas opiniões.
+    \item Dedicar uma seção para aqueles projetos que foram votados e
+        aprovados, mas que nunca saíram do papel. Apresentar o usuário uma
+        satisfação sobre o ocorrido.
+    \item Noticiar seções, eventos, congressos e comissões que venham debater
+        assuntos relevantes e de interesse geral da população.
+    \item Possibilitar pesquisas rápidas em históricos, dos períodos
+        legislativos passados. Manter uma base de dados para este requisito.
+    \item Possibilitar o contato direto o cidadão com o
+    parlamentar, através do envio de e-mail.
+    \end{itemize}
 
     \section{Precedência e prioridades}
-            \begin{table}[htbp]
-                \begin{tabularx}{\textwidth}
-                    {
-                    >{\hsize=.25\hsize}X |
-                    >{\hsize=.25\hsize}X |
-                    >{\hsize=.25\hsize}X |
-                    >{\hsize=.25\hsize}X
-                    }
-                \hline
-                \textbf{No.} &
-                \textbf{Funcionalidade} &
-                \textbf{Prioridade do cliente} &
-                \textbf{Entrega} \\ \hline
-                & 1 & & \\ \hline
-                & 2 & & \\ \hline
-                & 3 & & \\ \hline
-                & 4 & & \\ \hline
-                & 5 & & \\ \hline
-                \end{tabularx}
-            \end{table}
+    \begin{tabu}{X[1] | X[4] | X[3] | X[1]}
+            \hline
+            \textbf{No.} &
+            \textbf{Funcionalidade} &
+            \textbf{Prioridade do cliente} &
+            \textbf{Entrega} \\ \hline
+            1 & & & \\ \hline
+            2 & & & \\ \hline
+            3 & & & \\ \hline
+            4 & & & \\ \hline
+            5 & & & \\ \hline
+        \end{tabu}
 
     \section{Requisitos não-funcionais do produto}
+    \begin{itemize}
+    \item Requisitos de usabilidade: o portal deve apresentar uma interface
+        amigável interativa, a fim de proporcionar ao usuário uma fácil
+        navegação e compreensão do conteúdo exposto.
+    \item O termo transparência deve ser convertido em um requisito
+        não-funcional. Este é o diferencial do projeto proposto. De fato, deve
+        ser fácil de se encontrar a informação, sem caminhos excessivamente
+        longos que possam desencorajar o usuário de procurar pela informação.
+    \item Toda publicação deve atender à legislação vigente. Além disso, deve
+        ser feita de maneira imparcial, isto é, sem beneficiar nenhum partido
+        político ou qualquer entidade.
+    \item Deve-se assegurar a veracidade das informações.
+    \end{itemize}
 
     \section{Restrições técnicas}
 
