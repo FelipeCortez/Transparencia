@@ -2,10 +2,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazilian]{babel} % Hifenização e dicionário
 \usepackage[left=3.00cm, right=2.00cm, top=3.00cm, bottom=2.00cm]{geometry}
-\usepackage{enumitem}
-\usepackage{tabu}
+\usepackage{enumitem} % Para itemsep etc
+\usepackage{tabu} % Para melhor criação de tabelas
+\usepackage{color}
+\usepackage{parskip} % Linha em branco entre parágrafos em vez de recuo
 
-\tabulinesep=0.75ex
+\tabulinesep=0.75ex % Espaçamento interno das tabelas
 
 \begin{document}
 
@@ -60,14 +62,14 @@
         em um portal prático, isto é, de fácil manuseio e de pesquisa rápida, de modo a
         atrair o cidadão para que o mesmo possa usufruir do seu direito à informação.
 
-        % TODO: Colocar diagramas de contexto
+        {\color{red} Colocar diagramas de contexto}
 
         \subsection{Definições, acrônimos e abreviações}
-        % TODO: Não se aplicam até agora
+        {\color{red} Não se aplicam até agora}
 
         \subsection{Referências}
-        % TODO: Este documento poderá ser complementado ao ter em mãos os
-        % documentos descritos...
+        {\color{red} Este documento poderá ser complementado ao ter em mãos os
+        documentos descritos}
 
     \section{Contextualização}
         \subsection{Descrição do problema}
@@ -144,53 +146,76 @@
 
     \section{Descrição dos stakeholders e dos usuários}
         \subsection{Principais stakeholders e usuários}
+            {\color{red} Esta seção será detalhada no documento termo de
+            atribuição de papéis e responsabilidades. Fazer em conjunto com o
+            gerente. As informações de identificação são um exemplo.}
+
             \begin{tabu}{X | X | X}
                 \hline
                 \textbf{Identificação} &
                 \textbf{Responsabilidades} &
                 \textbf{Stakeholders}
                 \\ \hline
-                Gerentes do projeto & &
+                Gerentes do projeto &
+                Bernardo Gurgel &
                 \\ \hline
-                Analistas de requisitos & &
+                Analistas de requisitos &
+                Íslame Felipe &
                 \\ \hline
-                Arquiteto do projeto & &
+                Arquiteto do projeto &
+                Todos &
                 \\ \hline
-                Projetista de interfaces do projeto & &
+                Projetista de interfaces do projeto &
+                Felipe Cortez &
                 \\ \hline
-                Programadores & &
+                Programadores &
+                Todos &
                 \\ \hline
-                Organização & &
+                Organização &
+                Ricardo Wagner, Rubens Viana e Victor Schinaider &
                 \\ \hline
-                Usuário & &
+                Usuário &
+                População em geral &
                 \\ \hline
             \end{tabu}
         \subsection{Necessidades chave dos stakeholders e dos usuários}
-            \begin{tabu}{X[1] | X[3] | X[3] | X[3]}
+            \begin{tabu}{X[-1, r] | X | X[r] | X}
                 \hline
                 \textbf{No.} &
                 \textbf{Descrição} &
                 \textbf{Prioridade do cliente} &
                 \textbf{Observações} \\ \hline
-                1 & & & \\ \hline
-                2 & & & \\ \hline
-                3 & & & \\ \hline
-                4 & & & \\ \hline
-                5 & & & \\ \hline
+                1 &
+                Monitorar funcionamento da Assembleia Legislativa &
+                1 & \\ \hline
+                2 &
+                Monitorar parlamentares &
+                1 & \\ \hline
+                3 &
+                Ter acesso aos gastos de um parlamentar &
+                1 & \\ \hline
+                4 &
+                Ter acesso aos projetos em geral de um parlamentar &
+                1 & \\ \hline
             \end{tabu}
-        \subsection{Necessidades chave dos stakeholders e dos usuários}
 
     \section{Visão geral do produto}
         \subsection{Perspectiva do produto}
-            \begin{tabu}{X | X}
+            {\color{red} O xxx é um sistema xxx... Sua finalidade é
+
+            Resumo das funcionalidades do produto. Para cada necessidade
+            apresentada na seção 3.2, detalhar na coluna funcionalidades.}
+
+            \begin{tabu}{X[-1, r]| X}
                 \hline
                 \textbf{Necessidades} &
                 \textbf{Funcionalidades correspondentes} \\ \hline
-                1. & \\ \hline
-                2. & \\ \hline
-                3. & \\ \hline
-                4. & \\ \hline
-                5. & \\ \hline
+                1 &
+                Listar características da Assembleia \\ \hline
+                2 &
+                Pesquisar parlamentar \\ \hline
+                3, 4 &
+                Ver página de um parlamentar \\ \hline
             \end{tabu}
         \subsection{Premissas e dependências}
         O sistema é um portal web. Inicialmente deve-se desenvolvê-lo para
@@ -257,17 +282,20 @@
     \end{itemize}
 
     \section{Precedência e prioridades}
-    \begin{tabu}{X[1] | X[4] | X[3] | X[1]}
+        {\color{red} O critério entrega será utilizado para agrupar as
+        funcionalidades que serão entregues em prazos predeterminados pelo
+        gerente de projeto e analista de requisitos da equipe.}
+
+    \begin{tabu}{X[-1, r] | X | X[-1, r] | X}
             \hline
             \textbf{No.} &
             \textbf{Funcionalidade} &
             \textbf{Prioridade do cliente} &
             \textbf{Entrega} \\ \hline
-            1 & & & \\ \hline
-            2 & & & \\ \hline
-            3 & & & \\ \hline
-            4 & & & \\ \hline
-            5 & & & \\ \hline
+            1 & & 1 & {\color{red} ???} \\ \hline
+            2 & & 1 & {\color{red} ???} \\ \hline
+            3 & & 1 & {\color{red} ???} \\ \hline
+            4 & & 1 & {\color{red} ???} \\ \hline
         \end{tabu}
 
     \section{Requisitos não-funcionais do produto}
@@ -285,6 +313,6 @@
     \item Deve-se assegurar a veracidade das informações.
     \end{itemize}
 
-    \section{Restrições técnicas}
+    \section{\color{red} Restrições técnicas}
 
 \end{document}
