@@ -21,7 +21,7 @@
         \vfill
 
         {\Huge Sistema de Transparência Pública para a Assembleia Legislativa
-        do RN \\[1ex] \LARGE Documento de Visão \\[2ex] \large Versão 1.3}
+        do RN \\[1ex] \LARGE Documento de Visão \\[2ex] \large Versão 1.4}
 
         \vfill
 
@@ -32,7 +32,7 @@
         Sistema de Transparência Pública para a Assembleia Legislativa do RN &
         UFRN \\ \hline
         Documento de Visão &
-        Versão 1.3 \\ \hline
+        Versão 1.4\\ \hline
     \end{tabu}
 
     \bigskip
@@ -63,6 +63,10 @@
         1.3 &
         Formatação de capa e correção de erros &
         Felipe Cortez \\ \hline
+         08/04/2014 &
+        1.4 &
+        Definições, acrônimos, abreviações, referências, requisitos e funcionalidades &
+        Íslame Felipe \\ \hline
     \end{tabu}
 
     \tableofcontents
@@ -110,7 +114,31 @@
         {\color{red} Colocar diagramas de contexto}
 
         \subsection{Definições, acrônimos e abreviações}
-        {\color{red} Não se aplicam até agora}
+         \begin{tabu}{X | X}
+                \hline
+                \textbf{Palavra-chave} &
+                \textbf{Definição}
+                \\ \hline
+                Parlamento &
+                Constitucionalmente, e segundo o princípio da divisão dos poderes, constitui a sede do poder legislativo. Será representado pela Assembleia Legislativa do RN.
+                \\ \hline
+                Parlamentar & indivíduo que compõe o parlamento. Pela Constituição vigente (de 1988), os parlamentares devem ser eleitos por eleições livres e diretas e têm a função de elaborar as leis de regem o Estado.
+                \\ \hline
+Trâmites Legislativos & termo de alto nível usado neste documento para referir-se a toda e qualquer atividade desempenhada no âmbito do poder legislativ, seja fora ou dentro de plenário. O termo abrange discussões e votações de projetos, liberações de verbas, debates em comissões, reuniões e etc. 
+                \\ \hline
+Projeto & proposta, planejamento ou ideia que é escrita, analisada e votada em plenário, de acordo com o regimento interno da Assembleia e com a ordem de pautas. Pode referir-se a propostas de leis, de liberação de verbas, ou relacionado a assuntos de interesse geral da sociedade. 
+                \\ \hline
+Assessor & indivíduo que presta serviço de assessoria individualmente ao parlamentar ou à Assembleia enquanto instituição. 
+                \\ \hline
+Seção & reunião ordinária ou extraordinária dos parlamentares no plenário da Assembleia. Nas seções ordinárias, são debatidos assuntos importantes, analisados projetos ou realizadas votações. Nas seções extraordinárias são solicitadas, geralmente, para homenagens, condecorações, ou votações urgentes. A presença em seções é a atividade parlamentar mais básica.
+                \\ \hline
+
+Comissões & reuniões provisórias que reuni um subconjunto de parlamentares que devem analisar, investigar ou votar uma questão particular. A CPI (Comissão Parlamentar de Inquérito) é um exemplo de comissão que tem poder de investigação, a partir de escuta popular, de testemunhas ou de documentos. 
+                \\ \hline
+Orçamento público & é um instrumento de planejamento e execução das finanças públicas. Busca prevê as despesas e receitas públicas. Deve ser votada pelo parlamento, portanto tem caráter de documento legal e é aprovado por lei. 
+                \\ \hline
+            \end{tabu}
+        
 
         \subsection{Referências}
         {\color{red} Este documento poderá ser complementado ao ter em mãos os
@@ -172,7 +200,7 @@
                 A sociedade em geral
                 \\ \hline
                 \textbf{Quem} &
-                Por meio de seu gerente comercial
+                Por meio da equipe de desenvolvimento
                 \\ \hline
                 \textbf{O} &
                 É um portal para a transparência da Assembleia Legislativa do RN
@@ -191,9 +219,6 @@
 
     \section{Descrição dos stakeholders e dos usuários}
         \subsection{Principais stakeholders e usuários}
-            {\color{red} Esta seção será detalhada no documento termo de
-            atribuição de papéis e responsabilidades. Fazer em conjunto com o
-            gerente. As informações de identificação são um exemplo.}
 
             \begin{tabu}{X | X | X}
                 \hline
@@ -201,25 +226,29 @@
                 \textbf{Responsabilidades} &
                 \textbf{Stakeholders}
                 \\ \hline
-                Gerentes do projeto & &
+                Gerentes do projeto & Gerenciar o acompanhamento do projeto.
+Avaliar a evolução do sistema. &
                 Bernardo Gurgel
                 \\ \hline
-                Analistas de requisitos & &
+                Analistas de requisitos & Analisar os requisitos do sistema e do usuário.
+Realizar a verificação (corretude e coerência).
+Coordenar o processo de elicitação e especificação.&
                 Íslame Felipe
                 \\ \hline
-                Arquiteto do projeto & &
+                Arquiteto do projeto & Arquitetar o sistema. Propor a melhor forma de organizar as estruturas do sistema (modelo de arquitetura).&
                 Todos
                 \\ \hline
-                Projetista de interfaces do projeto & &
+                Projetista de interfaces do projeto & Desenvolver e atualizar o projeto de interface de usuário. &
                 Felipe Cortez
                 \\ \hline
-                Programadores & &
+                Programadores & Desenvolver a codificação do sistema. Manter a integridade e evolução do código. Trabalho fundamentalmente em equipe. &
                 Todos
                 \\ \hline
-                Organização & &
+                Organização & Prover a organização do projeto. &
                 Ricardo Wagner, Rubens Viana e Victor Schinaider
                 \\ \hline
-                Usuário & &
+                Usuário &Utilizar os incrementos do sistema. Emitir feedbacks sobre novos requisitos.
+ &
                 População geral
                 \\ \hline
             \end{tabu}
@@ -231,42 +260,60 @@
                 \textbf{Prioridade do cliente} &
                 \textbf{Observações} \\ \hline
                 1 &
-                Monitorar funcionamento da Assembleia Legislativa &
-                1 & \\ \hline
+                Conhecer os parlamentares, seus partidos, coligações e ideologias. Monitorar a atuação dos parlamentares e seu envolvimento nas atividades legislativas. 
+                & 1 & \\ \hline
                 2 &
-                Monitorar parlamentares &
+                Formar uma opinião pessoal acerca da atuação do parlamentar a fim de poder atuar da melhor maneira possível no processo eleitoral.
+ &
                 1 & \\ \hline
                 3 &
-                Ter acesso aos gastos de um parlamentar &
-                1 & \\ \hline
+               Conhecer os projetos eminentes, em pauta ou em espera pela pauta. Ter consciência da forma como os projetos são revertidos em benefícios à sociedade. &
+
+                2 & \\ \hline
                 4 &
-                Ter acesso aos projetos em geral de um parlamentar &
-                1 & \\ \hline
+              Conhecer o funcionamento da máquina pública. Poder acompanhar o direcionamento do dinheiro público. &
+                2 & \\ \hline
+                5 &
+                Conhecer o funcionamento da Assembleia Legislativa do ponto de vista institucional. Aproximar-se do parlamento.
+                &
+                3 &
+                \\ \hline
             \end{tabu}
 
     \section{Visão geral do produto}
         \subsection{Perspectiva do produto}
-            {\color{red} O xxx é um sistema xxx... Sua finalidade é
-
-            Resumo das funcionalidades do produto. Para cada necessidade
-            apresentada na seção 3.2, detalhar na coluna funcionalidades.}
-
+           
             \begin{tabu}{X[-1, r]| X}
                 \hline
                 \textbf{Necessidades} &
                 \textbf{Funcionalidades correspondentes} \\ \hline
-                1 &
-                Listar características da Assembleia \\ \hline
-                2 &
-                Pesquisar parlamentar \\ \hline
-                3, 4 &
-                Ver página de um parlamentar \\ \hline
+                1
+                & Página detalhada do perfil do     parlamentar \\ \hline
+               1, 2 & Busca por seções plenárias. Listar pauta, ata, resumo, data, parlamentares presentes e etc. \\ \hline
+               3, 4,  & Páginas que detalham comissões em andamento \\ \hline
+                1, 2 & Página especial que associa o parlamentar a atividades desenvolvidas fora a assembleia.\\ \hline
+                1, 2 & Mostrar detalhes de cada processo sofrido pelo parlamentar. \\ \hline
+                1, 2 & Pesquisa histórico de processos do parlamentar. \\ \hline
+                1, 2, 4, 5 & Listar a prestação de conta mensal da assembleia\\ \hline
+                1, 2, 4 & Página que detalha o gasto mensal do parlamentar \\ \hline
+                1, 2 & Seção especial para a prestação de contas do parlamentar à justiça eleitoral \\ \hline
+                2, 3, 4, 5, & Página que detalha as informações do orçamento público \\ \hline  
+                2, 3, 4, 5 & Download do texto na íntegra do projeto do orçamento \\ \hline
+                3, 4 & Pesquisar projetos por categoria/natureza, por data, por status ou tema. \\ \hline
+                3, 4 & Página que detalha projetos.\\ \hline
+                2, 3, 4 & Página que noticia comissões, seções, reuniões e ouros assuntos.\\ \hline
+                1, 2  & Pesquisar histórico de ex-parlamentar \\ \hline
+                1, 2 &Página de contato do cidadão com o cliente\\ \hline
+
+                
+                
             \end{tabu}
         \subsection{Premissas e dependências}
         O sistema é um portal web. Inicialmente deve-se desenvolvê-lo para
         acesso em qualquer navegador de um computador ligado à Internet.
         Posteriormente, pode-se pensar em abranger esta ideia para dispositivos
         móveis, ou até mesmo uma aplicação móvel.
+        Uma dependência forte do sistema refere-se à sua alimentação. De fato, as informações devem, de alguma fonte (confiável), chegar a base dados do sistema. Assim, pode-se apresentar dependências de outras bases de dados que estejam em funcionamento com tais informações ou dependência direta de dados oriundos diretamente da Assembleia.
 
         \subsection{Limites do produto}
         O portal deve atender à legislação vigente quanto à divulgação de
@@ -289,6 +336,7 @@
         debates e etc
     \item Estender o requisito anterior para atividades fora da Assembleia,
         como a participação do parlamentar em causas e ações sociais
+    \item Visualizar, detalhadamente, os processos sofridos por cada parlamentar. A ideia é emitir uma ficha que indique “o quão limpa” é a carreira política do deputado.
     \item Transparecer os gastos com o dinheiro público. Servirá como uma
         prestação de contas públicas que será disponibilizada ao cidadão.
         Atualmente, alguns sites já fazem isso, porém de maneira obscura. A
@@ -327,9 +375,7 @@
     \end{itemize}
 
     \section{Precedência e prioridades}
-        {\color{red} O critério entrega será utilizado para agrupar as
-        funcionalidades que serão entregues em prazos predeterminados pelo
-        gerente de projeto e analista de requisitos da equipe.}
+       
 
     \begin{tabu}{X[-1, r] | X | X[-1, r] | X}
             \hline
@@ -337,10 +383,22 @@
             \textbf{Funcionalidade} &
             \textbf{Prioridade do cliente} &
             \textbf{Entrega} \\ \hline
-            1 & & 1 & {\color{red} ???} \\ \hline
-            2 & & 1 & {\color{red} ???} \\ \hline
-            3 & & 1 & {\color{red} ???} \\ \hline
-            4 & & 1 & {\color{red} ???} \\ \hline
+            1 & Página detalhada do perfil do parlamentar & 1 & 22/04/2014 \\ \hline
+            2 &Busca por seções plenárias. Listar pauta, ata, resumo, data, parlamentares presentes e etc. & 1 &   22/04/2014 \\ \hline
+            3 & Mostrar detalhes de cada processo sofrido pelo parlamentar. & 1 & 22/04/2014 \\ \hline
+            4 & Páginas que detalham comissões em andamento & 2 & 22/04/2014 \\ \hline
+            5 & Página que detalha o gasto mensal do parlamentar & 2 & 22/04/2014 \\ \hline
+            6 &Seção especial para a prestação de contas do parlamentar à justiça eleitoral  & 2 & 29/04/2014 \\ \hline
+            7 &Pesquisar projetos por categoria/natureza, por data, por status ou tema. & 2 & 29/04/2014 \\ \hline
+            8 & Página que detalha projetos. & 2 & 29/04/2014 \\ \hline
+            9 & Página especial que associa o parlamentar a atividades desenvolvidas fora a assembleia. & 3 & 06/05/2014 \\ \hline
+            10 &Pesquisa histórico de processos do parlamentar. & 3 & 06/05/2014 \\ \hline
+            11  &Listar a prestação de conta mensal da assembleia & 3 & 06/05/2014 \\ \hline
+            12 &Página que detalha as informações do orçamento público & 3 & 6/05/2014 \\ \hline
+            13 &Download do texto na íntegra do projeto do orçamento & 4 & 13/05/2014 \\ \hline
+            15 &Página que noticia comissões, seções, reuniões e ouros assuntos. & 4 & 13/05/2014 \\ \hline
+            16 &Pesquisar histórico de ex-parlamentar & 4 & 13/05/2014 \\ \hline
+            17 &Página de contato do cidadão com o parlamentar  & 4 & 13/05/2014 \\ \hline
         \end{tabu}
 
     \section{Requisitos não-funcionais do produto}
