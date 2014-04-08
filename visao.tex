@@ -8,33 +8,78 @@
 \usepackage{parskip} % Linha em branco entre parágrafos em vez de recuo
 
 \tabulinesep=0.75ex % Espaçamento interno das tabelas
+\newcommand{\divider}{\vskip2pt\hrule\vskip2pt}
 
 \begin{document}
 
     \begin{titlepage}
-        \huge
-        \flushright{Sistema de Transparência Pública para a Assembleia
-        Legislativa do RN}
+        \flushright
+        \rule{\textwidth}{1pt}
+        {\large \textsc{UFRN --- Universidade Federal do Rio Grande do Norte}
+        \vspace{-1ex}}
+        \rule{\textwidth}{1pt}
+
+        \vfill
+
+        {\Huge Sistema de Transparência Pública para a Assembleia Legislativa
+        do RN \\[1ex] \LARGE Documento de Visão \\[2ex] \large Versão 1.3}
+
+        \vfill
+
     \end{titlepage}
 
-    \begin{center}
-      \textsc{UFRN --- Universidade Federal do Rio Grande do Norte} \\
-      \textsc{DIMAp --- Departamento de Informática e Matemática Aplicada} \\
-    \end{center}
+    \begin{tabu}{X | X[-1]}
+        \hline
+        Sistema de Transparência Pública para a Assembleia Legislativa do RN &
+        UFRN \\ \hline
+        Documento de Visão &
+        Versão 1.4 \\ \hline
+    \end{tabu}
 
     \bigskip
 
-    \begin{tabular}{@{}ll@{}}
-        \emph{Disciplina:} & DIM0433 --- Engenharia de Software \\
-        \emph{Docente:}    & Márcia Jacyntha Nunes Rodrigues Lucena \\
-        \emph{Discentes:}  & Felipe Cortez de Sá \small{(2012912357)} \\
-                           & Graco Babeuf Vieira Silva \small{(2012912393)} \\
-                           & Íslame Felipe da Costa Fernandes \small{(2012912437)} \\
-                           & Rubens Viana Araújo \small{(2012912571)} \\
-                           & Victor Almeida Schinaider \small{(2012912624)}
-    \end{tabular}
+    {\Large\textbf{Histórico de Revisão}}
 
-    \bigskip
+    \begin{tabu}{X[-1] | X[-1, r] | X | X[-1]}
+        \hline
+        \textbf{Data} &
+        \textbf{Versão} &
+        \textbf{Descrição} &
+        \textbf{Autor} \\ \hline
+        03/04/2014 &
+        1.0 &
+        Concepção do documento &
+        Íslame Felipe \\ \hline
+        05/04/2014 &
+        1.1 &
+        Leitura do documento com adição de informações e comentários &
+        Felipe Cortez \\ \hline
+        07/04/2014 &
+        1.2 &
+        Preenchimento inicial das tabelas de stakeholders e usuários,
+        necessidades chave, perspectiva do produto e precedências e prioridades
+        Felipe Cortez \\ \hline
+        07/04/2014 &
+        1.3 &
+        Formatação de capa e correção de erros
+        Felipe Cortez \\ \hline
+    \end{tabu}
+
+    \tableofcontents
+
+    % \begin{tabular}{@{}ll@{}}
+    %     \emph{Disciplina:} & DIM0433 --- Engenharia de Software \\
+    %     \emph{Docente:}    & Márcia Jacyntha Nunes Rodrigues Lucena \\
+    %     \emph{Discentes:}  & Felipe Cortez de Sá \small{(2012912357)} \\
+    %                        & Graco Babeuf Vieira Silva \small{(2012912393)} \\
+    %                        & Íslame Felipe da Costa Fernandes \small{(2012912437)} \\
+    %                        & Rubens Viana Araújo \small{(2012912571)} \\
+    %                        & Victor Almeida Schinaider \small{(2012912624)}
+    % \end{tabular}
+    %
+    % \bigskip
+
+    \newpage
 
     \begin{center}
       \Large\textbf{Documento de Visão}
@@ -156,26 +201,26 @@
                 \textbf{Responsabilidades} &
                 \textbf{Stakeholders}
                 \\ \hline
-                Gerentes do projeto &
-                Bernardo Gurgel &
+                Gerentes do projeto & &
+                Bernardo Gurgel
                 \\ \hline
-                Analistas de requisitos &
-                Íslame Felipe &
+                Analistas de requisitos & &
+                Íslame Felipe
                 \\ \hline
-                Arquiteto do projeto &
-                Todos &
+                Arquiteto do projeto & &
+                Todos
                 \\ \hline
-                Projetista de interfaces do projeto &
-                Felipe Cortez &
+                Projetista de interfaces do projeto & &
+                Felipe Cortez
                 \\ \hline
-                Programadores &
-                Todos &
+                Programadores & &
+                Todos
                 \\ \hline
-                Organização &
-                Ricardo Wagner, Rubens Viana e Victor Schinaider &
+                Organização & &
+                Ricardo Wagner, Rubens Viana e Victor Schinaider
                 \\ \hline
-                Usuário &
-                População em geral &
+                Usuário & &
+                População geral
                 \\ \hline
             \end{tabu}
         \subsection{Necessidades chave dos stakeholders e dos usuários}
