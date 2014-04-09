@@ -7,6 +7,7 @@
 \usepackage{tabu} % Para melhor criação de tabelas
 \usepackage{color}
 \usepackage{parskip} % Linha em branco entre parágrafos em vez de recuo
+\usepackage{graphicx}
 
 \tabulinesep=0.75ex % Espaçamento interno das tabelas
 
@@ -93,6 +94,12 @@
         informações &
         Felipe Cortez
         \\ \hline
+        
+        08/04/2014 &
+        1.6 &
+        Acréscimo do diagrama de contexto, referências e restrições técnicas &
+        Victor Almeida Schinaider
+        \\ \hline
     \end{tabu}
 
     \newpage
@@ -125,8 +132,13 @@
         pesquisa rápida, de modo a atrair o cidadão para que o mesmo possa
         usufruir do seu direito à informação.
 
-        {\color{red} Colocar diagramas de contexto}
-
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=15cm,height=11cm]{final.jpg}
+            \caption{Diagrama de Contexto}
+            \label{fig:mesh1}
+        \end{figure}
+        
         \subsection{Definições, acrônimos e abreviações}
             \begin{longtabu}{X[-1] | X}
                 \hline
@@ -195,8 +207,14 @@
             \end{longtabu}
 
         \subsection{Referências}
-        {\color{red} Este documento poderá ser complementado ao ter em mãos os
-        documentos descritos}
+        \begin{itemize}
+            \item{\textbf{Site da Assembleia Legislativa -} http://www.al.rn.gov.br/}
+            \item{\textbf{Regimento Interno da Assembleia Legislativa -} http://www.al.rn.gov.br/portal/ \textunderscore ups/ legislacao/regimentointerno.pdf}
+            \item{\textbf{Constituição do Estado do RN -} http://www.al.rn.gov.br/portal/\textunderscore ups/legislacao/ constituicaoestadual.pdf }
+            \item{\textbf{Portal de transparência da AL -} http://www.al.rn.gov.br/portal/ transparencia/}
+            \item{\textbf{Portal de Transparência do RS -} http://www2.al.rs.gov.br/ transparenciaalrs/ PáginaInicial/tabid/2214/Default.aspx}
+            \item{\textbf{Portal de transparência de MG} http://www.almg.gov.br/sobre/transparencia/}
+        \end{itemize}
 
     \section{Contextualização}
         \subsection{Descrição do problema}
@@ -648,6 +666,12 @@
         Deve-se assegurar a veracidade das informações.
     \end{itemize}
 
-    \section{\color{red} Restrições técnicas}
+    \section{Restrições técnicas}
+    \begin{itemize}
+        \item{O servidor que armazenará o sistema deve suportar uma carga alta de usuários simultâneos} 
+        \item{O sistema vai utilizar a ferramenta livre Play Framework}
+        \item{Não teremos nenhum orçamento para realização do projeto}
+        \item{O sistema precisa ser entregue próximo ao final da primeira quinzena de Junho de 2014}
+    \end{itemize}
 
 \end{document}
