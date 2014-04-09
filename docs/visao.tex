@@ -8,6 +8,7 @@
 \usepackage{color}
 \usepackage{parskip} % Linha em branco entre parágrafos em vez de recuo
 \usepackage{graphicx}
+\usepackage[breaklinks]{hyperref}
 
 \tabulinesep=0.75ex % Espaçamento interno das tabelas
 
@@ -19,13 +20,13 @@
         {\large \textsc{UFRN --- Universidade Federal do Rio Grande do Norte
                 \\[0.5ex]
          \normalsize DIMAp --- Departamento de Informática e Matemática Aplicada}
-        \vspace{-1ex}}
+        \vspace{-0.5ex}}
         \rule{\textwidth}{1pt}
 
         \vfill
 
         {\Huge Sistema de Transparência Pública para a Assembleia Legislativa
-        do RN \\[1ex] \LARGE Documento de Visão \\[2ex] \large Versão 1.7}
+        do RN \\[1ex] \LARGE Documento de Visão \\[2ex] \large Versão 1.8}
 
         \vfill
 
@@ -38,7 +39,7 @@
         \\ \hline
 
         Documento de Visão &
-        Versão 1.7
+        Versão 1.8
         \\ \hline
     \end{tabu}
 
@@ -94,16 +95,23 @@
         informações &
         Felipe Cortez
         \\ \hline
-        
+
         08/04/2014 &
         1.6 &
         Acréscimo do diagrama de contexto, referências e restrições técnicas &
-        Victor Almeida Schinaider
+        Victor Almeida \newline Schinaider
         \\ \hline
+
         09/04/2014 &
         1.7 &
-        Correções e revisão final &
+        Correções e revisão &
         Íslame Felipe
+        \\ \hline
+
+        09/04/2014 &
+        1.8 &
+        Mais correções e revisão &
+        Felipe Cortez
         \\ \hline
     \end{tabu}
 
@@ -123,9 +131,9 @@
         stakeholders, requisitos, bem como desafios que devem ser enfrentados.
 
         \subsection{Escopo do documento}
-        Este documento de visão se aplica ao Portal da Transparência da
+        Este documento de visão se aplica ao Portal de Transparência da
         Assembleia Legislativa do Rio Grande do Norte. Este projeto propõe
-        desenvolver um sistema web (na forma de portal) que deverá
+        o desenvolvimento de um sistema web (na forma de portal) que deverá
         disponibilizar, de uma maneira transparente e imparcial, os aspectos
         que caracterizam os trâmites políticos, administrativos e econômicos da
         Assembleia Legislativa do Rio Grande do Norte.  Como exemplos de tais
@@ -143,7 +151,7 @@
             \caption{Diagrama de Contexto}
             \label{fig:mesh1}
         \end{figure}
-        
+
         \subsection{Definições, acrônimos e abreviações}
             \begin{longtabu}{X[-1] | X}
                 \hline
@@ -213,12 +221,24 @@
 
         \subsection{Referências}
         \begin{itemize}
-            \item{\textbf{Site da Assembleia Legislativa -} http://www.al.rn.gov.br/}
-            \item{\textbf{Regimento Interno da Assembleia Legislativa -} http://www.al.rn.gov.br/portal/ \textunderscore ups/ legislacao/regimentointerno.pdf}
-            \item{\textbf{Constituição do Estado do RN -} http://www.al.rn.gov.br/portal/\textunderscore ups/legislacao/ constituicaoestadual.pdf }
-            \item{\textbf{Portal de transparência da AL -} http://www.al.rn.gov.br/portal/ transparencia/}
-            \item{\textbf{Portal de Transparência do RS -} http://www2.al.rs.gov.br/ transparenciaalrs/ PáginaInicial/tabid/2214/Default.aspx}
-            \item{\textbf{Portal de transparência de MG} http://www.almg.gov.br/sobre/transparencia/}
+            \item
+            \textbf{Site da Assembleia Legislativa -}
+            \url{http://www.al.rn.gov.br/}
+            \item
+            \textbf{Regimento Interno da Assembleia Legislativa -}
+            \url{http://www.al.rn.gov.br/portal/_ups/legislacao/regimentointerno.pdf}
+            \item
+            \textbf{Constituição do Estado do RN -}
+            \url{http://www.al.rn.gov.br/portal/_ups/legislacao/constituicaoestadual.pdf}
+            \item
+            \textbf{Portal de transparência da AL -}
+            \url{http://www.al.rn.gov.br/portal/transparencia/}
+            \item
+            \textbf{Portal de transparência do RS -}
+            \url{http://www2.al.rs.gov.br/transparenciaalrs/PaginaInicial/tabid/2214/Default.aspx}
+            \item
+            \textbf{Portal de transparência de MG -}
+            \url{http://www.almg.gov.br/sobre/transparencia/}
         \end{itemize}
 
     \section{Contextualização}
@@ -228,11 +248,16 @@
 
                 \textbf{Problemas} &
                 \begin{minipage}[t]{\linewidth}
-                \begin{itemize}[itemsep=.5ex,parsep=.0ex,after=\strut]
-                \item Poucas informações são divulgas ao público. Dificuldade os dados apropriados
-                \item Os sistemas atuais não oferece tanta facilidade de acesso à informação. 
-                \item Dificuldade de instigar o cidadão a fiscalizar os trâmites legislativos
-                    (o que lhe é de direito) através do uso da web
+                \begin{itemize}[itemsep=.5ex,parsep=.0ex,after=\strut,leftmargin=15pt]
+                \item
+                Poucas informações são divulgadas ao público. Dificuldade de
+                acessar os dados apropriados.
+                \item
+                Os sistemas atuais não oferecem tanta facilidade de acesso à
+                informação.
+                \item
+                Dificuldade de instigar o cidadão a fiscalizar os trâmites
+                legislativos (o que lhe é de direito) através do uso da web.
                 \end{itemize}
                 \end{minipage}
                 \\ \hline
@@ -287,7 +312,7 @@
                 \\ \hline
 
                 \textbf{Diferente de} &
-                Portais da Transparência existentes que têm interface pouco
+                Portais de Transparência existentes que têm interface pouco
                 amigável e pouco intuitiva
                 \\ \hline
 
@@ -299,7 +324,7 @@
     \section{Descrição dos stakeholders e dos usuários}
         \subsection{Principais stakeholders e usuários}
 
-            \begin{longtabu}{X[-1] | X | X[-1]}
+        \begin{longtabu}{X | X[2] | X[-1]}
                 \hline
                 \textbf{Identificação} &
                 \textbf{Responsabilidades} &
@@ -322,25 +347,35 @@
                 Arquiteto do projeto &
                 Arquitetar o sistema. Propor a melhor forma de organizar as
                 estruturas do sistema (modelo de arquitetura). &
-                Felipe Cortez, Graco Babeuf, Íslame Felipe, Rubens Viana e
+                Felipe Cortez \newline
+                Graco Babeuf \newline
+                Íslame Felipe \newline
+                Rubens Viana \newline
                 Victor Schinaider
                 \\ \hline
 
                 Projetista de interfaces do projeto &
-                Desenvolver e atualizar o projeto de interface de usuário. &
+                Desenvolver e atualizar o projeto de interface de usuário,
+                procurando deixá-la simples e intuitiva de acordo com os
+                princípios de usabilidade. &
                 Felipe Cortez
                 \\ \hline
 
                 Programadores &
                 Desenvolver a codificação do sistema. Manter a integridade e
                 evolução do código. Trabalho fundamentalmente em equipe. &
-                Felipe Cortez, Graco Babeuf, Íslame Felipe, Rubens Viana e
+                Felipe Cortez \newline
+                Graco Babeuf \newline
+                Íslame Felipe \newline
+                Rubens Viana \newline
                 Victor Schinaider
                 \\ \hline
 
                 Organização &
                 Prover a organização do projeto. &
-                Ricardo Wagner, Rubens Viana e Victor Schinaider
+                Ricardo Wagner \newline
+                Rubens Viana \newline
+                Victor Schinaider
                 \\ \hline
 
                 Usuário &
@@ -407,7 +442,7 @@
                 parlamentares presentes e etc.
                 \\ \hline
 
-                3, 4,  &
+                3, 4 &
                 Páginas que detalham comissões em andamento
                 \\ \hline
 
@@ -437,7 +472,7 @@
                 justiça eleitoral
                 \\ \hline
 
-                2, 3, 4, 5, &
+                2, 3, 4, 5 &
                 Página que detalha as informações do orçamento público
                 \\ \hline
 
@@ -504,7 +539,7 @@
         a participação do parlamentar em causas e ações sociais
         \item
         Visualizar, detalhadamente, os processos sofridos por cada parlamentar.
-        A ideia é emitir uma ficha que indique “o quão limpa” é a carreira
+        A ideia é emitir uma ficha que indique o quão “limpa” é a carreira
         política do deputado.
         \item
         Transparecer os gastos com o dinheiro público. Servirá como uma
@@ -562,7 +597,7 @@
             \\ \hline
 
             1 &
-            Página detalhada do perfil do parlamentar &
+            Página detalhada do perfil do parlamentar. &
             1 & 22/04/2014
             \\ \hline
 
@@ -578,18 +613,18 @@
             \\ \hline
 
             4 &
-            Páginas que detalham comissões em andamento &
+            Páginas que detalham comissões em andamento. &
             2 & 22/04/2014
             \\ \hline
 
             5 &
-            Página que detalha o gasto mensal do parlamentar
+            Página que detalha o gasto mensal do parlamentar.
             & 2 & 22/04/2014
             \\ \hline
 
             6 &
             Seção especial para a prestação de contas do parlamentar à justiça
-            eleitoral &
+            eleitoral. &
             2 & 29/04/2014
             \\ \hline
 
@@ -668,10 +703,17 @@
 
     \section{Restrições técnicas}
     \begin{itemize}
-        \item{O servidor que armazenará o sistema deve suportar uma carga alta de usuários simultâneos} 
-        \item{O sistema vai utilizar a ferramenta livre Play Framework}
-        \item{Não teremos nenhum orçamento para realização do projeto}
-        \item{O sistema precisa ser entregue próximo ao final da primeira quinzena de Junho de 2014}
+        \item
+        O servidor que armazenará o sistema deve suportar uma carga alta de
+        usuários simultâneos
+        % Os itens seguintes são restrições técnicas?
+        \item
+        O sistema vai utilizar a ferramenta livre Play Framework
+        \item
+        Não teremos nenhum orçamento para realização do projeto
+        \item
+        O sistema precisa ser entregue próximo ao final da primeira quinzena de
+        junho de 2014
     \end{itemize}
 
 \end{document}
