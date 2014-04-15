@@ -3,9 +3,9 @@ name := "transparencia"
 version := "1.0-SNAPSHOT"
 
 libraryDependencies ++= Seq(
-  jdbc,
-  anorm,
+  javaJdbc,
+  javaEbean,
   cache
 )     
 
-play.Project.playScalaSettings
+play.Project.playJavaSettings
