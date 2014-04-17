@@ -8,13 +8,7 @@ import views.html.*;
 public class Application extends Controller {
 
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
+        return ok("Your new application is ready. Sr. - ");
     }
-
-    public static Result administrador(){
-    	return ok(administrador.render("Administração"));
-    }
-    
-    
     
 }

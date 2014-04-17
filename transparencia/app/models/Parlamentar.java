@@ -1,7 +1,6 @@
 package models;
 
 import java.util.*;
-
 import javax.persistence.*;
 
 import play.db.ebean.*;
@@ -44,21 +43,7 @@ public class Parlamentar extends Model{
     
 	@Required
     public String biografia;
-	
-	public static Finder<Long,Parlamentar> find = new Finder(
-			Long.class, Parlamentar.class
-	);
-	
-	public static List<Parlamentar> all(){
-		return find.all();
-	}
-	
-	public static void create(Parlamentar parlamentar) {
-		parlamentar.save();
-	}
-
-	public static void delete(Long id) {
-		find.ref(id).delete();
-	}
     
+    public static Finder<Long,models.Parlamentar> find = new Finder(Long.class, models.Parlamentar.class);
+	
 }

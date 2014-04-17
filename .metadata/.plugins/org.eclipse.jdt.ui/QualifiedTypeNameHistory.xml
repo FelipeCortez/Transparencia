@@ -4,4 +4,5 @@
 <fullyQualifiedTypeName name="play.data.validation.Constraints.Required"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="play.db.ebean.Model.Finder"/>
+<fullyQualifiedTypeName name="views.html.package."/>
 </qualifiedTypeNameHistroy>

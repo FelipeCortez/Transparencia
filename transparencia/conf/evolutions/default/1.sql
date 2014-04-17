@@ -3,6 +3,13 @@
 
 # --- !Ups
 
+create table administrador (
+  id                        bigint auto_increment not null,
+  usuario                   varchar(255),
+  senha                     varchar(255),
+  constraint pk_administrador primary key (id))
+;
+
 create table parlamentar (
   id                        bigint auto_increment not null,
   nome                      varchar(255),
@@ -23,6 +30,8 @@ create table parlamentar (
 # --- !Downs
 
 SET FOREIGN_KEY_CHECKS=0;
+
+drop table administrador;
 
 drop table parlamentar;
 
