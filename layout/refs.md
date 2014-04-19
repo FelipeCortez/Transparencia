@@ -43,10 +43,9 @@ Guia de estilo, cores, logos
   - Escolaridade
   - Telefones
   - Email
-  É útil disponibilizar as mesmas informações no site da transparência para que
-  o usuário não tenha que procurá-las posteriormente.
 
-### Conclusões
+É útil disponibilizar as mesmas informações no site da transparência para que
+o usuário não tenha que procurá-las posteriormente.
 
 ## Acesso às informações
 Deixar as informações da base de dados num formato acessível e "consultável"
