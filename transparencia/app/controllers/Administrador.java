@@ -11,11 +11,15 @@ import views.html.*;
 public class Administrador extends Controller {
     
     static Form<models.Administrador> loginForm = Form.form(models.Administrador.class);
+    static Form<models.Parlamentar> createParlamentarForm = Form.form(models.Parlamentar.class);
 
     public static Result index(){
+        
         if(!isUserLogged()) return redirect("/signIn");
+        
         response().setContentType("text/html; charset=utf-8");
-        return ok("Esta é a página do administrador.").as("text/html");
+        return ok(views.html.indexAdmin.render(createParlamentarForm,Parlamentar.find.all()));
+        
     }
     
     public static Result doLogin(){
@@ -47,5 +51,22 @@ public class Administrador extends Controller {
         if(session("logged")!=null) return true;
         return false;
     }    
+    
+    public static Result createParlamentar(){
+        
+        Form<models.Parlamentar> filledForm = createParlamentarForm.bindFromRequest();
+        
+        if(filledForm.hasErrors()){
+            //return ok(filledForm.errors().toString()); Retorna os erros
+            return badRequest(views.html.indexAdmin.render(filledForm,Parlamentar.find.all()));
+        }else{
+            models.Parlamentar p = filledForm.get();
+            
+            p.save();
+            
+            return redirect("/administrador");
+        }
+        
+    }
     
 }
