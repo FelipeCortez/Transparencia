@@ -38,7 +38,6 @@ public class Parlamentar extends Model{
 
     // O que seriam estes BENEFICIOS?
     
-	@Required
     public String foto;
     
 	@Required

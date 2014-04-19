@@ -1,0 +1,33 @@
+@(createParlamentarForm: Form[models.Parlamentar], parlamentarList: List[Parlamentar])
+
+@import helper._
+
+<html>
+	<head>
+		<title>Administrador</title>
+	</head>
+	<body>
+        <hr/>
+		<h1>Criar Palamentar</h1>
+		@form(routes.Administrador.createParlamentar()){
+            @inputText(createParlamentarForm("nome"))
+            @inputText(createParlamentarForm("dataNascimento"))
+            @inputText(createParlamentarForm("partido"))
+            @inputText(createParlamentarForm("formacao"))
+            @inputText(createParlamentarForm("cidade"))
+            @inputText(createParlamentarForm("gabinete"))
+            @inputText(createParlamentarForm("salario"))
+            @inputText(createParlamentarForm("biografia"))
+            <input type="submit" value="Criar Parlamentar" />
+        }
+        <h1>Parlamentares Cadastrados</h1>
+        <ul>
+            @for(p <- parlamentarList) {
+                <li>
+                    Nome: @p.nome - Partido: @p.partido - Salário: @p.salario - <a href="/editParlamentar/id/@p.id">Editar</a> - <a href="/deleteParlamentar/id/@p.id">Excluir</a>
+                </li>
+            }
+        </ul>
+        <hr/>
+	</body>
+</html>

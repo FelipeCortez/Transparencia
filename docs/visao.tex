@@ -26,7 +26,7 @@
         \vfill
 
         {\Huge Sistema de Transparência Pública para a Assembleia Legislativa
-        do RN \\[1ex] \LARGE Documento de Visão \\[2ex] \large Versão 1.8}
+        do RN \\[1ex] \LARGE Documento de Visão \\[2ex] \large Versão 2.0}
 
         \vfill
 
@@ -39,7 +39,7 @@
         \\ \hline
 
         Documento de Visão &
-        Versão 1.8
+        Versão 2.0
         \\ \hline
     \end{tabu}
 
@@ -112,6 +112,11 @@
         1.8 &
         Mais correções e revisão &
         Felipe Cortez
+        \\ \hline
+        18/04/2014 &
+        2.0 &
+        Nova requisição: incluir o administrador do Sistema como stakeholder, bem como seus requisitos.   &
+        Íslame Felipe
         \\ \hline
     \end{tabu}
 
@@ -383,7 +388,13 @@
                 novos requisitos. &
                 População geral
                 \\ \hline
+                
+                Administrador do Sistema &
+                Encarregado de administrar o portal e de atualizar o banco de dados do sistema. Deve ter acesso restrito a partir de login e senha.  &
+                A ser designado pelo cliente.
+                \\ \hline
             \end{longtabu}
+            \newpage
         \subsection{Necessidades chave dos stakeholders e dos usuários}
             \begin{longtabu}{X[-1, r] | X | X[-1, r] | X[-1]}
                 \hline
@@ -421,6 +432,10 @@
                 Conhecer o funcionamento da Assembleia Legislativa do ponto de
                 vista institucional. Aproximar-se do parlamento. &
                 3 &
+                \\ \hline
+                 6 &
+                Dispor de ferramentas e mecanismos capazes de auxiliar na atualização dos dados do portal.  Garantir acesso seguro à área restrita do site. &
+                1 & Requisitos solicitado ao administrador do sistema na reunião do dia 14/04/2014.
                 \\ \hline
             \end{longtabu}
 
@@ -499,6 +514,14 @@
 
                 1, 2 &
                 Página de contato do cidadão com o cliente
+                \\ \hline
+                 6  &
+                Página de login para o administrador do sistema.
+                
+                \\ \hline
+                6  &
+                Página de Administração do Sistema. Tela de gerenciamento e que prover mecanismos e cadastro, edição e exclusão e informações (parlamentares, seções, projetos, comissões, gastos e etc.)
+                
                 \\ \hline
             \end{longtabu}
 
@@ -582,8 +605,10 @@
         Possibilitar pesquisas rápidas em históricos, dos períodos legislativos
         passados. Manter uma base de dados para este requisito.
         \item
-        Possibilitar o contato direto o cidadão com o parlamentar, através do
+        Possibilitar do contato direto o cidadão com o parlamentar, através do
         envio de e-mail.
+        \item
+        Ferramentas de administração. O Administrador do Sistema poderá fazer login e, assim, poderá editar o banco de dados do portal, numa interface diretamente WEB. Para tanto, agirá sobre os dados: Parlamentar/Mandatos, Seção, Comissão, Processo, Projeto e Gastos. 
     \end{itemize}
 
     \section{Precedência e prioridades}
@@ -597,70 +622,75 @@
             \\ \hline
 
             1 &
+            Tela de login e subsistema de administração (cadastro, edição e exclusão). 
+            & 1 & 22/04/2014
+            \\ \hline
+            
+            2 &
             Página detalhada do perfil do parlamentar. &
             1 & 22/04/2014
             \\ \hline
 
-            2 &
+            3 &
             Busca por sessões de plenárias. Listar pauta, ata, resumo, data,
             parlamentares presentes e etc. &
-            1 & 22/04/2014
-            \\ \hline
-
-            3 &
-            Mostrar detalhes de cada processo sofrido pelo parlamentar. &
-            1 & 22/04/2014
+            2 & 29/04/2014
             \\ \hline
 
             4 &
-            Páginas que detalham comissões em andamento. &
-            2 & 22/04/2014
+            Mostrar detalhes de cada processo sofrido pelo parlamentar. &
+            2 & 29/04/2014
             \\ \hline
 
             5 &
-            Página que detalha o gasto mensal do parlamentar.
-            & 2 & 22/04/2014
+            Páginas que detalham comissões em andamento. &
+            2 & 29/04/2014
             \\ \hline
 
             6 &
-            Seção especial para a prestação de contas do parlamentar à justiça
-            eleitoral. &
-            2 & 29/04/2014
+            Página que detalha o gasto mensal do parlamentar.
+            & 2 & 29/04/2014
             \\ \hline
 
-            7  &
-            Pesquisar projetos por categoria/natureza, por data, por status ou
-            tema. &
-            2 & 29/04/2014
+            7 &
+            Seção especial para a prestação de contas do parlamentar à justiça
+            eleitoral. &
+            2 & 06/05/2014
             \\ \hline
 
             8  &
-            Página que detalha projetos. &
-            2 & 29/04/2014
+            Pesquisar projetos por categoria/natureza, por data, por status ou
+            tema. &
+            2 & 06/05/2014
             \\ \hline
 
             9  &
+            Página que detalha projetos. &
+            2 & 06/05/2014
+            \\ \hline
+
+            10  &
             Página especial que associa o parlamentar a atividades
             desenvolvidas fora a assembleia. &
             3 & 06/05/2014
             \\ \hline
 
-            10 &
-            Pesquisa histórico de processos do parlamentar. &
-            3 & 06/05/2014
-            \\ \hline
-
             11 &
-            Listar a prestação de conta mensal da assembleia &
-            3 & 06/05/2014
+            Pesquisa histórico de processos do parlamentar. &
+            3 & 13/05/2014
             \\ \hline
 
             12 &
-            Página que detalha as informações do orçamento público &
-            3 & 6/05/2014
+            Listar a prestação de conta mensal da assembleia &
+            3 & 13/05/2014
             \\ \hline
 
             13 &
+            Página que detalha as informações do orçamento público &
+            3 & 13/05/2014
+            \\ \hline
+
+            14 &
             Download do texto na íntegra do projeto do orçamento &
             4 & 13/05/2014
             \\ \hline
@@ -668,18 +698,20 @@
             15 &
             Página que noticia comissões, sessões, reuniões e outros assuntos.
             &
-            4 & 13/05/2014
+            4 & 20/05/2014
             \\ \hline
 
             16 &
             Pesquisar histórico de ex-parlamentar &
-            4 & 13/05/2014
+            4 & 20/05/2014
             \\ \hline
 
             17 &
             Página de contato do cidadão com o parlamentar &
-            4 & 13/05/2014
+            4 & 20/05/2014
             \\ \hline
+            
+            
         \end{longtabu}
 
     \section{Requisitos não-funcionais do produto}
@@ -717,3 +749,4 @@
     \end{itemize}
 
 \end{document}
+
