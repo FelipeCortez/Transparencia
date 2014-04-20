@@ -21,7 +21,7 @@ $ sudo apt-get install mysql-server
 Ao ser requisitada a senha, use `admin`. A senha é utilizada na configuração do
 projeto (`transparencia/conf/application.conf`).
 
-Ao finalizar a instalação, crie um novo banco de dados com
+Ao finalizar a instalação, faça o login no shell do MySQL
 
 ```bash
 $ mysql -u root -p
