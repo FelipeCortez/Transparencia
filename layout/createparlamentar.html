@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oxygen:400,300,700">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/datepicker.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-datepicker.js"></script>
+    <script src="assets/js/bootstrap-datepicker.pt.js" charset="UTF-8"></script>
+    <script>
+        $( document ).ready(function() {
+            $('.datepicker').datepicker({
+                format: "dd/mm/yyyy",
+                startView: 2,
+                language: "pt"
+            });
+        });
+
+    </script>
+    <script src="assets/js/holder.js"></script>
+    <title>Perfil do parlamentar</title>
+</head>
+<body>
+    <div class="container">
+        <div class="al-header">
+            <img src="marca-assembleia.png" alt="Logomarca da Assembleia">
+        </div>
+
+        <ol class="breadcrumb">
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Administração</a></li>
+            <li><a href="#">Parlamentares</a></li>
+            <li class="active">Inserir</li>
+        </ol>
+
+        <h2 class="info-header">Inserir parlamentar</h2>
+
+        <div class="row">
+            <div class="col-xs-8">
+            <form role="form">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="nomeCompleto">Nome completo</label>
+                            <input type="text" class="form-control" id="nomeCompleto">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="dataNascimento">Data de nascimento</label>
+                            <input type="text" class="form-control datepicker" id="dataNascimento" placeholder="dd/mm/aaaa">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" class="form-control" id="cidade">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="form-group">
+                            <label for="partido">Partido</label>
+                            <input type="text" class="form-control" id="partido" placeholder="Sigla">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <div class="form-group">
+                            <label for="gabinete">Gabinete</label>
+                            <input type="text" class="form-control" id="gabinete">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <div class="form-group">
+                            <label for="salario">Salário</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">R$</span>
+                                <input type="text" class="form-control" id="salario">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="biografia">Biografia</label>
+                            <textarea rows="6" class="form-control" id="biografia"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            </div>
+        </div>
+    <div class="al-footer">
+        <div class="container">
+        </div>
+    </div>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Login
+    </button>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Login de administrador</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="username">Nome de usuário</label>
+                <input type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group">
+                <label for="senha">Password</label>
+                <input type="password" class="form-control" id="senha">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Logar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</body>
