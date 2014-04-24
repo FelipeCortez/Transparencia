@@ -68,5 +68,10 @@ public class Administrador extends Controller {
         }
         
     }
+
+    public static Result deleteParlamentar(Long id) {
+        Parlamentar.find.ref(id).delete();
+        return redirect("/administrador");
+    }
     
 }

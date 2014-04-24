@@ -8,7 +8,7 @@
 	</head>
 	<body>
         <hr/>
-		<h1>Criar Palamentar</h1>
+		<h1>Criar Parlamentar</h1>
 		@form(routes.Administrador.createParlamentar()){
             @inputText(createParlamentarForm("nome"))
             @inputText(createParlamentarForm("dataNascimento"))
@@ -24,7 +24,10 @@
         <ul>
             @for(p <- parlamentarList) {
                 <li>
-                    Nome: @p.nome - Partido: @p.partido - Salário: @p.salario - <a href="/editParlamentar/id/@p.id">Editar</a> - <a href="/deleteParlamentar/id/@p.id">Excluir</a>
+                    Nome: @p.nome - Partido: @p.partido - Salário: @p.salario - 
+                    @form(routes.Administrador.deleteParlamentar(p.id)) {
+                        <input type="submit" value="Excluir Parlamentar" />
+                    }
                 </li>
             }
         </ul>
