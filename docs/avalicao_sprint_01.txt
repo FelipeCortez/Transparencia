@@ -1,0 +1,18 @@
+4)
+
+Inicialmente Graco e Rubens tiveram problemas com a instalação do Play. Ambos
+já foram instruídos e conseguiram instalar a última versão com sucesso. Íslame
+e Rubens tiveram dificuldades na execução do projeto que ainda devem ser
+acertadas.
+
+Todos conseguiram usar o PivotalTracker e GitHub.
+
+5)
+No primeiro sprint, aprendemos a usar as ferramentas necessárias para
+colaboração, como Git e PivotalTracker. Conseguimos criar o CRUD para um
+parlamentar e o layout correspondente. 80% do que definimos para este sprint
+foram cumpridos. O documento de requisitos foi feito, foi elaborada a
+documentação básica e atualizado o documento de visão, etc.
+
+Autores da avaliação: Felipe Cortez, Graco Babeuf, Íslame Felipe e Rubens
+Araújo
