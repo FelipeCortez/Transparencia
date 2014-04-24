@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+Comunicação entre os membros e aprendizado com as ferramentas PLAY e PIVOTAL.
+
+Houve a infelicidade de não termos tido contato com o cliente, mas em geral, não houve um impercilho maior, pois o grupo já tinha uma noção dos requisitos do sistema.
+=======
+3) Um dos impedimentos foi a falta de uma melhor comunicação entre os membros da equipe, pois utilizamos o Facebook para interagirmos entre si,
+o qual não é a melhor ferramenta para tal interação. 
+>>>>>>> f150bae2771272d5fc2da22384d592d1d36cf194
