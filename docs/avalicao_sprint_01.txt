@@ -1,3 +1,31 @@
+Avaliação do primeiro sprint
+============================
+
+1)
+A versão 1.8 do documento de visão estabelecia que o prazo de entrega das
+funcionalidades de número 1, 2, 3, 4, 5 deveriam ser entregues no dia
+22/04/2014. Porém, devido o surgimento de novos requisitos, como o ambiente de
+gerenciamento do administrador do sistema, houve modificação nas tarefas e
+prazos para o primeiro sprint. As novas tarefas foram criação do documento de
+requisitos, criação do modelo de banco de dados, interfaces e programação do
+CRUD do administrador. Esta nova versão do sprint (especificada na versão 2.0
+do documento de visão), por sua vez, foi cumprida corretamente.
+
+2)
+Houveram mudanças nos requisitos do projeto. Não havia sido definido um
+stackeholder do projeto, o administrador. Junto com o administrador foram
+definidas suas operações de CRUD.
+
+Em relação ao escopo, não houve nenhuma mudança, pois o cliente não foi
+possível manter contato com o cliente.
+
+3)
+Comunicação entre os membros e aprendizado com as ferramentas Play e Pivotal.
+
+Houve a infelicidade de não termos tido contato com o cliente, mas em geral,
+não houve um empecilho maior, pois o grupo já tinha uma noção dos requisitos
+do sistema.
+
 4)
 
 Inicialmente Graco e Rubens tiveram problemas com a instalação do Play. Ambos
