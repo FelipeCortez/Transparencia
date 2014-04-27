@@ -1,15 +1,35 @@
-@(title: String)(content: Html)
+@(title: String, scripts: Html = Html(""), breadcrumb: Html)(content: Html)
 
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<html lang="pt-br">
     <head>
+        <meta charset="UTF-8">
         <title>@title</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oxygen:400,300,700">
+        <link rel="stylesheet" href="@routes.Assets.at("style/bootstrap.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("style/style.css")">
+        @scripts
     </head>
+
     <body>
-        @content
+        <div class="container">
+            <div class="al-header">
+                <img src="@routes.Assets.at("images/marca-assembleia.png")" alt="Logomarca da Assembleia">
+            </div>
+
+            <ol class="breadcrumb">
+                @breadcrumb
+            </ol>
+        </div>
+
+        <div class="container">
+            @content
+        </div>
+
+        <div class="al-footer">
+            <div class="container">
+                Este é o rodapé
+            </div>
+        </div>
     </body>
 </html>

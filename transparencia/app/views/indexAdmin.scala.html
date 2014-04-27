@@ -1,15 +1,15 @@
-@(createParlamentarForm: Form[models.Parlamentar], parlamentarList: List[Parlamentar])
+@(createParlamentarForm: Form[models.Parlamentar], parlamentarList: List[models.Parlamentar])
 
 @import helper._
 
 <html>
-	<head>
-		<title>Administrador</title>
-	</head>
-	<body>
+        <head>
+                <title>Administrador</title>
+        </head>
+        <body>
         <hr/>
-		<h1>Criar Parlamentar</h1>
-		@form(routes.Administrador.createParlamentar()){
+                <h1>Criar Parlamentar</h1>
+                @form(routes.Administrador.createParlamentar()){
             @inputText(createParlamentarForm("nome"))
             @inputText(createParlamentarForm("dataNascimento"))
             @inputText(createParlamentarForm("partido"))
@@ -25,12 +25,9 @@
             @for(p <- parlamentarList) {
                 <li>
                     Nome: @p.nome - Partido: @p.partido - Salário: @p.salario - 
-                    @form(routes.Administrador.deleteParlamentar(p.id)) {
-                        <input type="submit" value="Excluir Parlamentar" />
-                    }
                 </li>
             }
         </ul>
         <hr/>
-	</body>
+    </body>
 </html>

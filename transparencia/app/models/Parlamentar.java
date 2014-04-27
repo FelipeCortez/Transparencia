@@ -9,40 +9,36 @@ import play.data.validation.*;
 import play.data.validation.Constraints.*;
 
 @Entity
-public class Parlamentar extends Model{
-	
-	@Id
-	public Long id;
-    // public Long cpf; CPF não pode ser Chave primária - não podemos usar CPF's de deputados
-    
-	@Required
+public class Parlamentar extends Model {
+
+    @Id
+    public Long id;
+
+    @Required
     public String nome;
-    
-	@Required
+
+    @Required
     public Date dataNascimento;
-    
-	@Required
+
+    @Required
     public String partido;
-    
-	@Required
+
+    @Required
     public String formacao;
-    
-	@Required
+
+    @Required
     public String cidade;
-    
-	@Required
+
+    @Required
     public String gabinete;
-    
-	@Required
+
+    @Required
     public float salario;
 
-    // O que seriam estes BENEFICIOS?
-    
     public String foto;
-    
-	@Required
+
+    @Required
     public String biografia;
-    
+
     public static Finder<Long,models.Parlamentar> find = new Finder(Long.class, models.Parlamentar.class);
-	
 }

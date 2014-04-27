@@ -1,0 +1,40 @@
+@(createParlamentarForm: Form[models.Parlamentar], parlamentarList: List[models.Parlamentar])
+
+@import helper.twitterBootstrap._
+@import helper._
+
+@scripts = {
+    <link rel="stylesheet" href="@routes.Assets.at("style/datepicker.css")">
+    <script src="@routes.Assets.at("js/bootstrap-datepicker.pt.js")"></script>
+    <script src="@routes.Assets.at("js/bootstrap-datepicker.js")"></script>
+}
+
+@breadcrumb = {
+    <li><a href="#">Início</a></li>
+    <li><a href="#">Administração</a></li>
+    <li class="active">Adicionar parlamentar</li>
+}
+
+@main(title = "Parlamentar", scripts = scripts, breadcrumb = breadcrumb) {
+    <h2 class="info-header">Inserir Parlamentar</h2>
+    @form(routes.Administrador.createParlamentar()) {
+        @inputText(createParlamentarForm("nome"), '_label -> "Nome")
+        @inputText(createParlamentarForm("dataNascimento"))
+        @inputText(createParlamentarForm("partido"))
+        @inputText(createParlamentarForm("formacao"))
+        @inputText(createParlamentarForm("cidade"))
+        @inputText(createParlamentarForm("gabinete"))
+        @inputText(createParlamentarForm("salario"))
+        @inputText(createParlamentarForm("biografia"))
+        <input type="submit" value="Criar Parlamentar" />
+    }
+
+    <h2 class="info-header">Parlamentares cadastrados</h2>
+    <ul>
+        @for(p <- parlamentarList) {
+            <li>
+                Nome: @p.nome - Partido: @p.partido - Salário: @p.salario
+            </li>
+        }
+    </ul>
+}
