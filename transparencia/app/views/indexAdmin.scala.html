@@ -8,8 +8,9 @@
         </head>
         <body>
         <hr/>
-                <h1>Criar Parlamentar</h1>
-                @form(routes.Administrador.createParlamentar()){
+        <h1>Criar Parlamentar</h1>
+        @form(routes.Administrador.createParlamentar()){
+
             @inputText(createParlamentarForm("nome"))
             @inputText(createParlamentarForm("dataNascimento"))
             @inputText(createParlamentarForm("partido"))

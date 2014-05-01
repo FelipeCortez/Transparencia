@@ -2,9 +2,13 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
+import play.mvc.Http.*;
+import play.mvc.Http.MultipartFormData.*;
 import play.data.*;
+import java.io.*;
 import models.*;
 import java.util.*;
+import java.security.SecureRandom;
 
 import views.html.*;
 
@@ -18,7 +22,7 @@ public class Administrador extends Controller {
         if(!isUserLogged()) return redirect("/signIn");
 
         response().setContentType("text/html; charset=utf-8");
-        return ok(views.html.adicionarParlamentar.render(createParlamentarForm, models.Parlamentar.find.all()));
+        return ok(views.html.adicionarParlamentar.render(createParlamentarForm));
     }
 
     public static Result doLogin(){
@@ -26,7 +30,7 @@ public class Administrador extends Controller {
         Form<models.Administrador> filledForm = loginForm.bindFromRequest();
 
         if(filledForm.hasErrors()){
-            return badRequest(views.html.administrador.render(filledForm));
+            return badRequest(views.html.signIn.render(filledForm));
         }else{
             models.Administrador admin = filledForm.get();
 
@@ -43,7 +47,7 @@ public class Administrador extends Controller {
     }
 
     public static Result signIn(){
-        return ok(views.html.administrador.render(loginForm));
+        return ok(views.html.signIn.render(loginForm));
     }
 
     private static boolean isUserLogged(){
@@ -54,16 +58,32 @@ public class Administrador extends Controller {
     public static Result createParlamentar(){
 
         Form<models.Parlamentar> filledForm = createParlamentarForm.bindFromRequest();
-
-        if(filledForm.hasErrors()){
-            return badRequest(views.html.indexAdmin.render(filledForm, models.Parlamentar.find.all()));
-        } else {
+        MultipartFormData body = request().body().asMultipartFormData();
+        FilePart picture = body.getFile("foto");
+        
+        if (picture != null && !filledForm.hasErrors()) {
+            
+            String fileName = picture.getFilename();
+            String contentType = picture.getContentType(); 
+            File file = picture.getFile();
+            File newFile = null;
+            // Imagem vai pro server
+            try{
+                newFile = file.createTempFile("img_", fileName.replaceAll("[ -+^:,]",""), new File("public/images/upload/")); 
+            }catch(Exception e){
+                return badRequest(views.html.adicionarParlamentar.render(createParlamentarForm));
+            }
+            
             models.Parlamentar p = filledForm.get();
-
+            p.foto = newFile.getName(); // Adiciona o nome da imagem
             p.save();
 
             return redirect("/administrador");
+            
+        } else {
+            return badRequest(views.html.adicionarParlamentar.render(createParlamentarForm));
         }
+
     }
 
     public static Result deleteParlamentar(Long id) {

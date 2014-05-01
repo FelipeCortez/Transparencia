@@ -1,7 +1,9 @@
-@(createParlamentarForm: Form[models.Parlamentar], parlamentarList: List[models.Parlamentar])
+@(createParlamentarForm: Form[models.Parlamentar])
 
 @import helper.twitterBootstrap._
 @import helper._
+
+@implicitField = @{ FieldConstructor(customFieldConstructor1.f) }
 
 @scripts = {
     <link rel="stylesheet" href="@routes.Assets.at("style/datepicker.css")">
@@ -10,31 +12,101 @@
 }
 
 @breadcrumb = {
-    <li><a href="#">Início</a></li>
-    <li><a href="#">Administração</a></li>
+    <li><a href="#">Administrador</a></li>
     <li class="active">Adicionar parlamentar</li>
 }
 
-@main(title = "Parlamentar", scripts = scripts, breadcrumb = breadcrumb) {
-    <h2 class="info-header">Inserir Parlamentar</h2>
-    @form(routes.Administrador.createParlamentar()) {
-        @inputText(createParlamentarForm("nome"), '_label -> "Nome")
-        @inputText(createParlamentarForm("dataNascimento"))
-        @inputText(createParlamentarForm("partido"))
-        @inputText(createParlamentarForm("formacao"))
-        @inputText(createParlamentarForm("cidade"))
-        @inputText(createParlamentarForm("gabinete"))
-        @inputText(createParlamentarForm("salario"))
-        @inputText(createParlamentarForm("biografia"))
-        <input type="submit" value="Criar Parlamentar" />
-    }
+@main(title = "Adicionar Parlamentar", scripts = scripts, breadcrumb = breadcrumb) {
 
-    <h2 class="info-header">Parlamentares cadastrados</h2>
-    <ul>
-        @for(p <- parlamentarList) {
-            <li>
-                Nome: @p.nome - Partido: @p.partido - Salário: @p.salario
-            </li>
-        }
-    </ul>
+    <h2 class="info-header">Inserir Parlamentar</h2>
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            @form(routes.Administrador.createParlamentar(), 'role ->"form", 'enctype -> "multipart/form-data" ) {
+            
+                <div class="row">
+                    
+                    <div class="col-xs-6">
+                         @input(createParlamentarForm("nome"), '_label -> "Nome", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Nome" @toHtmlArgs(args)>
+                        }  
+                    </div>
+                    
+                    <div class="col-xs-6">
+                            
+                        <div class="form-group">
+                            <label for="foto">Foto</label>
+                            <input type="file" name="foto" id="foto" class="form-control">
+                            <span class="help">Requerido</span>
+                        </div>
+                            
+                    </div>
+                    
+                </div>
+            
+                <div class="row">
+                    
+                    <div class="col-xs-4">
+                        @input(createParlamentarForm("dataNascimento"), '_label -> "Data de Nascimento", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="date" name="@name" id="@id" class="form-control"  @toHtmlArgs(args)>
+                        }
+                    </div>
+
+                    <div class="col-xs-4">
+                        @input(createParlamentarForm("partido"), '_label -> "Partido", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control"  placeholder="Partido" @toHtmlArgs(args)>
+                        }
+                    </div>
+                    
+                    <div class="col-xs-4">
+                        @input(createParlamentarForm("formacao"), '_label -> "Formação", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Formação" @toHtmlArgs(args)>
+                        }
+                    </div>
+                    
+                </div>
+            
+                <div class="row">
+                    
+                    <div class="col-xs-4">
+                        @input(createParlamentarForm("cidade"), '_label -> "Cidade", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Cidade" @toHtmlArgs(args)>
+                        }
+                    </div>
+                    
+                    <div class="col-xs-4">
+                        @input(createParlamentarForm("gabinete"), '_label -> "Gabinete", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Gabinete" @toHtmlArgs(args)>
+                        }
+                    </div>
+                    
+                    <div class="col-xs-4">
+                        @input(createParlamentarForm("salario"), '_label -> "Salário", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <div class="input-group">
+                                <span class="input-group-addon">R$</span>
+                                <input type="text" name="@name" id="@id" class="form-control" placeholder="0.00" @toHtmlArgs(args)>
+                            </div>
+                        }
+                    </div>
+                    
+                </div>
+            
+                <div class="row">
+                    
+                    <div class="col-xs-12">
+                        @input(createParlamentarForm("biografia"), '_label -> "Biografia", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <textarea rows="6" class="form-control" name="@name" placeholder="Bibliografia" id="@id"></textarea>
+                        }
+                    </div>
+                    
+                </div>
+            
+                <input type="submit" value="Criar Parlamentar" class="btn btn-default" />
+
+            }
+            
+        </div>
+    </div>
+
 }

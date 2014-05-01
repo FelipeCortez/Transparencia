@@ -1,0 +1,28 @@
+@(loginForm: Form[models.Administrador])
+
+@import helper._
+
+@implicitField = @{ FieldConstructor(customFieldConstructor0.f) }
+
+@scripts = {
+    <link rel="stylesheet" href="@routes.Assets.at("style/signin.css")">
+}
+
+@breadcrumb = {
+    <li class="active">Administrador</li>
+}
+
+@main(title = "Entrar no Administrador", scripts = scripts, breadcrumb = breadcrumb) {
+
+    @form(routes.Administrador.doLogin(), 'role -> "form" , 'class -> "form-signin"){
+        <h2 class="form-signin-heading">Entrar no Administrador</h2>
+        @input(loginForm("usuario")){ (id, name, value, args) =>
+            <input type="text" name="@name" id="@id" class="form-control" placeholder="Usuário" required autofocus @toHtmlArgs(args)>
+        }  
+        @input(loginForm("senha")){ (id, name, value, args) =>
+            <input type="password" name="@name" id="@id" class="form-control" placeholder="Senha" required @toHtmlArgs(args)>
+        }  
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+    }
+
+}
