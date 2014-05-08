@@ -22,7 +22,7 @@ public class Administrador extends Controller {
 
     public static Result index(){
 
-        if(!isUserLogged()) return redirect("/signIn");
+        if(!isUserLogged()) return redirect(routes.Administrador.signIn());
 
         response().setContentType("text/html; charset=utf-8");
 
@@ -34,7 +34,6 @@ public class Administrador extends Controller {
     }
 
     public static Result doLogin(){
-
         Form<models.Administrador> filledForm = loginForm.bindFromRequest();
 
         if(filledForm.hasErrors()){
@@ -44,13 +43,13 @@ public class Administrador extends Controller {
 
             List<models.Administrador> admins = models.Administrador.find.where().eq("usuario",admin.usuario).eq("senha",admin.senha).findList();
 
-            if(admins.isEmpty()) return redirect("/signIn");
+            if(admins.isEmpty()) return redirect(routes.Administrador.signIn());
 
             models.Administrador adminFinal = admins.get(admins.size()-1);
 
             session("logged",admin.usuario);
 
-            return redirect("/administrador");
+            return redirect(routes.Administrador.index());
         }
     }
 
@@ -85,7 +84,7 @@ public class Administrador extends Controller {
             p.foto = newFile.getName(); // Adiciona o nome da imagem
             p.save();
 
-            return redirect("/administrador");
+            return redirect(routes.Administrador.index());
 
         } else {
             return badRequest(views.html.adicionarParlamentar.render(criarParlamentarForm));
@@ -95,7 +94,7 @@ public class Administrador extends Controller {
 
     public static Result deleteParlamentar(Long id) {
         models.Parlamentar.find.ref(id).delete();
-        return redirect("/administrador");
+        return redirect(routes.Administrador.index());
     }
 
         public static Result criarProcesso() {
@@ -120,7 +119,7 @@ public class Administrador extends Controller {
             p.processo = newFile.getName();
             p.save();
 
-            return redirect("/administrador");
+            return redirect(routes.Administrador.index());
 
         } else {
             return badRequest(views.html.criarProcesso.render(criarProcessoForm));

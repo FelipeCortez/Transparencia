@@ -9,11 +9,9 @@ import play.db.ebean.*;
 import play.data.validation.Constraints.*;
 
 @Entity
-public class Administrador extends Model{
+public class Administrador extends Model {
 
-   
-
-	@Id
+    @Id
     public Long id;
 
     @Required

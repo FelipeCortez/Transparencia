@@ -18,10 +18,10 @@
         <h2 class="form-signin-heading">Entrar no Administrador</h2>
         @input(loginForm("usuario")){ (id, name, value, args) =>
             <input type="text" name="@name" id="@id" class="form-control" placeholder="Usuário" required autofocus @toHtmlArgs(args)>
-        }  
+        }
         @input(loginForm("senha")){ (id, name, value, args) =>
             <input type="password" name="@name" id="@id" class="form-control" placeholder="Senha" required @toHtmlArgs(args)>
-        }  
+        }
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
     }
 
