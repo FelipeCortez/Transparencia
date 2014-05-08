@@ -24,6 +24,18 @@ create table parlamentar (
   constraint pk_parlamentar primary key (id))
 ;
 
+create table processo (
+  id                        bigint auto_increment not null,
+  descricao                 varchar(255),
+  acusacoes                 varchar(255),
+  processo                  varchar(255),
+  status                    varchar(255),
+  defesa                    varchar(255),
+  texto_defesa              varchar(255),
+  orgao_de_investigacao     varchar(255),
+  constraint pk_processo primary key (id))
+;
+
 
 
 
@@ -34,6 +46,8 @@ SET FOREIGN_KEY_CHECKS=0;
 drop table administrador;
 
 drop table parlamentar;
+
+drop table processo;
 
 SET FOREIGN_KEY_CHECKS=1;
 

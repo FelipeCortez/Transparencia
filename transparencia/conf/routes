@@ -9,8 +9,10 @@ GET     /administrador              controllers.Administrador.index()
 GET     /signIn                     controllers.Administrador.signIn()
 POST    /doLogin                    controllers.Administrador.doLogin()
 POST    /createParlamentar          controllers.Administrador.createParlamentar()
+POST    /createProcesso          	controllers.Administrador.createProcesso()
 
 GET     /parlamentar/:id            controllers.Parlamentar.listarUm(id: Long)
+GET     /processo/:id            	controllers.Processo.listarUm(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

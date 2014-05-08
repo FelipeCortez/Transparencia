@@ -1,4 +1,4 @@
-@(createProcessoForm: Form[models.Processo])
+@(criarProcessoForm: Form[models.Processo])
 
 @import helper.twitterBootstrap._
 @import helper._
@@ -28,13 +28,13 @@
                 <div class="row">
                     
                     <div class="col-xs-6">
-                        @input(createProcessoForm("descricao"), '_label -> "Descrição", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarProcessoForm("descricao"), '_label -> "Descrição", '_help -> "Requerido"){ (id, name, value, args) =>
                             <textarea rows="6" class="form-control" name="@name" placeholder="Descrição" id="@id"></textarea>
                         }
                     </div>
 
 			<div class="col-xs-6">
-                        @input(createProcessoForm("acusacoes"), '_label -> "Acusações", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarProcessoForm("acusacoes"), '_label -> "Acusações", '_help -> "Requerido"){ (id, name, value, args) =>
                             <textarea rows="6" class="form-control" name="@name" placeholder="Acusações" id="@id"></textarea>
                         }
                     </div> i
@@ -51,7 +51,7 @@
                     </div>
                     
 			<div class="col-xs-4">
-                        @input(createProcessoForm("status"), '_label -> "Status", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarProcessoForm("status"), '_label -> "Status", '_help -> "Requerido"){ (id, name, value, args) =>
                             <select name="@name" id="@id" class="form-control" placeholder="Partido" @toHtmlArgs(args)>
 				<option selected>Selecione uma opção</option>				
 				<option>Arquivado</option>
