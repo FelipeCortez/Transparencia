@@ -1,13 +1,17 @@
 package models;
 
-import java.io.File;
+//import java.io.File;
 
-import javax.persistence.Id;
+import java.util.*;
+import javax.persistence.*;
 
-import play.data.validation.Constraints.Required;
-import play.db.ebean.Model;
-import play.db.ebean.Model.Finder;
+import play.db.ebean.*;
+//import play.data.format.*;
+//import play.data.validation.*;
+import play.data.validation.Constraints.*;
 
+
+@Entity
 public class Processo extends Model {
 	
 	@Id
@@ -23,7 +27,7 @@ public class Processo extends Model {
 	public String acusacoes;
 	
 	@Required
-	public File processo;
+	public String processo;
 	
 	@Required
 	public String status;
@@ -37,6 +41,6 @@ public class Processo extends Model {
 	@Required
 	public String orgaoDeInvestigacao;
 	
-	public static Finder<Long,models.Processo> find = new Finder(Long.class, models.Processo.class);
+	public static Finder<Long,models.Processo> find = new Finder<Long,models.Processo>(Long.class, models.Processo.class);
 	
 }

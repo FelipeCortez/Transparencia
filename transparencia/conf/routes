@@ -9,6 +9,7 @@ GET     /administrador              controllers.Administrador.index()
 GET     /signIn                     controllers.Administrador.signIn()
 POST    /doLogin                    controllers.Administrador.doLogin()
 POST    /createParlamentar          controllers.Administrador.createParlamentar()
+POST    /createProcesso          	controllers.Administrador.createProcesso()
 
 #QUEM FOI A RAPARIGA QUE EXCLUIU A EXCLUSAO DO PARLAMENTAR?
 
@@ -17,6 +18,7 @@ POST	/addSessao					controllers.Administrador.addSessao()
 POST	/addSessao/:id/delete		controllers.Administrador.excluirSessao(id: Long)
 
 GET     /parlamentar/:id            controllers.Parlamentar.listarUm(id: Long)
+GET     /processo/:id            	controllers.Processo.listarUm(id: Long)
 
 
 
