@@ -2,15 +2,21 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.Application.index()
+# ADMINISTRATOR ROUTES
+GET     /administrador                              controllers.Administrador.index()
+GET     /administrador/signIn                       controllers.Administrador.signIn()
+POST    /administrador/doLogin                      controllers.Administrador.doLogin()
 
-GET     /administrador              controllers.Administrador.index()
-GET     /signIn                     controllers.Administrador.signIn()
-POST    /doLogin                    controllers.Administrador.doLogin()
-POST    /createParlamentar          controllers.Administrador.createParlamentar()
+# CRUD PARLAMENTAR
+GET     /administrador/createParlamentar            controllers.Administrador.createParlamentar()
+POST    /administrador/createParlamentar            controllers.Administrador.doCreateParlamentar()
+GET     /administrador/listParlamentares            controllers.Administrador.listarParlamentares()
+GET     /administrador/edit/parlamentar/:id         controllers.Administrador.editarParlamentar(id: Long)
+GET     /administrador/delete/parlamentar/:id       controllers.Administrador.deleteParlamentar(id : Long)
 
-GET     /parlamentar/:id            controllers.Parlamentar.listarUm(id: Long)
+# APP GENERAL ROUTES
+GET     /                                           controllers.Application.index()
+GET     /parlamentar/:id                            controllers.Parlamentar.listarUm(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file                               controllers.Assets.at(path="/public", file)

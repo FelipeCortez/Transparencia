@@ -18,11 +18,7 @@ public class Administrador extends Controller {
     static Form<models.Parlamentar> createParlamentarForm = Form.form(models.Parlamentar.class);
 
     public static Result index(){
-
-        if(!isUserLogged()) return redirect("/signIn");
-
-        response().setContentType("text/html; charset=utf-8");
-        return ok(views.html.adicionarParlamentar.render(createParlamentarForm));
+        return ok("Pagina principal do Administrador.");
     }
 
     public static Result doLogin(){
@@ -54,8 +50,19 @@ public class Administrador extends Controller {
         if(session("logged")!=null) return true;
         return false;
     }
-
+    
+    /* ===================================================================================================== */
+    /* ===================================================================================================== */
+    /* ======================================= INICIO CRUD PARLAMENTAR ===================================== */
+    /* ===================================================================================================== */
+    /* ===================================================================================================== */
+    
     public static Result createParlamentar(){
+        if(!isUserLogged()) return redirect("/signIn");
+        return ok(views.html.adicionarParlamentar.render(createParlamentarForm));
+    }
+
+    public static Result doCreateParlamentar(){
 
         Form<models.Parlamentar> filledForm = createParlamentarForm.bindFromRequest();
         MultipartFormData body = request().body().asMultipartFormData();
@@ -85,9 +92,26 @@ public class Administrador extends Controller {
         }
 
     }
-
+    
     public static Result deleteParlamentar(Long id) {
         models.Parlamentar.find.ref(id).delete();
-        return redirect("/administrador");
+        return redirect("/administrador/listParlamentares");
     }
+    
+    public static Result editarParlamentar(Long id){
+        return ok("Editar parlamentar.");
+    }
+    
+    /* ===================================================================================================== */
+    /* ===================================================================================================== */
+    /* ======================================== FIM CRUD PARLAMENTAR ======================================= */
+    /* ===================================================================================================== */
+    /* ===================================================================================================== */
+
+    
+    
+    public static Result listarParlamentares(){
+        return ok(views.html.listarParlamentares.render(models.Parlamentar.find.all()));
+    }
+    
 }
