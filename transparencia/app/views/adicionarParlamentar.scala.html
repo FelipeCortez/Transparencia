@@ -1,4 +1,4 @@
-@(createParlamentarForm: Form[models.Parlamentar])
+@(criarParlamentarForm: Form[models.Parlamentar])
 
 @import helper.twitterBootstrap._
 @import helper._
@@ -23,12 +23,12 @@
     <div class="row">
         <div class="col-xs-12">
 
-            @form(routes.Administrador.createParlamentar(), 'role ->"form", 'enctype -> "multipart/form-data" ) {
+            @form(routes.Administrador.criarParlamentar(), 'role ->"form", 'enctype -> "multipart/form-data" ) {
             
                 <div class="row">
                     
                     <div class="col-xs-6">
-                         @input(createParlamentarForm("nome"), '_label -> "Nome", '_help -> "Requerido"){ (id, name, value, args) =>
+                         @input(criarParlamentarForm("nome"), '_label -> "Nome", '_help -> "Requerido"){ (id, name, value, args) =>
                             <input type="text" name="@name" id="@id" class="form-control" placeholder="Nome" @toHtmlArgs(args)>
                         }  
                     </div>
@@ -48,19 +48,19 @@
                 <div class="row">
                     
                     <div class="col-xs-4">
-                        @input(createParlamentarForm("dataNascimento"), '_label -> "Data de Nascimento", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarParlamentarForm("dataNascimento"), '_label -> "Data de Nascimento", '_help -> "Requerido"){ (id, name, value, args) =>
                             <input type="date" name="@name" id="@id" class="form-control"  @toHtmlArgs(args)>
                         }
                     </div>
 
                     <div class="col-xs-4">
-                        @input(createParlamentarForm("partido"), '_label -> "Partido", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarParlamentarForm("partido"), '_label -> "Partido", '_help -> "Requerido"){ (id, name, value, args) =>
                             <input type="text" name="@name" id="@id" class="form-control"  placeholder="Partido" @toHtmlArgs(args)>
                         }
                     </div>
                     
                     <div class="col-xs-4">
-                        @input(createParlamentarForm("formacao"), '_label -> "Formação", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarParlamentarForm("formacao"), '_label -> "Formação", '_help -> "Requerido"){ (id, name, value, args) =>
                             <input type="text" name="@name" id="@id" class="form-control" placeholder="Formação" @toHtmlArgs(args)>
                         }
                     </div>
@@ -70,19 +70,19 @@
                 <div class="row">
                     
                     <div class="col-xs-4">
-                        @input(createParlamentarForm("cidade"), '_label -> "Cidade", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarParlamentarForm("cidade"), '_label -> "Cidade", '_help -> "Requerido"){ (id, name, value, args) =>
                             <input type="text" name="@name" id="@id" class="form-control" placeholder="Cidade" @toHtmlArgs(args)>
                         }
                     </div>
                     
                     <div class="col-xs-4">
-                        @input(createParlamentarForm("gabinete"), '_label -> "Gabinete", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarParlamentarForm("gabinete"), '_label -> "Gabinete", '_help -> "Requerido"){ (id, name, value, args) =>
                             <input type="text" name="@name" id="@id" class="form-control" placeholder="Gabinete" @toHtmlArgs(args)>
                         }
                     </div>
                     
                     <div class="col-xs-4">
-                        @input(createParlamentarForm("salario"), '_label -> "Salário", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarParlamentarForm("salario"), '_label -> "Salário", '_help -> "Requerido"){ (id, name, value, args) =>
                             <div class="input-group">
                                 <span class="input-group-addon">R$</span>
                                 <input type="text" name="@name" id="@id" class="form-control" placeholder="0.00" @toHtmlArgs(args)>
@@ -95,7 +95,7 @@
                 <div class="row">
                     
                     <div class="col-xs-12">
-                        @input(createParlamentarForm("biografia"), '_label -> "Biografia", '_help -> "Requerido"){ (id, name, value, args) =>
+                        @input(criarParlamentarForm("biografia"), '_label -> "Biografia", '_help -> "Requerido"){ (id, name, value, args) =>
                             <textarea rows="6" class="form-control" name="@name" placeholder="Bibliografia" id="@id"></textarea>
                         }
                     </div>

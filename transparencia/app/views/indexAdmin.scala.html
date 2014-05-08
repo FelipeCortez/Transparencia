@@ -1,4 +1,4 @@
-@(createParlamentarForm: Form[models.Parlamentar], parlamentarList: List[models.Parlamentar],
+@(criarParlamentarForm: Form[models.Parlamentar], parlamentarList: List[models.Parlamentar],
 criarProcessoForm: Form[models.Processo], processoList: List[models.Processo])
 
 
@@ -11,21 +11,21 @@ criarProcessoForm: Form[models.Processo], processoList: List[models.Processo])
         <body>
         <hr/>
         <h1>Criar Parlamentar</h1>
-        @form(routes.Administrador.createParlamentar()){
+        @form(routes.Administrador.criarParlamentar()){
 
-            @inputText(createParlamentarForm("nome"))
-            @inputText(createParlamentarForm("dataNascimento"))
-            @inputText(createParlamentarForm("partido"))
-            @inputText(createParlamentarForm("formacao"))
-            @inputText(createParlamentarForm("cidade"))
-            @inputText(createParlamentarForm("gabinete"))
-            @inputText(createParlamentarForm("salario"))
-            @inputText(createParlamentarForm("biografia"))
+            @inputText(criarParlamentarForm("nome"))
+            @inputText(criarParlamentarForm("dataNascimento"))
+            @inputText(criarParlamentarForm("partido"))
+            @inputText(criarParlamentarForm("formacao"))
+            @inputText(criarParlamentarForm("cidade"))
+            @inputText(criarParlamentarForm("gabinete"))
+            @inputText(criarParlamentarForm("salario"))
+            @inputText(criarParlamentarForm("biografia"))
             <input type="submit" value="Criar Parlamentar" />
         }
         
         <h1>Criar Processo</h1>
-        @form(routes.Administrador.createProcesso()){
+        @form(routes.Administrador.criarProcesso()){
 
             @inputText(criarProcessoForm("descricao"))
             @inputText(criarProcessoForm("acusacoes"))

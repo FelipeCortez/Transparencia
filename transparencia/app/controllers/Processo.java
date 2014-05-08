@@ -16,12 +16,9 @@ public class Processo extends Controller {
         response().setContentType("text/html; charset=utf-8");
         models.Processo processo = models.Processo.find.byId(id);
         if(processo != null) {
-            return ok(views.html.perprocess.render(processo));
-        } 
-        else {
+            return ok(views.html.processo.render(processo));
+        } else {
             return redirect("/administrador");
         }
     }
-
-
 }

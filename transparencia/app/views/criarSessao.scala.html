@@ -2,7 +2,13 @@
 
 @import helper._
 
-@main("Sessoes") {
+@breadcrumb = {
+    <li><a href="#">Início</a></li>
+    <li><a href="#">Administrador</a></li>
+    <li class="active">Adicionar sessão</li>
+}
+
+@main(title = "Adicionar sessão", breadcrumb = breadcrumb) {
 	<h1>@sessoes.size() sessões</h1>
 
 	<ul>
@@ -21,7 +27,7 @@
 
 	<h2>Cadastrar uma nova Sessão</h2>
 
-	@form(routes.Administrador.addSessao()) {
+	@form(routes.Administrador.criarSessao()) {
 		@inputDate(sessaoForm("data_hora"))
 		@inputText(sessaoForm("descricao"))
 		@inputText(sessaoForm("ata"))

@@ -3,24 +3,20 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                                   controllers.Application.index()
 
-GET     /administrador              controllers.Administrador.index()
-GET     /signIn                     controllers.Administrador.signIn()
-POST    /doLogin                    controllers.Administrador.doLogin()
-POST    /createParlamentar          controllers.Administrador.createParlamentar()
-POST    /createProcesso          	controllers.Administrador.createProcesso()
+GET     /administrador                      controllers.Administrador.index()
+GET     /administrador/signIn               controllers.Administrador.signIn()
+POST    /administrador/doLogin              controllers.Administrador.doLogin()
+POST    /administrador/criarParlamentar     controllers.Administrador.criarParlamentar()
+POST    /administrador/criarProcesso        controllers.Administrador.criarProcesso()
 
-#QUEM FOI A RAPARIGA QUE EXCLUIU A EXCLUSAO DO PARLAMENTAR?
+GET     /criarSessao                        controllers.Administrador.sessoes()
+POST    /criarSessao                        controllers.Administrador.criarSessao()
+POST    /criarSessao/:id/delete             controllers.Administrador.excluirSessao(id: Long)
 
-GET		/addSessao					controllers.Administrador.sessoes()
-POST	/addSessao					controllers.Administrador.addSessao()
-POST	/addSessao/:id/delete		controllers.Administrador.excluirSessao(id: Long)
-
-GET     /parlamentar/:id            controllers.Parlamentar.listarUm(id: Long)
-GET     /processo/:id            	controllers.Processo.listarUm(id: Long)
-
-
+GET     /parlamentar/:id                    controllers.Parlamentar.listarUm(id: Long)
+GET     /processo/:id                       controllers.Processo.listarUm(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file                       controllers.Assets.at(path="/public", file)

@@ -36,6 +36,16 @@ create table processo (
   constraint pk_processo primary key (id))
 ;
 
+create table sessao (
+  id                        bigint auto_increment not null,
+  data_hora                 datetime,
+  descricao                 varchar(255),
+  ata                       varchar(255),
+  carater                   varchar(255),
+  presidente                varchar(255),
+  constraint pk_sessao primary key (id))
+;
+
 
 
 
@@ -48,6 +58,8 @@ drop table administrador;
 drop table parlamentar;
 
 drop table processo;
+
+drop table sessao;
 
 SET FOREIGN_KEY_CHECKS=1;
 
