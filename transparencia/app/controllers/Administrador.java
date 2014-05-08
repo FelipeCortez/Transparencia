@@ -16,14 +16,17 @@ public class Administrador extends Controller {
 
     static Form<models.Administrador> loginForm = Form.form(models.Administrador.class);
     static Form<models.Parlamentar> createParlamentarForm = Form.form(models.Parlamentar.class);
-    static Form<models.Processo> createProcessoForm = Form.form(models.Processo.class);
+    static Form<models.Sessao> sessaoForm = Form.form(models.Sessao.class);
 
     public static Result index(){
 
         if(!isUserLogged()) return redirect("/signIn");
 
         response().setContentType("text/html; charset=utf-8");
-        return ok(views.html.adicionarParlamentar.render(createParlamentarForm));
+
+        /* POSTERIORMENTE TEREMOS QUE OFERECER UM "MENU" PARA ESCOLHER SE QUEREMOS TRATAR DOS PARLAMENTARES, OU SESSOES, OU PROCESSOS, ETC. */
+        //return ok(views.html.adicionarParlamentar.render(createParlamentarForm));
+        return redirect(routes.Administrador.sessoes());
     }
 
     public static Result doLogin(){
@@ -91,40 +94,23 @@ public class Administrador extends Controller {
         models.Parlamentar.find.ref(id).delete();
         return redirect("/administrador");
     }
-    
-    public static Result createProcesso(){
 
-        Form<models.Processo> filledForm = createProcessoForm.bindFromRequest();
-        MultipartFormData body = request().body().asMultipartFormData();
-        FilePart process = body.getFile("processo");
-        
-        if (process != null && !filledForm.hasErrors()) {
-            
-            String fileName = process.getFilename();
-            String contentType = process.getContentType(); 
-            File file = process.getFile();
-            File newFile = null;
-            // Imagem vai pro server
-            try{
-                newFile = file.createTempFile("proc_", fileName.replaceAll("[ -+^:,]",""), new File("public/process/upload/")); 
-            }catch(Exception e){
-                return badRequest(views.html.adicionarProcesso.render(createProcessoForm));
-            }
-            
-            models.Processo p = filledForm.get();
-            p.processo = newFile.getName(); // Adiciona o nome da imagem
-            p.save();
-
-            return redirect("/administrador");
-            
-        } else {
-            return badRequest(views.html.adicionarParlamentar.render(createParlamentarForm));
-        }
-        return null;
+    public static Result sessoes() {
+        return ok(views.html.addSessao.render(Sessao.all(), sessaoForm));
     }
-    
-    public static Result deleteProcesso(Long id) {
-        models.Processo.find.ref(id).delete();
-        return redirect("/administrador");
+
+    public static Result addSessao() {
+        Form<models.Sessao> cadastroForm = sessaoForm.bindFromRequest();
+        if(cadastroForm.hasErrors()) {
+            return badRequest(views.html.addSessao.render(Sessao.all(), cadastroForm));
+        }else {
+            Sessao.create(cadastroForm.get());
+            return redirect(routes.Administrador.sessoes());
+        }     
+    }
+
+    public static Result excluirSessao(Long id) {
+        Sessao.delete(id);
+        return redirect(routes.Administrador.sessoes());
     }
 }
