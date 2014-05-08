@@ -1,4 +1,6 @@
-@(createParlamentarForm: Form[models.Parlamentar], parlamentarList: List[models.Parlamentar])
+@(createParlamentarForm: Form[models.Parlamentar], parlamentarList: List[models.Parlamentar],
+criarProcessoForm: Form[models.Processo], processoList: List[models.Processo])
+
 
 @import helper._
 
@@ -21,6 +23,22 @@
             @inputText(createParlamentarForm("biografia"))
             <input type="submit" value="Criar Parlamentar" />
         }
+        
+        <h1>Criar Processo</h1>
+        @form(routes.Administrador.createProcesso()){
+
+            @inputText(criarProcessoForm("descricao"))
+            @inputText(criarProcessoForm("acusacoes"))
+            @inputText(criarProcessoForm("status"))
+            @inputText(criarProcessoForm("defesa"))
+            @inputText(criarProcessoForm("textoDefesa"))
+            @inputText(criarProcessoForm("descricao"))
+            @inputText(criarProcessoForm("orgaoDeInvestigacao"))
+
+            <input type="submit" value="Criar Processo" />
+        }
+
+
         <h1>Parlamentares Cadastrados</h1>
         <ul>
             @for(p <- parlamentarList) {
@@ -30,5 +48,16 @@
             }
         </ul>
         <hr/>
+        
+        <h1>Processo Cadastrados</h1>
+        <ul>
+            @for(a <- processoList) {
+                <li>
+                    Descrição: @a.descricao - Acusações: @a.acusacoes - Status: @a.status - Defesa: @a.defesa - 
+                </li>
+            }
+        </ul>
+        <hr/>
+        
     </body>
 </html>

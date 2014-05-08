@@ -4,14 +4,16 @@ import java.util.*;
 import javax.persistence.*;
 
 import play.db.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
+//import play.data.format.*;
+//import play.data.validation.*;
 import play.data.validation.Constraints.*;
 
 @Entity
 public class Parlamentar extends Model {
 
-    @Id
+  
+
+	@Id
     public Long id;
 
     @Required
@@ -40,5 +42,5 @@ public class Parlamentar extends Model {
     @Required
     public String biografia;
 
-    public static Finder<Long,models.Parlamentar> find = new Finder(Long.class, models.Parlamentar.class);
+    public static Finder<Long,models.Parlamentar> find = new Finder<Long,models.Parlamentar>(Long.class, models.Parlamentar.class);
 }

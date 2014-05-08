@@ -7,6 +7,7 @@ GET     /administrador                              controllers.Administrador.in
 GET     /administrador/signIn                       controllers.Administrador.signIn()
 POST    /administrador/doLogin                      controllers.Administrador.doLogin()
 
+<<<<<<< HEAD
 # CRUD PARLAMENTAR
 GET     /administrador/createParlamentar            controllers.Administrador.createParlamentar()
 POST    /administrador/createParlamentar            controllers.Administrador.doCreateParlamentar()
@@ -17,6 +18,24 @@ GET     /administrador/delete/parlamentar/:id       controllers.Administrador.de
 # APP GENERAL ROUTES
 GET     /                                           controllers.Application.index()
 GET     /parlamentar/:id                            controllers.Parlamentar.listarUm(id: Long)
+=======
+GET     /administrador              controllers.Administrador.index()
+GET     /signIn                     controllers.Administrador.signIn()
+POST    /doLogin                    controllers.Administrador.doLogin()
+POST    /createParlamentar          controllers.Administrador.createParlamentar()
+POST    /createProcesso          	controllers.Administrador.createProcesso()
+
+#QUEM FOI A RAPARIGA QUE EXCLUIU A EXCLUSAO DO PARLAMENTAR?
+
+GET		/addSessao					controllers.Administrador.sessoes()
+POST	/addSessao					controllers.Administrador.addSessao()
+POST	/addSessao/:id/delete		controllers.Administrador.excluirSessao(id: Long)
+
+GET     /parlamentar/:id            controllers.Parlamentar.listarUm(id: Long)
+GET     /processo/:id            	controllers.Processo.listarUm(id: Long)
+
+
+>>>>>>> c24b4dd283253e4f84367d9c1a3c4993f80b86e3
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file                               controllers.Assets.at(path="/public", file)

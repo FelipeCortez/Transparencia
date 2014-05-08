@@ -1,0 +1,34 @@
+@(processo: models.Processo)
+
+@scripts = {
+    <script src="@routes.Assets.at("js/holder.js")"></script>
+}
+
+@breadcrumb = {
+    <li><a href="#">Início</a></li>
+    <li><a href="#">Processos</a></li>
+    <li class="active">@processo.descricao</li>
+}
+
+@main(title = "Processo", scripts = scripts, breadcrumb = breadcrumb) {
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h6>Descrição</h6>
+                    <p>@processo.descricao</p>
+                    <h6>Acusações</h6>
+                    <p>@processo.acusacoes</p>
+                    <h6>Status</h6>
+                    <p>@processo.status</p>
+                    <h6>Defesa</h6>
+                    <p>@processo.defesa</p>
+                    <h6>Texto da Defesa</h6>
+                    <p>@processo.textoDefesa</p>
+                    <h6>Orgão de Investigação</h6>
+                    <p>@processo.orgaoDeInvestigacao</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
