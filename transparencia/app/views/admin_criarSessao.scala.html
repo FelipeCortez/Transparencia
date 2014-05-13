@@ -1,0 +1,23 @@
+@(sessaoForm: Form[models.Sessao])
+
+@import helper._
+
+@breadcrumb = {
+    <li><a href="#">Administrador</a></li>
+    <li class="active">Criar Sessão</li>
+}
+
+@main(title = "Criar Sessão", breadcrumb = breadcrumb) {
+
+	<h2>Cadastrar uma nova Sessão</h2>
+    
+	@form(routes.Sessao.doAdminCriarSessao()) {
+		@inputDate(sessaoForm("data_hora"))
+		@inputText(sessaoForm("descricao"))
+		@inputText(sessaoForm("ata"))
+		@inputText(sessaoForm("carater"))
+		@inputText(sessaoForm("presidente"))
+		<input type="submit" value="inserir" />
+	}
+}
+

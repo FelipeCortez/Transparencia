@@ -31,8 +31,8 @@
                 <td>@p.formacao</td>
                 <td>@p.cidade</td>
                 <td>@p.gabinete</td>
-                <td><a href="#">Editar</a></td>
-                <td><a href="#">Excluir</a></td>
+                <td><a href="@routes.Administrador.editarParlamentar(p.id)">Editar</a></td>
+                <td><a href="@routes.Parlamentar.doAdminRemoverParlamentar(p.id)">Excluir</a></td>
             </tr>
         }
 

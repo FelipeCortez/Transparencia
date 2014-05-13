@@ -11,8 +11,6 @@ import play.data.validation.Constraints.*;
 @Entity
 public class Parlamentar extends Model {
 
-  
-
 	@Id
     public Long id;
 

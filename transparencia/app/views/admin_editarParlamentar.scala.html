@@ -1,0 +1,115 @@
+@(parlamentarForm : Form[models.Parlamentar], parlamentar : models.Parlamentar)
+
+@import helper.twitterBootstrap._
+@import helper._
+
+@implicitField = @{ FieldConstructor(customFieldConstructor1.f) }
+
+@scripts = {
+    <link rel="stylesheet" href="@routes.Assets.at("style/datepicker.css")">
+    <script src="@routes.Assets.at("js/bootstrap-datepicker.pt.js")"></script>
+    <script src="@routes.Assets.at("js/bootstrap-datepicker.js")"></script>
+}
+
+@breadcrumb = {
+    <li><a href="#">Administrador</a></li>
+    <li class="active">Editar parlamentar</li>
+}
+
+@main(title = "Editar Parlamentar", scripts = scripts, breadcrumb = breadcrumb) {
+
+    <h2 class="info-header">Editar Parlamentar</h2>
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            @form(routes.Parlamentar.doAdminAtualizarParlamentar(), 'role ->"form", 'enctype -> "multipart/form-data" ) {
+            
+                @input(parlamentarForm("id"), '_label -> "id", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="hidden" name="@name" id="@id" class="form-control" value="@parlamentar.id" @toHtmlArgs(args)>
+                } 
+            
+                <div class="row">
+                    
+                    <div class="col-xs-6">
+                         @input(parlamentarForm("nome"), '_label -> "Nome", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Nome" value="@parlamentar.nome" @toHtmlArgs(args)>
+                        }  
+                    </div>
+                    
+                    <div class="col-xs-6">
+                            
+                        <div class="form-group">
+                            <label for="foto">Foto</label>
+                            <input type="file" name="foto" id="foto" class="form-control">
+                        </div>
+                            
+                    </div>
+                    
+                </div>
+            
+                <div class="row">
+                    
+                    <div class="col-xs-4">
+                        @input(parlamentarForm("dataNascimento"), '_label -> "Data de Nascimento", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="date" name="@name" id="@id" class="form-control" value="@parlamentar.dataNascimento"  @toHtmlArgs(args)>
+                        }
+                    </div>
+
+                    <div class="col-xs-4">
+                        @input(parlamentarForm("partido"), '_label -> "Partido", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control"  value="@parlamentar.partido" placeholder="Partido" @toHtmlArgs(args)>
+                        }
+                    </div>
+                    
+                    <div class="col-xs-4">
+                        @input(parlamentarForm("formacao"), '_label -> "Formação", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Formação" value="@parlamentar.formacao" @toHtmlArgs(args)>
+                        }
+                    </div>
+                    
+                </div>
+            
+                <div class="row">
+                    
+                    <div class="col-xs-4">
+                        @input(parlamentarForm("cidade"), '_label -> "Cidade", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Cidade" value="@parlamentar.cidade" @toHtmlArgs(args)>
+                        }
+                    </div>
+                    
+                    <div class="col-xs-4">
+                        @input(parlamentarForm("gabinete"), '_label -> "Gabinete", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Gabinete" value="@parlamentar.gabinete" @toHtmlArgs(args)>
+                        }
+                    </div>
+                    
+                    <div class="col-xs-4">
+                        @input(parlamentarForm("salario"), '_label -> "Salário", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <div class="input-group">
+                                <span class="input-group-addon">R$</span>
+                                <input type="text" name="@name" id="@id" class="form-control" placeholder="0.00" value="@parlamentar.salario" @toHtmlArgs(args)>
+                            </div>
+                        }
+                    </div>
+                    
+                </div>
+            
+                <div class="row">
+                    
+                    <div class="col-xs-12">
+                        @input(parlamentarForm("biografia"), '_label -> "Biografia", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <textarea rows="6" class="form-control" name="@name" placeholder="Biografia" value="@parlamentar.biografia" id="@id"></textarea>
+                        }
+                    </div>
+                    
+                </div>
+            
+                <input type="submit" value="Atualizar Parlamentar" class="btn btn-default" />
+
+            }
+            
+        </div>
+    </div>
+
+}

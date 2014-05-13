@@ -3,20 +3,33 @@
 # ~~~~
 
 # Home page
-GET     /                                       controllers.Application.index()
+GET     /                                           controllers.Application.index()
 
-GET     /administrador                          controllers.Administrador.index()
-GET     /administrador/signIn                   controllers.Administrador.signIn()
-POST    /administrador/doLogin                  controllers.Administrador.doLogin()
-POST    /administrador/criarParlamentar         controllers.Administrador.criarParlamentar()
-POST    /administrador/criarProcesso            controllers.Administrador.criarProcesso()
+# ADMINISTRATOR ROUTES
+GET     /administrador                              controllers.Administrador.index()
+GET     /administrador/login                        controllers.Administrador.login()
+POST    /administrador/doLogin                      controllers.Administrador.doLogin()
 
-GET     /administrador/criarSessao              controllers.Administrador.sessoes()
-POST    /administrador/criarSessao              controllers.Administrador.criarSessao()
-POST    /administrador/criarSessao/:id/delete   controllers.Administrador.excluirSessao(id: Long)
+GET     /administrador/parlamentar/criar            controllers.Administrador.criarParlamentar()
+POST    /administrador/parlamentar/doCriar          controllers.Parlamentar.doAdminCriarParlamentar()
+GET     /administrador/parlamentar/listar           controllers.Administrador.listarParlamentar()
+GET     /administrador/parlamentar/editar/:id       controllers.Administrador.editarParlamentar(id: Long)
+POST    /administrador/parlamentar/atualizar        controllers.Parlamentar.doAdminAtualizarParlamentar()
+GET     /administrador/parlamentar/doRemover/:id    controllers.Parlamentar.doAdminRemoverParlamentar(id: Long)
 
-GET     /parlamentar/:id                        controllers.Parlamentar.listarUm(id: Long)
-GET     /processo/:id                           controllers.Processo.listarUm(id: Long)
+GET     /administrador/processo/criar               controllers.Administrador.criarProcesso()
+POST    /administrador/processo/criar               controllers.Processo.doAdminCriarProcesso()
+#GET     /administrador/processo/listar             controllers.Administrador.listarProcesso(id: Long)
+#GET     /administrador/processo/editar/:id         controllers.Administrador.editarParlamentar(id: Long)
+#POST    /administrador/processo/remover/:id        controllers.Administrador.excluirSessao(id: Long)
+
+GET     /administrador/sessao/criar                 controllers.Administrador.criarSessao()
+POST    /administrador/sessao/doCriar               controllers.Sessao.doAdminCriarSessao()
+#POST    /administrador/criarSessao/:id/delete      controllers.Administrador.excluirSessao(id: Long)
+
+#APP ROUTES
+#GET     /parlamentar/:id                           controllers.Application.verParlamentar(id: Long)
+#GET     /processo/:id                              controllers.Processo.listarUm(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file                           controllers.Assets.at(path="/public", file)
+GET     /assets/*file                               controllers.Assets.at(path="/public", file)

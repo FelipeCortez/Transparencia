@@ -11,4 +11,8 @@ public class Application extends Controller {
         return ok("Your new application is ready. Sr. - ");
     }
     
+    public static Result verParlamentar(Long id){
+        return controllers.Parlamentar.appVerParlamentar(id);
+    }
+    
 }
