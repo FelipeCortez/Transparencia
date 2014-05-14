@@ -65,6 +65,10 @@ public class Administrador extends Controller {
     public static Result criarSessao(){
         return controllers.Sessao.adminCriarSessao();
     }
+
+    public static Result criarGastos(){
+        return controllers.Gastos.adminCriarGastos();
+    }
     
     
     

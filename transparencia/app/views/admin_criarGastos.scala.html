@@ -1,0 +1,26 @@
+@(gastosForm: Form[models.Gastos])
+
+@import helper._
+
+@breadcrumb = {
+    <li><a href="#">Administrador</a></li>
+    <li class="active">Cadastrar Gastos</li>
+}
+
+@main(title = "Cadastrar Gastos", breadcrumb = breadcrumb) {
+
+	<h2>Cadastrar um novo gasto do Parlamentar</h2>
+    
+	@form(routes.Gastos.doAdminCriarGastos()) {
+		@inputText(gastosForm("valorGasto"))
+		@inputText(gastosForm("justificativa"))
+		@inputText(gastosForm("documentoProva"))
+		@inputText(gastosForm("descricao"))
+		@inputDate(gastosForm("data"))
+		@inputText(gastosForm("lei"))
+		@inputText(gastosForm("origemDinheiro"))
+		
+		<input type="submit" value="inserir" />
+	}
+}
+

@@ -10,6 +10,18 @@ create table administrador (
   constraint pk_administrador primary key (id))
 ;
 
+create table gastos (
+  id                        bigint auto_increment not null,
+  valor                     float,
+  justificativa             varchar(255),
+  documento_prova           varchar(255),
+  descricao                 varchar(255),
+  data                      datetime,
+  lei                       varchar(255),
+  origem_do_dinheiro        varchar(255),
+  constraint pk_gastos primary key (id))
+;
+
 create table parlamentar (
   id                        bigint auto_increment not null,
   nome                      varchar(255),
@@ -54,6 +66,8 @@ create table sessao (
 SET FOREIGN_KEY_CHECKS=0;
 
 drop table administrador;
+
+drop table gastos;
 
 drop table parlamentar;
 

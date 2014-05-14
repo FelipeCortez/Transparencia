@@ -27,6 +27,9 @@ GET     /administrador/sessao/criar                 controllers.Administrador.cr
 POST    /administrador/sessao/doCriar               controllers.Sessao.doAdminCriarSessao()
 #POST    /administrador/criarSessao/:id/delete      controllers.Administrador.excluirSessao(id: Long)
 
+GET	/administrador/gastos/criar		    controllers.Administrador.criarGastos()
+POST    /administrador/gastos/doCriar               controllers.Gastos.doAdminCriarGastos()
+
 #APP ROUTES
 #GET     /parlamentar/:id                           controllers.Application.verParlamentar(id: Long)
 #GET     /processo/:id                              controllers.Processo.listarUm(id: Long)
