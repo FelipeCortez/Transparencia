@@ -23,7 +23,17 @@ public class Gastos extends Controller {
     }
     
     public static Result doAdminCriarGastos(){
-        return null;
+         Form<models.Gastos> cadastroForm = gastosForm.bindFromRequest();
+        
+        if(cadastroForm.hasErrors()) {
+        
+             return ok(cadastroForm.errors().toString());
+           // return badRequest(views.html.admin_criarGastos.render(cadastroForm));
+            
+        }else {
+            models.Gastos.create(cadastroForm.get());
+            return redirect(routes.Administrador.index());
+        }   
     }
     
 }

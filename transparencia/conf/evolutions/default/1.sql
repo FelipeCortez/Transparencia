@@ -16,7 +16,7 @@ create table gastos (
   justificativa             varchar(255),
   documento_prova           varchar(255),
   descricao                 varchar(255),
-  data                      datetime,
+  data                      varchar(255),
   lei                       varchar(255),
   origem_do_dinheiro        varchar(255),
   constraint pk_gastos primary key (id))

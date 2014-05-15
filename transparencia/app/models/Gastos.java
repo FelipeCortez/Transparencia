@@ -27,7 +27,7 @@ public class Gastos extends Model{
     public String descricao;
 
     @Required
-    public Date data;
+    public String data;
     
     @Required
     public String lei;
