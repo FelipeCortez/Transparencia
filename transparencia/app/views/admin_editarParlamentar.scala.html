@@ -25,15 +25,15 @@
 
             @form(routes.Parlamentar.doAdminAtualizarParlamentar(), 'role ->"form", 'enctype -> "multipart/form-data" ) {
             
-                @input(parlamentarForm("id"), '_label -> "id", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="hidden" name="@name" id="@id" class="form-control" value="@parlamentar.id" @toHtmlArgs(args)>
+                @input(parlamentarForm("id"), '_label -> "", '_help -> "", 'style -> "display: none"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" @toHtmlArgs(args)>
                 } 
             
                 <div class="row">
                     
                     <div class="col-xs-6">
                          @input(parlamentarForm("nome"), '_label -> "Nome", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Nome" value="@parlamentar.nome" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Nome" value="@value" @toHtmlArgs(args)>
                         }  
                     </div>
                     
@@ -52,19 +52,19 @@
                     
                     <div class="col-xs-4">
                         @input(parlamentarForm("dataNascimento"), '_label -> "Data de Nascimento", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="date" name="@name" id="@id" class="form-control" value="@parlamentar.dataNascimento"  @toHtmlArgs(args)>
+                            <input type="date" name="@name" id="@id" class="form-control" value="@value" @toHtmlArgs(args)>
                         }
                     </div>
 
                     <div class="col-xs-4">
                         @input(parlamentarForm("partido"), '_label -> "Partido", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control"  value="@parlamentar.partido" placeholder="Partido" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" placeholder="Partido" @toHtmlArgs(args)>
                         }
                     </div>
                     
                     <div class="col-xs-4">
                         @input(parlamentarForm("formacao"), '_label -> "Formação", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Formação" value="@parlamentar.formacao" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" placeholder="Formação" @toHtmlArgs(args)>
                         }
                     </div>
                     
@@ -74,13 +74,13 @@
                     
                     <div class="col-xs-4">
                         @input(parlamentarForm("cidade"), '_label -> "Cidade", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Cidade" value="@parlamentar.cidade" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Cidade" value="@value" @toHtmlArgs(args)>
                         }
                     </div>
                     
                     <div class="col-xs-4">
                         @input(parlamentarForm("gabinete"), '_label -> "Gabinete", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Gabinete" value="@parlamentar.gabinete" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Gabinete" value="@value" @toHtmlArgs(args)>
                         }
                     </div>
                     
@@ -88,7 +88,7 @@
                         @input(parlamentarForm("salario"), '_label -> "Salário", '_help -> "Requerido"){ (id, name, value, args) =>
                             <div class="input-group">
                                 <span class="input-group-addon">R$</span>
-                                <input type="text" name="@name" id="@id" class="form-control" placeholder="0.00" value="@parlamentar.salario" @toHtmlArgs(args)>
+                                <input type="text" name="@name" id="@id" class="form-control" placeholder="0.00" value="@value" @toHtmlArgs(args)>
                             </div>
                         }
                     </div>
@@ -99,7 +99,7 @@
                     
                     <div class="col-xs-12">
                         @input(parlamentarForm("biografia"), '_label -> "Biografia", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <textarea rows="6" class="form-control" name="@name" placeholder="Biografia" value="@parlamentar.biografia" id="@id"></textarea>
+                            <textarea rows="6" class="form-control" name="@name" placeholder="Biografia" value="@value" id="@id"></textarea>
                         }
                     </div>
                     

@@ -39,6 +39,9 @@ public class Parlamentar extends Model {
 
     @Required
     public String biografia;
+    
+    @OneToMany(cascade=CascadeType.ALL)
+    List<models.Processo> processos;
 
     public static Finder<Long,models.Parlamentar> find = new Finder<Long,models.Parlamentar>(Long.class, models.Parlamentar.class);
 }

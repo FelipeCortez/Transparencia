@@ -18,9 +18,6 @@ public class Processo extends Model {
 	public Long id;
 	
 	@Required
-	public Parlamentar parlamentar;
-	
-	@Required
 	public String descricao;
 	
 	@Required
@@ -40,7 +37,10 @@ public class Processo extends Model {
 	
 	@Required
 	public String orgaoDeInvestigacao;
-	
+
+    @ManyToOne
+    models.Parlamentar parlamentar;
+    
 	public static Finder<Long,models.Processo> find = new Finder<Long,models.Processo>(Long.class, models.Processo.class);
 	
 }
