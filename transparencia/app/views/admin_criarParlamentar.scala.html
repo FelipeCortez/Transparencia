@@ -8,17 +8,34 @@
 @scripts = {
     <link rel="stylesheet" href="@routes.Assets.at("style/datepicker.css")">
     <script src="@routes.Assets.at("js/bootstrap-datepicker.pt.js")"></script>
+    <script src="@routes.Assets.at("js/bootstrap.min.js")"></script>
     <script src="@routes.Assets.at("js/bootstrap-datepicker.js")"></script>
+
+    <script type="text/javascript">
+        $(".close").alert();
+    </script>
+
 }
 
 @breadcrumb = {
-    <li><a href="#">Administrador</a></li>
+    <li><a href="@routes.Administrador.index()">Administrador</a></li>
     <li class="active">Adicionar parlamentar</li>
 }
 
 @main(title = "Adicionar Parlamentar", scripts = scripts, breadcrumb = breadcrumb) {
 
     <h2 class="info-header">Inserir Parlamentar</h2>
+
+    @if(criarParlamentarForm.hasErrors()) {
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            @if(criarParlamentarForm.errors.size() > 0) {
+                @for((key, value) <- criarParlamentarForm.errors) {
+                    Problema no campo key.toString()               
+                }
+            }
+        </div>
+    }
 
     <div class="row">
         <div class="col-xs-12">
@@ -29,7 +46,7 @@
                     
                     <div class="col-xs-6">
                          @input(criarParlamentarForm("nome"), '_label -> "Nome", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Nome" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Nome" required value="@value" @toHtmlArgs(args)>
                         }  
                     </div>
                     
@@ -37,7 +54,7 @@
                             
                         <div class="form-group">
                             <label for="foto">Foto</label>
-                            <input type="file" name="foto" id="foto" class="form-control">
+                            <input type="file" name="foto" id="foto" required class="form-control">
                             <span class="help">Requerido</span>
                         </div>
                             
@@ -49,19 +66,19 @@
                     
                     <div class="col-xs-4">
                         @input(criarParlamentarForm("dataNascimento"), '_label -> "Data de Nascimento", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="date" name="@name" id="@id" class="form-control"  @toHtmlArgs(args)>
+                            <input type="date" name="@name" id="@id" class="form-control" value="@value" required @toHtmlArgs(args)>
                         }
                     </div>
 
                     <div class="col-xs-4">
                         @input(criarParlamentarForm("partido"), '_label -> "Partido", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control"  placeholder="Partido" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Partido" @toHtmlArgs(args)>
                         }
                     </div>
                     
                     <div class="col-xs-4">
                         @input(criarParlamentarForm("formacao"), '_label -> "Formação", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Formação" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Formação" @toHtmlArgs(args)>
                         }
                     </div>
                     
@@ -71,13 +88,13 @@
                     
                     <div class="col-xs-4">
                         @input(criarParlamentarForm("cidade"), '_label -> "Cidade", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Cidade" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Cidade" @toHtmlArgs(args)>
                         }
                     </div>
                     
                     <div class="col-xs-4">
                         @input(criarParlamentarForm("gabinete"), '_label -> "Gabinete", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Gabinete" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Gabinete" @toHtmlArgs(args)>
                         }
                     </div>
                     
@@ -85,7 +102,7 @@
                         @input(criarParlamentarForm("salario"), '_label -> "Salário", '_help -> "Requerido"){ (id, name, value, args) =>
                             <div class="input-group">
                                 <span class="input-group-addon">R$</span>
-                                <input type="text" name="@name" id="@id" class="form-control" placeholder="0.00" @toHtmlArgs(args)>
+                                <input type="text" name="@name" id="@id" class="form-control" placeholder="0.00" required @toHtmlArgs(args)>
                             </div>
                         }
                     </div>
@@ -96,7 +113,7 @@
                     
                     <div class="col-xs-12">
                         @input(criarParlamentarForm("biografia"), '_label -> "Biografia", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <textarea rows="6" class="form-control" name="@name" placeholder="Biografia" id="@id" @toHtmlArgs(args)></textarea>
+                            <textarea rows="6" class="form-control" name="@name" value="@value" required placeholder="Biografia" id="@id" @toHtmlArgs(args)></textarea>
                         }
                     </div>
                     

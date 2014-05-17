@@ -26,7 +26,7 @@ public class Administrador extends Controller {
 
         if(!isUserLogged()) return redirect(routes.Administrador.login());
         
-        return redirect(routes.Administrador.criarParlamentar());
+        return ok(views.html.admin_index.render());
     }
 
     public static Result login(){

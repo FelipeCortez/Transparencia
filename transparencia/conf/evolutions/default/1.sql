@@ -45,6 +45,7 @@ create table processo (
   defesa                    varchar(255),
   texto_defesa              varchar(255),
   orgao_de_investigacao     varchar(255),
+  parlamentar_id            bigint,
   constraint pk_processo primary key (id))
 ;
 
@@ -58,6 +59,8 @@ create table sessao (
   constraint pk_sessao primary key (id))
 ;
 
+alter table processo add constraint fk_processo_parlamentar_1 foreign key (parlamentar_id) references parlamentar (id) on delete restrict on update restrict;
+create index ix_processo_parlamentar_1 on processo (parlamentar_id);
 
 
 

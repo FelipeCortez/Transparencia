@@ -1,0 +1,51 @@
+@()
+
+@import helper._
+
+@breadcrumb = {
+    <li><a class="active">Administrador</a></li>
+}
+
+@main(title = "Administrador", breadcrumb = breadcrumb) {
+
+    <h1>O que você quer fazer?</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Parlamentar</h2>
+            <p>Crie, ou veja a listagem de parlamentares.</p>
+            <p>
+                <a class="btn btn-default" href="@routes.Administrador.criarParlamentar()" role="button">Criar</a>
+                <a class="btn btn-default" href="@routes.Administrador.listarParlamentar()" role="button">Listar</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Processo</h2>
+            <p>Crie e atribua um Processo a um parlamentar, ou veja os Processos cadastrados.</p>
+            <p>
+                <a class="btn btn-default" href="#" role="button">Criar</a>
+                <a class="btn btn-default" href="#" role="button">Listar</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Sessão</h2>
+            <p>Crie uma Sessão, ou veja Sessões que já foram cadastradas.</p>
+            <p>
+                <a class="btn btn-default" href="#" role="button">Criar</a>
+                <a class="btn btn-default" href="#" role="button">Listar</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Gasto</h2>
+            <p>Crie e atribua um gasto a um Parlamentar, ou veja a listagem de gastos.</p>
+            <p>
+                <a class="btn btn-default" href="#" role="button">Criar</a>
+                <a class="btn btn-default" href="#" role="button">Listar</a>
+            </p>
+        </div>
+    </div>
+
+}
