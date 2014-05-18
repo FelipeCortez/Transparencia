@@ -1,4 +1,4 @@
-@(gastosForm: Form[models.Gastos])
+@(gastosForm: Form[models.Gastos], listaParlamentares : List[models.Parlamentar])
 
 @import helper._
 
@@ -12,7 +12,16 @@
 	<h2>Cadastrar um novo gasto do Parlamentar</h2>
     
 	@form(routes.Gastos.doAdminCriarGastos()) {
-		@inputText(gastosForm("valorGasto"))
+        	@input(gastosForm("parlamentar"), '_label -> "Selecione o parlamentar", '_help -> "Requerido"){ (id, name, value, args) =>
+               		<select>
+				  @for(p <- listaParlamentares){
+				      <option name="@p.nome" id="@p.id" value="@value" required placeholder="parlamentar_id" @toHtmlArgs(args)>
+					@p.nome
+				      </option>
+				  } 
+			    </select>
+                        }		
+		@inputText(gastosForm("valor"))
 		@inputText(gastosForm("justificativa"))
 		@inputText(gastosForm("documentoProva"))
 		@inputText(gastosForm("descricao"))

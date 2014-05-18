@@ -29,6 +29,10 @@ POST    /administrador/sessao/doCriar               controllers.Sessao.doAdminCr
 
 GET	/administrador/gastos/criar		    controllers.Administrador.criarGastos()
 POST    /administrador/gastos/doCriar               controllers.Gastos.doAdminCriarGastos()
+GET     /administrador/gastos/listarParlamentar     controllers.Administrador.listarGastosEscolherParlamentar()
+GET     /administrador/gastos/listarParlamentar/TabelaDeGastos     controllers.Administrador.listarGastosParlamentar(id: Long)
+GET     /administrador/gastos/doRemover   controllers.Gastos.doAdminRemoverGasto(idg: Long, idP: Long)
+
 
 #APP ROUTES
 #GET     /parlamentar/:id                           controllers.Application.verParlamentar(id: Long)

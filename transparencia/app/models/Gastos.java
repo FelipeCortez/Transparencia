@@ -11,8 +11,13 @@ import play.data.validation.Constraints.*;
 @Entity
 public class Gastos extends Model{
 
+	public static Finder<Long,Gastos> finder = new Finder<Long,Gastos>(Long.class, Gastos.class);
+
 	@Id 
 	public Long id; /*chave primária*/
+
+	@ManyToOne
+	public Parlamentar parlamentar;
 
     @Required
     public float valor; 

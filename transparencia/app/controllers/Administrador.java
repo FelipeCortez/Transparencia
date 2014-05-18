@@ -67,7 +67,7 @@ public class Administrador extends Controller {
     }
 
     public static Result criarGastos(){
-        return controllers.Gastos.adminCriarGastos();
+        return controllers.Gastos.adminCriarGastos(models.Parlamentar.find.all());
     }
     
     
@@ -131,9 +131,16 @@ public class Administrador extends Controller {
     public static Result listarParlamentar(){
         return controllers.Parlamentar.adminListarParlamentar();
     }
+    public static Result listarGastosEscolherParlamentar(){
+	return controllers.Gastos.adminListarGastosEscolherParlamentar();
+    }
     
     public static Result editarParlamentar(Long id){
         return controllers.Parlamentar.adminEditarParlamentar(models.Parlamentar.find.byId(id));
     }
-    
+    public static Result listarGastosParlamentar(Long id){
+        return controllers.Gastos.adminListarGastosParlamentar(models.Parlamentar.find.byId(id));
+    }
+
+       
 }

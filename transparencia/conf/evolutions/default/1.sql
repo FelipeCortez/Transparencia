@@ -12,6 +12,7 @@ create table administrador (
 
 create table gastos (
   id                        bigint auto_increment not null,
+  parlamentar_id            bigint,
   valor                     float,
   justificativa             varchar(255),
   documento_prova           varchar(255),
@@ -59,8 +60,10 @@ create table sessao (
   constraint pk_sessao primary key (id))
 ;
 
-alter table processo add constraint fk_processo_parlamentar_1 foreign key (parlamentar_id) references parlamentar (id) on delete restrict on update restrict;
-create index ix_processo_parlamentar_1 on processo (parlamentar_id);
+alter table gastos add constraint fk_gastos_parlamentar_1 foreign key (parlamentar_id) references parlamentar (id) on delete restrict on update restrict;
+create index ix_gastos_parlamentar_1 on gastos (parlamentar_id);
+alter table processo add constraint fk_processo_parlamentar_2 foreign key (parlamentar_id) references parlamentar (id) on delete restrict on update restrict;
+create index ix_processo_parlamentar_2 on processo (parlamentar_id);
 
 
 
