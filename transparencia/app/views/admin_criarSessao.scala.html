@@ -19,10 +19,10 @@
 
 @breadcrumb = {
     <li><a href="@routes.Administrador.index()">Administrador</a></li>
-    <li class="active">Adicionar Sessao</li>
+    <li class="active">Adicionar sessão</li>
 }
 
-@main(title = "Adicionar Sessao", scripts = scripts, breadcrumb = breadcrumb) {
+@main(title = "Adicionar Sessão", scripts = scripts, breadcrumb = breadcrumb) {
 
     <h2 class="info-header">Inserir Sessão</h2>
 
@@ -44,30 +44,25 @@
             
                 <div class="row">
                     
-                    <div class="col-xs-6">
+                    <div class="col-xs-4">
                          @input(criarSessaoForm("data_hora"), '_label -> "Data", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" placeholder="yyyy-MM-dd" required value="@value" @toHtmlArgs(args)>
+                            <input type="date" name="@name" id="@id" class="form-control" placeholder="yyyy-MM-dd" required value="@value" @toHtmlArgs(args)>
                         }  
                     </div>
                     
+                </div>
             
                 <div class="row">
                     
-                    <div class="col-xs-4">
+                    <div class="col-xs-6">
                         @input(criarSessaoForm("descricao"), '_label -> "Descrição", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Descrição" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeHolder="Descrição" @toHtmlArgs(args)>
                         }
                     </div>
 
                     <div class="col-xs-4">
                         @input(criarSessaoForm("ata"), '_label -> "Ata", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Texto da Ata" @toHtmlArgs(args)>
-                        }
-                    </div>
-                    
-                    <div class="col-xs-4">
-                        @input(criarSessaoForm("carater"), '_label -> "Caráter", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Análise da Sessão" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Texto da ata" @toHtmlArgs(args)>
                         }
                     </div>
                     
@@ -76,12 +71,19 @@
                 <div class="row">
                     
                     <div class="col-xs-4">
+                        @input(criarSessaoForm("carater"), '_label -> "Caráter", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Análise da sessão" @toHtmlArgs(args)>
+                        }
+                    </div>
+                    
+                    <div class="col-xs-4">
                         @input(criarSessaoForm("presidente"), '_label -> "Presidente", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="pres" @toHtmlArgs(args)>
+                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Presidente" @toHtmlArgs(args)>
                         }
                     </div>
                     
                     
+                </div>
             
                 <input type="submit" value="Criar Sessão" class="btn btn-default" />
 
