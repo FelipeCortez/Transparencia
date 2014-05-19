@@ -54,7 +54,7 @@ public class Parlamentar extends Controller {
             p.foto = newFile.getName(); // Adiciona o nome da imagem
             p.save();
             
-            return redirect(routes.Administrador.listarParlamentar());
+            return redirect("/administrador"/*routes.Administrador.listarParlamentar()*/);
 
         } else {
             return badRequest(views.html.admin_criarParlamentar.render(filledForm));

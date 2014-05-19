@@ -1,0 +1,41 @@
+@(listaSessoes : List[models.Sessao])
+
+@import helper.twitterBootstrap._
+@import helper._
+
+@scripts = {
+}
+
+@breadcrumb = {
+    <li><a href="@routes.Administrador.index()">Administrador</a></li>
+    <li class="active">Listar Sessões</li>
+}
+
+@main(title = "Sessões", scripts = scripts, breadcrumb = breadcrumb) {
+
+    <table class="table table-bordered table-striped">
+        <tr> 
+            <th>ID</th>
+            <th>Data e Hora</th>
+            <th>Descrição</th>
+            <th>Ata</th>
+            <th>Caráter</th>
+            <th>Presidente</th>
+            <th colspan="2">Opções</th>
+        </tr>
+        @for(s <- listaSessoes){
+            <tr>
+                <td>@s.id</td>
+                <td>@s.data_hora</td>
+                <td>@s.descricao</td>
+                <td>@s.ata</td>
+                <td>@s.carater</td>
+                <td>@s.presidente</td>
+                <td><a href="">Editar</a></td>
+                <td><a href="@routes.Sessao.doAdminRemoverSessao(s.id)">Excluir</a></td>
+            </tr>
+        }
+
+    </table>
+
+}

@@ -53,7 +53,17 @@ public class Administrador extends Controller {
         }
     }
 
+    public static Result criarParlamentar(){
+        return controllers.Parlamentar.adminCriarParlamentar();
+    }
     
+    public static Result listarParlamentar(){
+        return controllers.Parlamentar.adminListarParlamentar();
+    }
+    
+    public static Result editarParlamentar(Long id){
+        return controllers.Parlamentar.adminEditarParlamentar(models.Parlamentar.find.byId(id));
+    }
     
     
     public static Result criarProcesso(){
@@ -102,38 +112,5 @@ public class Administrador extends Controller {
     }
     //return null;
     }
-
-        
-    public static Result sessoes() {
-        return ok(views.html.criarSessao.render(Sessao.all(), sessaoForm));
-    }
-
-    public static Result criarSessao() {
-        Form<models.Sessao> cadastroForm = sessaoForm.bindFromRequest();
-        if(cadastroForm.hasErrors()) {
-            return badRequest(views.html.criarSessao.render(Sessao.all(), cadastroForm));
-        } else {
-            Sessao.create(cadastroForm.get());
-            return redirect(routes.Administrador.sessoes());
-        }
-    }
-
-    public static Result excluirSessao(Long id) {
-        Sessao.delete(id);
-        return redirect(routes.Administrador.sessoes());
-    }
-    */
-    
-    public static Result criarParlamentar(){
-        return controllers.Parlamentar.adminCriarParlamentar();
-    }
-    
-    public static Result listarParlamentar(){
-        return controllers.Parlamentar.adminListarParlamentar();
-    }
-    
-    public static Result editarParlamentar(Long id){
-        return controllers.Parlamentar.adminEditarParlamentar(models.Parlamentar.find.byId(id));
-    }
-    
+   */
 }
