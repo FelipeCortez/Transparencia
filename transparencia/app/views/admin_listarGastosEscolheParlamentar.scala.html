@@ -1,0 +1,40 @@
+@(listaParlamentares : List[models.Parlamentar])
+
+@import helper.twitterBootstrap._
+@import helper._
+
+@scripts = {
+}
+
+@breadcrumb = {
+    <li><a href="@routes.Administrador.index()">Administrador</a></li>
+    <li class="active">Escolha um parlamentar</li>
+}
+
+@main(title = "Escolher Parlamentar", scripts = scripts, breadcrumb = breadcrumb) {
+
+    <table class="table table-bordered table-striped">
+        <tr> 
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Partido</th>
+            <th>Formação</th>
+            <th>Cidade</th>
+            <th>Gabinete</th>
+            <th>Opções</th>
+        </tr>
+        @for(p <- listaParlamentares){
+            <tr>
+                <td>@p.id</td>
+                <td>@p.nome</td>
+                <td>@p.partido</td>
+                <td>@p.formacao</td>
+                <td>@p.cidade</td>
+                <td>@p.gabinete</td>
+                <td><a href="@routes.Administrador.listarGastosParlamentar(p.id)">Gastos</a></td>
+            </tr>
+        }
+
+    </table>
+
+}

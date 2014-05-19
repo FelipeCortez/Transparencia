@@ -1,0 +1,47 @@
+@(listaGastos : List[models.Gastos], parlamentar: models.Parlamentar)
+
+@import helper.twitterBootstrap._
+@import helper._
+
+@scripts = {
+}
+
+@breadcrumb = {
+    <li><a href="@routes.Administrador.index()">Administrador</a></li>
+    <li><a href="@routes.Administrador.listarGastosEscolherParlamentar()">Escolha um parlamentar</a></li>
+	
+    <li class="active">Gastos de @parlamentar.nome</li>
+}
+
+@main(title = "Parlamentares", scripts = scripts, breadcrumb = breadcrumb) {
+
+    <table class="table table-bordered table-striped">
+        <tr> 
+            <th>ID</th>
+            <th>Valor</th>
+            <th>Justificativa</th>
+            <th>Documento</th>
+            <th>Descrição</th>
+            <th>Data</th>
+	    <th>Lei</th>
+	    <th>Origem do Dinheiro</th>
+            <th colspan="2">Opções</th>
+        </tr>
+        @for(g <- listaGastos){
+            <tr>
+                <td>@g.id</td>
+                <td>@g.valor</td>
+                <td>@g.justificativa</td>
+                <td><a href="#">Download</a></td>
+                <td>@g.descricao</td>
+                <td>@g.data</td>
+		<td>@g.lei</td>
+		<td>@g.origemDoDinheiro</td>
+                <td><a href="@routes.Administrador.editarParlamentar(g.id)">Editar</a></td>
+                <td><a href="@routes.Gastos.doAdminRemoverGasto(g.id, parlamentar.id)">Excluir</a></td>
+            </tr>
+        }
+
+    </table>
+
+}

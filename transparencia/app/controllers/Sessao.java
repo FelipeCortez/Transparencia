@@ -29,7 +29,7 @@ public class Sessao extends Controller {
         } else {
             models.Sessao s = cadastroForm.get();
             s.save();
-            return redirect("/administrador/parlamentares"/*routes.Administrador.listarSessao()*/);
+            return redirect(routes.Administrador.listarSessao());
         }
     }
 
@@ -39,11 +39,11 @@ public class Sessao extends Controller {
 
     public static Result doAdminRemoverSessao(Long id){
         models.Sessao.find.ref(id).delete();
-        return redirect("/administrador/parlamentares"/*routes.Administrador.listarSessao()*/);
+        return redirect(routes.Administrador.listarSessao());
     }
     
-    public static Result adminEditarSessao(models.Sessao p){
+    public static Result adminEditarSessao(models.Sessao s){
         
-        return ok(views.html.admin_listarSessao.render(models.Sessao.find.all())/*admin_editarSessao.render(sessaoForm.fill(p),p)*/);
+        return ok(views.html.admin_editarSessao.render(sessaoForm.fill(s),s));
     }
 }

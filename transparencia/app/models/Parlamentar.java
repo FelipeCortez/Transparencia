@@ -4,12 +4,13 @@ import java.util.*;
 import javax.persistence.*;
 
 import play.db.ebean.*;
-//import play.data.format.*;
-//import play.data.validation.*;
+import play.data.format.*;
+import play.data.validation.*;
 import play.data.validation.Constraints.*;
 
 @Entity
 public class Parlamentar extends Model {
+
 
 	@Id
     public Long id;
@@ -41,7 +42,11 @@ public class Parlamentar extends Model {
     public String biografia;
     
     @OneToMany(cascade=CascadeType.ALL)
-    List<models.Processo> processos;
+    public List<models.Processo> processos;
+
+	
+    @OneToMany(cascade=CascadeType.ALL)
+    public List<models.Gastos> gastos;
 
     public static Finder<Long,models.Parlamentar> find = new Finder<Long,models.Parlamentar>(Long.class, models.Parlamentar.class);
 }

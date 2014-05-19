@@ -19,8 +19,8 @@ GET     /administrador/parlamentar/doRemover/:id    controllers.Parlamentar.doAd
 
 GET     /administrador/sessao/criar                 controllers.Administrador.criarSessao()
 POST    /administrador/sessao/doCriar               controllers.Sessao.doAdminCriarSessao()
-#GET		/administrador/sessao/listar				controllers.Administrador.listarSessao()
-#GET     /administrador/sessao/editar/:id       		controllers.Administrador.editarSessao(id: Long)
+GET		/administrador/sessao/listar				controllers.Administrador.listarSessao()
+GET     /administrador/sessao/editar/:id       		controllers.Administrador.editarSessao(id: Long)
 GET     /administrador/sessao/doRemover/:id    		controllers.Sessao.doAdminRemoverSessao(id: Long)
 
 GET     /administrador/processo/criar               controllers.Administrador.criarProcesso()
@@ -31,6 +31,10 @@ POST    /administrador/processo/doCriar             controllers.Processo.doAdmin
 
 GET		/administrador/gastos/criar		    		controllers.Administrador.criarGastos()
 POST    /administrador/gastos/doCriar               controllers.Gastos.doAdminCriarGastos()
+GET     /administrador/gastos/listarParlamentar     controllers.Administrador.listarGastosEscolherParlamentar()
+GET     /administrador/gastos/listarParlamentar/TabelaDeGastos     controllers.Administrador.listarGastosParlamentar(id: Long)
+GET     /administrador/gastos/doRemover   			controllers.Gastos.doAdminRemoverGasto(idg: Long, idP: Long)
+
 
 #APP ROUTES
 #GET     /parlamentar/:id                           controllers.Application.verParlamentar(id: Long)
