@@ -1,0 +1,100 @@
+@(processoForm: Form[models.Processo], processo : models.Processo )
+
+@import helper.twitterBootstrap._
+@import helper._
+
+@implicitField = @{ FieldConstructor(customFieldConstructor1.f) }
+
+@scripts = {
+    <link rel="stylesheet" href="@routes.Assets.at("style/datepicker.css")">
+    <script src="@routes.Assets.at("js/bootstrap-datepicker.pt.js")"></script>
+    <script src="@routes.Assets.at("js/bootstrap-datepicker.js")"></script>
+}
+
+@breadcrumb = {
+    <li><a href="@routes.Administrador.index">Administrador</a></li>
+    <li class="active">Editar processo</li>
+}
+
+@main(title = "Adicionar Processo", scripts = scripts, breadcrumb = breadcrumb) {
+
+    <h2 class="info-header">Editar Processo</h2>
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            @form(routes.Processo.doAdminAtualizarProcesso(), 'role ->"form", 'enctype -> "multipart/form-data") {
+            
+                <div class="row">
+                    
+                    <div class="col-xs-6">
+                        @input(processoForm("descricao"), '_label -> "Descrição", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <textarea rows="6" class="form-control" name="@name" placeholder="Descrição" id="@id">@value</textarea>
+                        }
+                    </div>
+
+			     	<div class="col-xs-6">
+                        @input(processoForm("acusacoes"), '_label -> "Acusações", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <textarea rows="6" class="form-control" name="@name" placeholder="Acusações" id="@id">@value</textarea>
+                        }
+                    </div>
+                    
+                </div>
+            
+                <div class="row">
+                    
+                    <div class="col-xs-6">
+                            
+                        <div class="form-group">
+                            <label for="processo">Arquivo do Processo</label>
+                            <input type="file" name="processo" id="processo" class="form-control">
+                            <span class="help">Requerido</span>
+                        </div>
+                          
+  					</div>        
+			
+					<div class="col-xs-6">
+                        @input(processoForm("status"), '_label -> "Status", '_help -> "Requerido"){ (id, name, value, args) =>
+                            <select name="@name" id="@id" class="form-control" placeholder="Status" @toHtmlArgs(args)>
+							<option selected>Selecione uma opção</option>				
+							<option>Arquivado</option>
+							<option>Em andamento</option>				
+							<option>Cadastrado</option>
+				
+							</select>
+                        }
+              		</div>
+                
+                </div>
+                
+           	 	<div class="row">
+            	
+	            	<div class="col-xs-6">
+	                         @input(processoForm("defesa"), '_label -> "Defesa", '_help -> "Requerido"){ (id, name, value, args) =>
+	                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Defesa" required value="@value" @toHtmlArgs(args)>
+	                        }  
+                    </div>
+                	
+                	<div class="col-xs-6">
+	                         @input(processoForm("textoDefesa"), '_label -> "Texto da Defesa", '_help -> "Requerido"){ (id, name, value, args) =>
+	                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Texto da Defesa" required value="@value" @toHtmlArgs(args)>
+	                        }  
+                    </div>
+                	
+                	<div class="col-xs-6">
+	                         @input(processoForm("orgaoDeInvestigacao"), '_label -> "Orgão de Investigação", '_help -> "Requerido"){ (id, name, value, args) =>
+	                            <input type="text" name="@name" id="@id" class="form-control" placeholder="Orgão de Investigação" required value="@value" @toHtmlArgs(args)>
+	                        }  
+                    </div>
+                
+                </div>
+                
+                
+                <input type="submit" value="Editar Processo" class="btn btn-default" />
+
+            }
+            
+        </div>
+    </div>
+
+}

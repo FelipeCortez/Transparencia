@@ -25,9 +25,10 @@ GET     /administrador/sessao/doRemover/:id    		controllers.Sessao.doAdminRemov
 
 GET     /administrador/processo/criar               controllers.Administrador.criarProcesso()
 POST    /administrador/processo/doCriar             controllers.Processo.doAdminCriarProcesso()
-#GET    /administrador/processo/listar             	controllers.Administrador.listarProcesso(id: Long)
-#GET    /administrador/processo/editar/:id         	controllers.Administrador.editarParlamentar(id: Long)
-#POST   /administrador/processo/remover/:id        	controllers.Administrador.excluirSessao(id: Long)
+GET    /administrador/processo/listar             	controllers.Administrador.listarProcesso()
+GET    /administrador/processo/editar/:id         	controllers.Administrador.editarProcesso(id: Long)
+POST   /administrador/processo/atualizar            controllers.Processo.doAdminAtualizarProcesso()
+GET   /administrador/processo/doRemover/:id        	controllers.Processo.doAdminRemoverProcesso(id: Long)
 
 GET		/administrador/gastos/criar		    		controllers.Administrador.criarGastos()
 POST    /administrador/gastos/doCriar               controllers.Gastos.doAdminCriarGastos()

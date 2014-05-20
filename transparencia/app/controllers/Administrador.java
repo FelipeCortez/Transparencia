@@ -67,10 +67,16 @@ public class Administrador extends Controller {
     
     
     public static Result criarProcesso(){
-        return controllers.Processo.adminCriarProcesso();
+        return controllers.Processo.adminCriarProcesso(models.Parlamentar.find.all());
     }
     
+    public static Result listarProcesso(){
+        return controllers.Processo.adminListarProcesso();
+    }
     
+    public static Result editarProcesso(Long id){
+        return controllers.Processo.adminEditarProcesso(models.Processo.find.byId(id));
+    }
     
     public static Result criarSessao(){
         return controllers.Sessao.adminCriarSessao();
@@ -96,35 +102,5 @@ public class Administrador extends Controller {
     }
     
 
-    /*public static Result criarProcesso() {
-        Form<models.Processo> filledForm = criarProcessoForm.bindFromRequest();
-        MultipartFormData body = request().body().asMultipartFormData();
-        FilePart process = body.getFile("processo");
-
-    if (process != null && !filledForm.hasErrors()) {
-
-        String fileName = process.getFilename();
-        //String contentType = process.getContentType();
-        //File file = process.getFile();
-        File newFile = null;
-        // Imagem vai pro server
-        try{
-            newFile = File.createTempFile("proc_", fileName.replaceAll("[ -+^:,]",""), new File("public/process/upload/"));
-        }catch(Exception e){
-            return badRequest(views.html.criarProcesso.render(criarProcessoForm));
-        }
-
-        models.Processo p = filledForm.get();
-        p.processo = newFile.getName();
-        p.save();
-
-        return redirect(routes.Administrador.index());
-
-    } else {
-        return badRequest(views.html.criarProcesso.render(criarProcessoForm));
-    }
-    //return null;
-    }
-   */
     
 }

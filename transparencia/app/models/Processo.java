@@ -3,6 +3,7 @@ package models;
 //import java.io.File;
 
 import java.util.*;
+
 import javax.persistence.*;
 
 import play.db.ebean.*;
@@ -42,5 +43,19 @@ public class Processo extends Model {
     models.Parlamentar parlamentar;
     
 	public static Finder<Long,models.Processo> find = new Finder<Long,models.Processo>(Long.class, models.Processo.class);
+	
+	public static List<Processo> all() {
+    	return find.all();
+    }
+
+    public static void create(Processo p) {
+    	p.save();
+    	//p.
+    }
+
+    public static void delete(Long id) {
+    	find.ref(id).delete();
+    }
+	
 	
 }

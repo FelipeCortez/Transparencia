@@ -99,7 +99,7 @@
                     
                     <div class="col-xs-12">
                         @input(parlamentarForm("biografia"), '_label -> "Biografia", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <textarea rows="6" class="form-control" name="@name" placeholder="Biografia" required value="@value" id="@id"></textarea>
+                            <textarea rows="6" class="form-control" name="@name" placeholder="Biografia" required value="@value" id="@id">@value</textarea>
                         }
                     </div>
                     

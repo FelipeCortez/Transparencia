@@ -11,7 +11,7 @@
     <script src="@routes.Assets.at("js/bootstrap.min.js")"></script>
     <script src="@routes.Assets.at("js/bootstrap-datepicker.js")"></script>
 
-    <script type="text/javascript">
+        <script type="text/javascript">
         $(".close").alert();
     </script>
 
@@ -31,7 +31,7 @@
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             @if(criarParlamentarForm.errors.size() > 0) {
                 @for((key, value) <- criarParlamentarForm.errors) {
-                    Problema no campo key.toString()               
+                    Problema no campo @key.toString()               
                 }
             }
         </div>
