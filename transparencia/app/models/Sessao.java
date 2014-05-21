@@ -15,6 +15,7 @@ public class Sessao extends Model{
 	public Long id;
 
     @Required
+    @Formats.DateTime(pattern= "dd/MM/yyyy")
     public Date data_hora; /* Aqui deve ser um tipo simultaneo para data e hora. Nao tenho certeza se da certo! */
 
     @Required
