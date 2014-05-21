@@ -32,7 +32,7 @@ public class Processo extends Controller {
          }
          else {
              models.Processo.create(cadastroForm.get());
-             return redirect(routes.Administrador.index());
+             return redirect(routes.Administrador.listarProcesso());
          }  
     }
     
@@ -41,7 +41,7 @@ public class Processo extends Controller {
     }
     
     public static Result adminEditarProcesso(models.Processo p){   
-        return ok(views.html.admin_editarProcesso.render(processoForm.fill(p), p));
+        return ok(views.html.admin_editarProcesso.render(processoForm.fill(p), p, p.id));
     }
     
     /*public static Result adminListarProcessoEscolherParlamentar(){
@@ -56,13 +56,21 @@ public class Processo extends Controller {
     	return ok(views.html.admin_processosParlamentar.render(p.processos, p));
     }*/
     
-    public static Result doAdminRemoverProcesso(Long idg){
-        models.Processo.find.ref(idg).delete();
-        return redirect(routes.Administrador.index());
+    public static Result doAdminRemoverProcesso(Long idp){
+        models.Processo.find.ref(idp).delete();
+        return redirect(routes.Administrador.listarProcesso());
     }
 
-    public static Result doAdminAtualizarProcesso(){
-        // Code
-        return ok("Falta terminar!");
+    public static Result doAdminAtualizarProcesso(Long idp){
+    	Form<models.Processo> atualizarForm = processoForm.bindFromRequest();
+        
+    	if(atualizarForm.hasErrors()){
+    		return ok(atualizarForm.errors().toString());
+    	}
+    	else{
+    		atualizarForm.get().update(idp);
+    		return redirect(routes.Administrador.listarProcesso());
+    	}
+    	//return redirect(routes.Administrador.listarProcesso()); 
     }
 }

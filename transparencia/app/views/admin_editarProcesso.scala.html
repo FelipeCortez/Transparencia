@@ -1,4 +1,4 @@
-@(processoForm: Form[models.Processo], processo : models.Processo )
+@(processoForm: Form[models.Processo], processo: models.Processo, processo_id: Long )
 
 @import helper.twitterBootstrap._
 @import helper._
@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-xs-12">
 
-            @form(routes.Processo.doAdminAtualizarProcesso(), 'role ->"form", 'enctype -> "multipart/form-data") {
+            @form(routes.Processo.doAdminAtualizarProcesso(processo_id), 'role ->"form", 'enctype -> "multipart/form-data") {
             
                 <div class="row">
                     
@@ -56,7 +56,7 @@
 					<div class="col-xs-6">
                         @input(processoForm("status"), '_label -> "Status", '_help -> "Requerido"){ (id, name, value, args) =>
                             <select name="@name" id="@id" class="form-control" placeholder="Status" @toHtmlArgs(args)>
-							<option selected>Selecione uma opção</option>				
+							<option selected>@value</option>				
 							<option>Arquivado</option>
 							<option>Em andamento</option>				
 							<option>Cadastrado</option>
