@@ -11,7 +11,6 @@ import play.data.validation.Constraints.*;
 @Entity
 public class Parlamentar extends Model {
 
-
 	@Id
     public Long id;
 
@@ -43,10 +42,25 @@ public class Parlamentar extends Model {
     
     @OneToMany(mappedBy = "parlamentar")
     public List<models.Processo> processos;
-
 	
     @OneToMany(cascade=CascadeType.ALL)
     public List<models.Gastos> gastos;
 
     public static Finder<Long,models.Parlamentar> find = new Finder<Long,models.Parlamentar>(Long.class, models.Parlamentar.class);
+
+    public Parlamentar(String n, Date dataNasc, String part, String form, String cid, String gab, float sal, String bio) {
+        nome = n;
+        dataNascimento = dataNasc;
+        partido = part;
+        formacao = form;
+        cidade = cid;
+        gabinete = gab;
+        salario = sal;
+        biografia = bio;
+    }
+
+    public static Parlamentar authenticate(String nome, String gab) {
+        return find.where().eq("nome", nome)
+            .eq("gabinete", gab).findUnique();
+    }
 }
