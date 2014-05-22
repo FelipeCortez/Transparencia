@@ -85,8 +85,8 @@ public class Administrador extends Controller {
     public static Result listarSessao(){
         return controllers.Sessao.adminListarSessao();
     }
-    public static Result editarSessao(Long id){
-        return controllers.Sessao.adminEditarSessao(models.Sessao.find.byId(id));
+    public static Result editarSessao(String data_hora){
+        return controllers.Sessao.adminEditarSessao(data_hora);
     }
 
     public static Result criarGastos(){
@@ -99,8 +99,5 @@ public class Administrador extends Controller {
     
 	public static Result listarGastosParlamentar(Long id){
         return controllers.Gastos.adminListarGastosParlamentar(models.Parlamentar.find.byId(id));
-    }
-    
-
-    
+    }    
 }

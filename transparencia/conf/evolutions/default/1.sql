@@ -51,13 +51,12 @@ create table processo (
 ;
 
 create table sessao (
-  id                        bigint auto_increment not null,
-  data_hora                 datetime,
+  data_hora                 datetime not null,
   descricao                 varchar(255),
   ata                       varchar(255),
   carater                   varchar(255),
   presidente                varchar(255),
-  constraint pk_sessao primary key (id))
+  constraint pk_sessao primary key (data_hora))
 ;
 
 alter table gastos add constraint fk_gastos_parlamentar_1 foreign key (parlamentar_id) references parlamentar (id) on delete restrict on update restrict;

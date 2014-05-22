@@ -8,15 +8,13 @@ import play.data.format.*;
 import play.data.validation.*;
 import play.data.validation.Constraints.*;
 
+
 @Entity
-public class Sessao extends Model{
+public class Sessao extends Model {
 
-	@Id /* CHAVE PRIMARIA TEMPORARIA */
-	public Long id;
-
-    @Required
-    @Formats.DateTime(pattern= "dd/MM/yyyy")
-    public Date data_hora; /* Aqui deve ser um tipo simultaneo para data e hora. Nao tenho certeza se da certo! */
+    @Id
+    @Formats.DateTime(pattern= "dd/MM/yyyy hh:mm")
+    public Date data_hora; /* Tipo simultaneo para data e horario */
 
     @Required
     public String descricao;
@@ -30,5 +28,5 @@ public class Sessao extends Model{
     @Required
     public String presidente;
 
-    public static Finder<Long,Sessao> find = new Finder<Long,Sessao>(Long.class, Sessao.class);
+    public static Finder<Date,Sessao> find = new Finder<Date,Sessao>(Date.class, Sessao.class);
 }
