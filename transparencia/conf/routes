@@ -27,7 +27,7 @@ GET     /administrador/processo/criar               controllers.Administrador.cr
 POST    /administrador/processo/doCriar             controllers.Processo.doAdminCriarProcesso()
 GET    /administrador/processo/listar             	controllers.Administrador.listarProcesso()
 GET    /administrador/processo/editar/:id         	controllers.Administrador.editarProcesso(id: Long)
-POST   /administrador/processo/atualizar            controllers.Processo.doAdminAtualizarProcesso()
+GET   /administrador/processo/atualizar/:id        	controllers.Processo.doAdminAtualizarProcesso(id: Long)
 GET   /administrador/processo/doRemover/:id        	controllers.Processo.doAdminRemoverProcesso(id: Long)
 
 GET		/administrador/gastos/criar		    		controllers.Administrador.criarGastos()
