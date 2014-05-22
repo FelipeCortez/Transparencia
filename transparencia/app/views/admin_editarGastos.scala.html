@@ -1,0 +1,123 @@
+@(gastosForm : Form[models.Gastos], gastos : models.Gastos)
+
+@import helper.twitterBootstrap._
+@import helper._
+
+@implicitField = @{ FieldConstructor(customFieldConstructor1.f) }
+
+@scripts = {
+    <link rel="stylesheet" href="@routes.Assets.at("style/datepicker.css")">
+    <script src="@routes.Assets.at("js/bootstrap-datepicker.pt.js")"></script>
+    <script src="@routes.Assets.at("js/bootstrap-datepicker.js")"></script>
+}
+
+@breadcrumb = {
+    <li><a href="@routes.Administrador.index()">Administrador</a></li>
+    <li class="active">Editar Gasto de @gastos.parlamentar.nome </li>
+}
+
+@main(title = "Editar Gastos", scripts = scripts, breadcrumb = breadcrumb) {
+
+    <h2 class="info-header">Edição de Gastos</h2>
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            @form(routes.Gastos.doAdminAtualizarGastos(gastos.id, gastos.parlamentar.id), 'role ->"form", 'enctype -> "multipart/form-data" ) {
+            
+            <div class="row">
+                    
+                    
+                    <div class="col-xs-6">
+
+                         @input(gastosForm("valor"), '_label -> "Valor", '_help -> "Requerido"){ (id, name, value, args) =>
+				<div class="input-group">
+				<span class="input-group-addon">R$</span>
+                                                     
+				<input type="text" name="@name" id="@id" class="form-control" placeholder="Valor" required value="@value" @toHtmlArgs(args)>
+				</div>
+                        } 
+                            
+                    </div>
+                    
+                    <div class="col-xs-6">
+                         
+                         @input(gastosForm("justificativa"), '_label -> "Justificativa", '_help -> "Requerido"){ (id, name, value, args) =>
+				                    
+				<input type="text" name="@name" id="@id" class="form-control" placeholder="Justificativa" required value="@value" @toHtmlArgs(args)>
+				
+                        }
+                    </div>
+                    
+                </div>	
+		<div class="row">
+                    
+                    <div class="col-xs-6">
+
+                         
+                        <div class="form-group">
+                            <label for="documentoProva">Documento comprobatório</label>
+                            <input type="file" name="documentoProva" id="documentoProva" required class="form-control">
+                            <span class="help">Requerido</span>
+                        </div>
+                            
+                            
+                    </div>
+                    
+                    <div class="col-xs-6">
+                         
+                         @input(gastosForm("descricao"), '_label -> "Descricao Curta", '_help -> "Requerido"){ (id, name, value, args) =>
+				                    
+				<input type="text" name="@name" id="@id" class="form-control" placeholder="descricao" required value="@value" @toHtmlArgs(args)>
+				
+                        }
+                    </div>
+                    
+                </div>
+	
+		<div class="row">
+                    
+                    <div class="col-xs-6">
+
+                         @input(gastosForm("data"), '_label -> "Data", '_help -> "Requerido"){ (id, name, value, args) =>
+				                    
+				<input type="text" name="@name" id="@id" class="form-control" placeholder="yyyy-MM-dd" required value="@value" @toHtmlArgs(args)>
+				
+                        }
+                            
+                            
+                    </div>
+                    
+                    <div class="col-xs-6">
+                         
+                         @input(gastosForm("lei"), '_label -> "Lei", '_help -> "Requerido"){ (id, name, value, args) =>
+				                    
+				<input type="text" name="@name" id="@id" class="form-control" placeholder="Lei que assegura o gasto" required value="@value" @toHtmlArgs(args)>
+				
+                        }
+                    </div>
+                    
+                </div>		
+<div class="row">
+                    
+                    <div class="col-xs-6">
+
+                         @input(gastosForm("origemDoDinheiro"), '_label -> "Origem do Dinheiro", '_help -> "Requerido"){ (id, name, value, args) =>
+				                    
+				<input type="text" name="@name" id="@id" class="form-control" placeholder="Origem do dinheiro" required value="@value" @toHtmlArgs(args)>
+				
+                        }
+                            
+                            
+                    </div>
+                    
+                </div>
+
+                <input type="submit" value="Atualizar Parlamentar" class="btn btn-default" />
+
+            }
+            
+        </div>
+    </div>
+
+}

@@ -100,4 +100,8 @@ public class Administrador extends Controller {
 	public static Result listarGastosParlamentar(Long id){
         return controllers.Gastos.adminListarGastosParlamentar(models.Parlamentar.find.byId(id));
     }    
+
+	public static Result editarGastos(Long id){
+		return controllers.Gastos.adminEditarGasto(models.Gastos.find.byId(id));
+	}
 }

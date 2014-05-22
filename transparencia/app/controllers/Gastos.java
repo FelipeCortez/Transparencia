@@ -47,8 +47,21 @@ public class Gastos extends Controller {
         models.Gastos.find.ref(idg).delete();
         return redirect(routes.Administrador.listarGastosParlamentar(idP));
     }
-    
-
+    public static Result adminEditarGasto(models.Gastos g){
+		
+        return ok(views.html.admin_editarGastos.render(gastosForm.fill(g),g));
+	}
+     public static Result doAdminAtualizarGastos(Long id, Long idp){
+	Form<models.Gastos> atualizarForm = gastosForm.bindFromRequest();
+        
+    	if(atualizarForm.hasErrors()){
+    		return ok(atualizarForm.errors().toString());
+    	}
+    	else{
+    		atualizarForm.get().update(id);
+    		return redirect(routes.Administrador.listarGastosParlamentar(idp));
+    	}
+	}
    
     
 }

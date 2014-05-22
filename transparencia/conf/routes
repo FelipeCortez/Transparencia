@@ -35,6 +35,8 @@ POST    /administrador/gastos/doCriar               controllers.Gastos.doAdminCr
 GET     /administrador/gastos/listarParlamentar     controllers.Administrador.listarGastosEscolherParlamentar()
 GET     /administrador/gastos/listarParlamentar/TabelaDeGastos     controllers.Administrador.listarGastosParlamentar(id: Long)
 GET     /administrador/gastos/doRemover   			controllers.Gastos.doAdminRemoverGasto(idg: Long, idP: Long)
+GET    /administrador/gastos/editar/:id         	controllers.Administrador.editarGastos(id: Long)
+GET   /administrador/gastos/atualizar/:id/:idp      	controllers.Gastos.doAdminAtualizarGastos(id: Long, idp: Long)
 
 
 #APP ROUTES
