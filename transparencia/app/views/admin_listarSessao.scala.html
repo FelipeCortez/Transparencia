@@ -15,7 +15,6 @@
 
     <table class="table table-bordered table-striped">
         <tr> 
-            <th>ID</th>
             <th>Data e Hora</th>
             <th>Descrição</th>
             <th>Ata</th>
@@ -24,15 +23,15 @@
             <th colspan="2">Opções</th>
         </tr>
         @for(s <- listaSessoes){
+            
             <tr>
-                <td>@s.id</td>
                 <td>@s.data_hora</td>
                 <td>@s.descricao</td>
                 <td>@s.ata</td>
                 <td>@s.carater</td>
                 <td>@s.presidente</td>
-                <td><a href="@routes.Administrador.editarSessao(s.id)">Editar</a></td>
-                <td><a href="@routes.Sessao.doAdminRemoverSessao(s.id)">Excluir</a></td>
+                <td><a href="@routes.Administrador.editarSessao(s.data_hora.toString())">Editar</a></td>
+                <td><a href="@routes.Sessao.doAdminRemoverSessao(s.data_hora.toString())">Excluir</a></td>
             </tr>
         }
 

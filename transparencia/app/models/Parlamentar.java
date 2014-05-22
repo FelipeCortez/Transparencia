@@ -11,7 +11,6 @@ import play.data.validation.Constraints.*;
 @Entity
 public class Parlamentar extends Model {
 
-
 	@Id
     public Long id;
 
@@ -49,6 +48,7 @@ public class Parlamentar extends Model {
 
     public static Finder<Long,models.Parlamentar> find = new Finder<Long,models.Parlamentar>(Long.class, models.Parlamentar.class);
 
+<<<<<<< HEAD
     public static Map<String,String> options() {
         LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
         for(Parlamentar p: Parlamentar.find.orderBy("nome").findList()) {
@@ -58,3 +58,21 @@ public class Parlamentar extends Model {
     }
 
 }
+=======
+    public Parlamentar(String n, Date dataNasc, String part, String form, String cid, String gab, float sal, String bio) {
+        nome = n;
+        dataNascimento = dataNasc;
+        partido = part;
+        formacao = form;
+        cidade = cid;
+        gabinete = gab;
+        salario = sal;
+        biografia = bio;
+    }
+
+    public static Parlamentar authenticate(String nome, String gab) {
+        return find.where().eq("nome", nome)
+            .eq("gabinete", gab).findUnique();
+    }
+}
+>>>>>>> 20240a7283ec7de3ee014fdde010dc5a24ab3bfd

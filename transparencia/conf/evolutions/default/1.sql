@@ -46,26 +46,35 @@ create table processo (
   defesa                    varchar(255),
   texto_defesa              varchar(255),
   orgao_de_investigacao     varchar(255),
-  parm_id                   bigint,
+  parlamentar_id            bigint,
   constraint pk_processo primary key (id))
 ;
 
 create table sessao (
-  id                        bigint auto_increment not null,
-  data_hora                 datetime,
+  data_hora                 datetime not null,
   descricao                 varchar(255),
   ata                       varchar(255),
   carater                   varchar(255),
   presidente                varchar(255),
-  constraint pk_sessao primary key (id))
+  constraint pk_sessao primary key (data_hora))
 ;
 
+
+create table sessao_parlamentar (
+  sessao_data_hora               datetime not null,
+  parlamentar_id                 bigint not null,
+  constraint pk_sessao_parlamentar primary key (sessao_data_hora, parlamentar_id))
+;
 alter table gastos add constraint fk_gastos_parlamentar_1 foreign key (parlamentar_id) references parlamentar (id) on delete restrict on update restrict;
 create index ix_gastos_parlamentar_1 on gastos (parlamentar_id);
-alter table processo add constraint fk_processo_parlamentar_2 foreign key (parm_id) references parlamentar (id) on delete restrict on update restrict;
-create index ix_processo_parlamentar_2 on processo (parm_id);
+alter table processo add constraint fk_processo_parlamentar_2 foreign key (parlamentar_id) references parlamentar (id) on delete restrict on update restrict;
+create index ix_processo_parlamentar_2 on processo (parlamentar_id);
 
 
+
+alter table sessao_parlamentar add constraint fk_sessao_parlamentar_sessao_01 foreign key (sessao_data_hora) references sessao (data_hora) on delete restrict on update restrict;
+
+alter table sessao_parlamentar add constraint fk_sessao_parlamentar_parlamentar_02 foreign key (parlamentar_id) references parlamentar (id) on delete restrict on update restrict;
 
 # --- !Downs
 
@@ -80,6 +89,8 @@ drop table parlamentar;
 drop table processo;
 
 drop table sessao;
+
+drop table sessao_parlamentar;
 
 SET FOREIGN_KEY_CHECKS=1;
 

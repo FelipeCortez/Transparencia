@@ -20,8 +20,8 @@ GET     /administrador/parlamentar/doRemover/:id    controllers.Parlamentar.doAd
 GET     /administrador/sessao/criar                 controllers.Administrador.criarSessao()
 POST    /administrador/sessao/doCriar               controllers.Sessao.doAdminCriarSessao()
 GET		/administrador/sessao/listar				controllers.Administrador.listarSessao()
-GET     /administrador/sessao/editar/:id       		controllers.Administrador.editarSessao(id: Long)
-GET     /administrador/sessao/doRemover/:id    		controllers.Sessao.doAdminRemoverSessao(id: Long)
+GET     /administrador/sessao/editar/:data_hora       		controllers.Administrador.editarSessao(data_hora)
+GET     /administrador/sessao/doRemover/:data_hora   		controllers.Sessao.doAdminRemoverSessao(data_hora)
 
 GET     /administrador/processo/criar               controllers.Administrador.criarProcesso()
 POST    /administrador/processo/doCriar             controllers.Processo.doAdminCriarProcesso()
