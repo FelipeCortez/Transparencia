@@ -22,18 +22,8 @@
                     <div class="col-xs-6">
                          
 			
-			@input(gastosForm("parlamentar"), '_label -> "Selecione o parlamentar", '_help -> "Requerido"){ (id, name, value, args) =>
-               		<select name="@name" id="@id" class="form-control" placeholder="parlamentar_id" @toHtmlArgs(args)>
-				 
-				       @for(p <- listaParlamentares){
-					<option>
-						@p.nome	
-
-				        </option>		
-					}
-				   
-			    </select>
-                        }
+			@select(gastosForm("parlamentar.id"), options(models.Parlamentar.options), '_label -> "Selecione o parlamentar", '_help -> "Requerido")
+                        
                     </div>
                     
                     <div class="col-xs-6">

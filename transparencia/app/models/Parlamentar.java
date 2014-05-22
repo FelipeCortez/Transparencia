@@ -43,10 +43,18 @@ public class Parlamentar extends Model {
     
     @OneToMany(mappedBy = "parlamentar")
     public List<models.Processo> processos;
-
 	
     @OneToMany(cascade=CascadeType.ALL)
     public List<models.Gastos> gastos;
 
     public static Finder<Long,models.Parlamentar> find = new Finder<Long,models.Parlamentar>(Long.class, models.Parlamentar.class);
+
+    public static Map<String,String> options() {
+        LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
+        for(Parlamentar p: Parlamentar.find.orderBy("nome").findList()) {
+            options.put(p.id.toString(), p.nome);
+        }
+        return options;
+    }
+
 }

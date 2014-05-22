@@ -24,11 +24,12 @@ public class Gastos extends Controller {
     
     public static Result doAdminCriarGastos(){
          Form<models.Gastos> cadastroForm = gastosForm.bindFromRequest();
-        
+	        
+
         if(cadastroForm.hasErrors()) {
         
-             return ok(cadastroForm.errors().toString());
-           // return badRequest(views.html.admin_criarGastos.render(cadastroForm));
+           //return ok(cadastroForm.errors().toString());
+           return badRequest(views.html.admin_criarGastos.render(cadastroForm, models.Parlamentar.find.all()));
             
         }else {
             models.Gastos.create(cadastroForm.get());
