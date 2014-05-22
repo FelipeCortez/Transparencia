@@ -44,18 +44,6 @@ public class Processo extends Controller {
         return ok(views.html.admin_editarProcesso.render(processoForm.fill(p), p, p.id));
     }
     
-    /*public static Result adminListarProcessoEscolherParlamentar(){
-        return ok(views.html.admin_listarProcessosEscolheParlamentar.render(models.Parlamentar.find.all()));
-    }
-    
-    public static Result adminListarProcesso(){
-        return ok(views.html.admin_listarProcesso.render(models.Processo.find.all()));
-    }
-    
-    public static Result adminListarProcessoParlamentar(models.Parlamentar p){
-    	return ok(views.html.admin_processosParlamentar.render(p.processos, p));
-    }*/
-    
     public static Result doAdminRemoverProcesso(Long idp){
         models.Processo.find.ref(idp).delete();
         return redirect(routes.Administrador.listarProcesso());
@@ -71,6 +59,5 @@ public class Processo extends Controller {
     		atualizarForm.get().update(idp);
     		return redirect(routes.Administrador.listarProcesso());
     	}
-    	//return redirect(routes.Administrador.listarProcesso()); 
     }
 }

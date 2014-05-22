@@ -56,11 +56,9 @@
 					<div class="col-xs-6">
                         @input(processoForm("status"), '_label -> "Status", '_help -> "Requerido"){ (id, name, value, args) =>
                             <select name="@name" id="@id" class="form-control" placeholder="Status" @toHtmlArgs(args)>
-							<option selected>@value</option>				
-							<option>Arquivado</option>
-							<option>Em andamento</option>				
-							<option>Cadastrado</option>
-				
+							<option value="Arquivado" @if(processoForm("status").value=="Arquivado") { selected }>Arquivado</option>
+							<option value="Em andamento" @if(processoForm("status").value=="Em andamento") { selected }>Em andamento</option>
+							<option value="Cadastrado" @if(processoForm("status").value=="Cadastrado") { selected }>Cadastrado</option>
 							</select>
                         }
               		</div>
