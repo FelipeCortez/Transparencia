@@ -1,4 +1,4 @@
-@(criarSessaoForm: Form[models.Sessao])
+@(sessaoForm: Form[models.Sessao])
 
 @import helper.twitterBootstrap._
 @import helper._
@@ -26,15 +26,15 @@
 
     <h2 class="info-header">Inserir Sessão</h2>
 
-    @if(criarSessaoForm.hasErrors()) {
+    @if(sessaoForm.hasErrors()) {
         <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            @if(criarSessaoForm.errors.size() > 0) {
-                @for((key, value) <- criarSessaoForm.errors) {
+            @if(sessaoForm.errors.size() > 0) {
+                @for((key, value) <- sessaoForm.errors) {
                     Problema no campo key.toString()               
-           	}
+           	    }
 	    }
-	</div>
+	   </div>
     }
 
     <div class="row">
@@ -42,51 +42,60 @@
 
             @form(routes.Sessao.doAdminCriarSessao(), 'role ->"form", 'enctype -> "multipart/form-data" ) {
             
-                <div class="row">
-                    
-                    <div class="col-xs-6">
-                         @input(criarSessaoForm("data_hora"), '_label -> "Data e horário", '_help -> "Id"){ (id, name, value, args) =>
+            <div class="row">
+                <div class="col-xs-4">        
+                    @input(sessaoForm("data_hora"), '_label -> "Data e horário", '_help -> "Id"){ (id, name, value, args) =>
                            <input type="date" name="@name" id="@id" class="form-control" placeholder="dd/MM/aaaa hh:mm" required value="@value" @toHtmlArgs(args)>
                         }  
-                    </div>
-                    
-                    <div class="col-xs-4">
-                        @input(criarSessaoForm("descricao"), '_label -> "Descrição", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Descrição" @toHtmlArgs(args)>
-                        }
-                    </div>
-		</div>
+                </div>
+                        
+                <div class="col-xs-4">
+                    @input(sessaoForm("descricao"), '_label -> "Descrição", '_help -> "Requerido"){ (id, name, value, args) =>
+                        <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Descrição" @toHtmlArgs(args)>
+                    }
+                </div>
+		    </div>
 		
-		<div class="row">
-                    <div class="col-xs-4">
-                        @input(criarSessaoForm("ata"), '_label -> "Ata", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Texto da Ata" @toHtmlArgs(args)>
-                        }
-                    </div>
+		    <div class="row">
+                <div class="col-xs-4">
+                    @input(sessaoForm("ata"), '_label -> "Ata", '_help -> "Requerido"){ (id, name, value, args) =>
+                        <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Texto da Ata" @toHtmlArgs(args)>
+                    }
+                </div>
                     
-                    <div class="col-xs-4">
-                        @input(criarSessaoForm("carater"), '_label -> "Caráter", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Análise da Sessão" @toHtmlArgs(args)>
-                        }
-                    </div>
+                <div class="col-xs-4">
+                    @input(sessaoForm("carater"), '_label -> "Caráter", '_help -> "Requerido"){ (id, name, value, args) =>
+                        <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Análise da Sessão" @toHtmlArgs(args)>
+                    }
+                </div>
+                    
+            </div>
+            
+            <div class="row">
+                
+                <div class="col-xs-4">
+                    @input(sessaoForm("presidente"), '_label -> "Presidente", '_help -> "Requerido"){ (id, name, value, args) =>
+                        <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="Presidente" @toHtmlArgs(args)>
+                    }
+                </div>
+
+                <div class="col-xs-4">
+                        <h4> <b>Parlamentares Presentes</b> </h4>
+                        @for((pa, index) <- models.Parlamentar.find.all().zipWithIndex) {
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="parlamentares[@index].id" value="@pa.id">@pa.nome
+                          </label>
+                        </div>
+                      }
                     
                 </div>
-            
-                <div class="row">
-                    
-                    <div class="col-xs-4">
-                        @input(criarSessaoForm("presidente"), '_label -> "Presidente", '_help -> "Requerido"){ (id, name, value, args) =>
-                            <input type="text" name="@name" id="@id" class="form-control" value="@value" required placeholder="pres" @toHtmlArgs(args)>
-                        }
-                    </div>
-                </div>                    
-                    
-            
-                <input type="submit" value="Criar Sessão" class="btn btn-default" />
 
-            }
+            </div>                  
+        
+            <input type="submit" value="Criar Sessão" class="btn btn-default" />
+        }
             
         </div>
     </div>
-
 }

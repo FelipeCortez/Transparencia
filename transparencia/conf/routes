@@ -17,11 +17,13 @@ GET     /administrador/parlamentar/editar/:id       controllers.Administrador.ed
 POST    /administrador/parlamentar/atualizar        controllers.Parlamentar.doAdminAtualizarParlamentar()
 GET     /administrador/parlamentar/doRemover/:id    controllers.Parlamentar.doAdminRemoverParlamentar(id: Long)
 
-GET     /administrador/sessao/criar                 controllers.Administrador.criarSessao()
-POST    /administrador/sessao/doCriar               controllers.Sessao.doAdminCriarSessao()
-GET		/administrador/sessao/listar				controllers.Administrador.listarSessao()
-GET     /administrador/sessao/editar/:data_hora       		controllers.Administrador.editarSessao(data_hora)
-GET     /administrador/sessao/doRemover/:data_hora   		controllers.Sessao.doAdminRemoverSessao(data_hora)
+GET     /administrador/sessao/criar                 			controllers.Administrador.criarSessao()
+POST    /administrador/sessao/doCriar               			controllers.Sessao.doAdminCriarSessao()
+GET		/administrador/sessao/listar							controllers.Administrador.listarSessao()
+GET		/administrador/sessao/parlamentares/:data_hora			controllers.Administrador.verSessaoParlamentares(data_hora)
+GET     /administrador/sessao/editar/:data_hora     			controllers.Administrador.editarSessao(data_hora)
+GET		/administrador/sessao/atualizar/:data_hora				controllers.Sessao.doAdminAtualizarSessao(data_hora)
+GET     /administrador/sessao/doRemover/:data_hora  			controllers.Sessao.doAdminRemoverSessao(data_hora)
 
 GET     /administrador/processo/criar               controllers.Administrador.criarProcesso()
 POST    /administrador/processo/doCriar             controllers.Processo.doAdminCriarProcesso()

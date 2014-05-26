@@ -1,0 +1,38 @@
+@(parlamentares : List[models.Parlamentar])
+
+@import helper.twitterBootstrap._
+@import helper._
+
+@scripts = {
+}
+
+@breadcrumb = {
+    <li><a href="@routes.Administrador.index()">Administrador</a></li>
+    <li class="active">Listar Sessões</li>
+}
+
+@main(title = "Parlamentares Presentes na Sessão", scripts = scripts, breadcrumb = breadcrumb) {
+
+    <table class="table table-bordered table-striped">
+        <tr> 
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Partido</th>
+            <th>Formação</th>
+            <th>Cidade</th>
+            <th>Gabinete</th>
+        </tr>
+        @for(p <- parlamentares){
+            <tr>
+                <td>@p.id</td>
+                <td>@p.nome</td>
+                <td>@p.partido</td>
+                <td>@p.formacao</td>
+                <td>@p.cidade</td>
+                <td>@p.gabinete</td>
+            </tr>
+        }
+    
+    </table>
+
+}

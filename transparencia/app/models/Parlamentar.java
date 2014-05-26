@@ -40,13 +40,16 @@ public class Parlamentar extends Model {
     @Required
     public String biografia;
     
-    @OneToMany(mappedBy = "parlamentar")
+    @OneToMany(mappedBy = "parlamentar", cascade = CascadeType.ALL)
     public List<models.Processo> processos;
 	
     @OneToMany(cascade=CascadeType.ALL)
     public List<models.Gastos> gastos;
 
-    public static Finder<Long,models.Parlamentar> find = new Finder<Long,models.Parlamentar>(Long.class, models.Parlamentar.class);
+    @ManyToMany(mappedBy = "parlamentares", cascade = CascadeType.ALL)
+    public List<models.Sessao> sessoes = new ArrayList<models.Sessao>();
+
+    public static Model.Finder<Long,Parlamentar> find = new Model.Finder<Long,Parlamentar>(Long.class, Parlamentar.class);
 
     public static Map<String,String> options() {
         LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
@@ -67,8 +70,10 @@ public class Parlamentar extends Model {
         biografia = bio;
     }
 
+
+    /* PARA TESTES COM O JUNIT
     public static Parlamentar authenticate(String nome, String gab) {
         return find.where().eq("nome", nome)
             .eq("gabinete", gab).findUnique();
-    }
+    }*/
 }

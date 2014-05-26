@@ -20,7 +20,7 @@
             <th>Ata</th>
             <th>Caráter</th>
             <th>Presidente</th>
-            <th colspan="2">Opções</th>
+            <th colspan="3">Opções</th>
         </tr>
         @for(s <- listaSessoes){
             
@@ -32,6 +32,7 @@
                 <td>@s.presidente</td>
                 <td><a href="@routes.Administrador.editarSessao(s.data_hora.toString())">Editar</a></td>
                 <td><a href="@routes.Sessao.doAdminRemoverSessao(s.data_hora.toString())">Excluir</a></td>
+                <td><a href="@routes.Administrador.verSessaoParlamentares(s.data_hora.toString())">Parlamentares Presentes</a></td>
             </tr>
         }
 

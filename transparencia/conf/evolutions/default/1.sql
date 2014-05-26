@@ -86,11 +86,11 @@ drop table gastos;
 
 drop table parlamentar;
 
+drop table sessao_parlamentar;
+
 drop table processo;
 
 drop table sessao;
-
-drop table sessao_parlamentar;
 
 SET FOREIGN_KEY_CHECKS=1;
 

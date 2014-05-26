@@ -9,6 +9,9 @@ import java.io.*;
 
 import models.*;
 import java.util.*;
+import java.util.*;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 import java.security.SecureRandom;
 
 import views.html.*;
@@ -86,7 +89,26 @@ public class Administrador extends Controller {
         return controllers.Sessao.adminListarSessao();
     }
     public static Result editarSessao(String data_hora){
-        return controllers.Sessao.adminEditarSessao(data_hora);
+        SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy");
+        Date tipo_data=null;
+
+        try {
+            tipo_data = formatter.parse(data_hora);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return controllers.Sessao.adminEditarSessao(models.Sessao.find.byId(tipo_data));
+    }
+
+    public static Result verSessaoParlamentares(String data_hora) {
+        SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy");
+        Date tipo_data=null;
+        try {
+            tipo_data = formatter.parse(data_hora);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return controllers.Sessao.adminVerParlamentares(models.Sessao.find.byId(tipo_data));
     }
 
     public static Result criarGastos(){
