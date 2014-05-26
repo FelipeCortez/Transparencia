@@ -73,8 +73,12 @@ public class Administrador extends Controller {
         return controllers.Processo.adminCriarProcesso(models.Parlamentar.find.all());
     }
     
-    public static Result listarProcesso(){
-        return controllers.Processo.adminListarProcesso();
+    public static Result listarProcesso(Long id){
+        return controllers.Processo.adminListarProcesso(models.Parlamentar.find.byId(id));
+    }
+    
+    public static Result listarProcessosEscolherParlamentar(){
+    	return controllers.Processo.adminListarProcessosEscolherParlamentar();
     }
     
     public static Result editarProcesso(Long id){

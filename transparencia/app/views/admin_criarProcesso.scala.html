@@ -28,18 +28,11 @@
                 <div class="row">
                     
                     <div class="col-xs-6">
-                        @input(criarProcessoForm("parlamentar_id"), '_label -> "Parlamentar acusado", '_help -> "Requerido"){ (id, name, value, args) =>
-               			<select id="@id" name="@name">
-				  			<option>Selecione um parlamentar</option>
-				  			@for(p <- listaParlamentares){
-				      		<option value=@p.id>
-								@p.nome
-				      		</option>
-				  			} 
-			    		</select>
-                    	}
+                        @select(criarProcessoForm("parlamentar.id"), options(models.Parlamentar.options), '_label -> "Parlamentar acusado", '_help -> "Requerido")
                     </div>
+                </div>    
                     
+                <div class="row">   
                     <div class="col-xs-6">
                         @input(criarProcessoForm("descricao"), '_label -> "Descrição", '_help -> "Requerido"){ (id, name, value, args) =>
                             <textarea rows="6" class="form-control" name="@name" placeholder="Descrição" id="@id"></textarea>
@@ -50,8 +43,7 @@
                         @input(criarProcessoForm("acusacoes"), '_label -> "Acusações", '_help -> "Requerido"){ (id, name, value, args) =>
                             <textarea rows="6" class="form-control" name="@name" placeholder="Acusações" id="@id"></textarea>
                         }
-                    </div>
-                    
+                    </div>  
                 </div>
             
                 <div class="row">

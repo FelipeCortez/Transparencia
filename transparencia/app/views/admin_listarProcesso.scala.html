@@ -1,4 +1,4 @@
-@(listaProcessos : List[models.Processo])
+@(listaProcessos : List[models.Processo], parlamentar: models.Parlamentar)
 
 @import helper.twitterBootstrap._
 @import helper._
@@ -8,7 +8,9 @@
 
 @breadcrumb = {
     <li><a href="@routes.Administrador.index()">Administrador</a></li>
-    <li class="active">Listar Processos</li>
+    <li><a href="@routes.Administrador.listarProcessosEscolherParlamentar()">Listar Processos dos Parlamentares</a></li>
+	
+    <li class="active">Processos de @parlamentar.nome</li>
 }
 
 @main(title = "Processos", scripts = scripts, breadcrumb = breadcrumb) {

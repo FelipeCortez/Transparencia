@@ -39,9 +39,8 @@ public class Processo extends Model {
 	@Required
 	public String orgaoDeInvestigacao;
 
-    @ManyToOne
-    @JoinColumn(name = "parlamentar_id")
-    models.Parlamentar parlamentar;
+	@ManyToOne
+    public Parlamentar parlamentar;
     
 	public static Finder<Long,models.Processo> find = new Finder<Long,models.Processo>(Long.class, models.Processo.class);
 	

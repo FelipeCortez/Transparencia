@@ -40,7 +40,7 @@ public class Parlamentar extends Model {
     @Required
     public String biografia;
     
-    @OneToMany(mappedBy = "parlamentar", cascade = CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.ALL)
     public List<models.Processo> processos;
 	
     @OneToMany(cascade=CascadeType.ALL)

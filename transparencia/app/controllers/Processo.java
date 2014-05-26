@@ -32,12 +32,16 @@ public class Processo extends Controller {
          }
          else {
              models.Processo.create(cadastroForm.get());
-             return redirect(routes.Administrador.listarProcesso());
+             return redirect(routes.Administrador.index());
          }  
     }
     
-    public static Result adminListarProcesso(){
-        return ok(views.html.admin_listarProcesso.render(models.Processo.find.all()));
+    public static Result adminListarProcessosEscolherParlamentar(){
+        return ok(views.html.admin_listarProcessosEscolherParlamentar.render(models.Parlamentar.find.all()));
+    }
+    
+    public static Result adminListarProcesso(models.Parlamentar p){
+        return ok(views.html.admin_listarProcesso.render(p.processos, p));
     }
     
     public static Result adminEditarProcesso(models.Processo p){   
@@ -46,7 +50,7 @@ public class Processo extends Controller {
     
     public static Result doAdminRemoverProcesso(Long idp){
         models.Processo.find.ref(idp).delete();
-        return redirect(routes.Administrador.listarProcesso());
+        return redirect(routes.Administrador.index());
     }
 
     public static Result doAdminAtualizarProcesso(Long idp){
@@ -57,7 +61,7 @@ public class Processo extends Controller {
     	}
     	else{
     		atualizarForm.get().update(idp);
-    		return redirect(routes.Administrador.listarProcesso());
+    		return redirect(routes.Administrador.index());
     	}
     }
 }
