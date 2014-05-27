@@ -31,6 +31,11 @@ public class Sessao extends Controller {
             return badRequest(views.html.admin_criarSessao.render(cadastroForm));
         } else {
             models.Sessao s = cadastroForm.get();
+            for (models.Parlamentar pa : cadastroForm.get().parlamentares) {
+
+                if(pa.id == null) cadastroForm.get().parlamentares.remove(pa);
+            }
+            
             s.save();
             s.saveManyToManyAssociations("parlamentares");
             return redirect(routes.Administrador.listarSessao());
