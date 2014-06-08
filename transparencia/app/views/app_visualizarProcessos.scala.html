@@ -1,0 +1,47 @@
+@(listaProcessos : List[models.Processo], parlamentar: models.Parlamentar)
+
+@import helper.twitterBootstrap._
+@import helper._
+
+@scripts = {
+}
+
+@breadcrumb = {
+    <li><a href="@routes.Application.index()">Início</a></li>
+    <li><a href="@routes.Application.listarParlamentar()">Listar Parlamentares</a></li>
+	
+    <li class="active">Processos de @parlamentar.nome</li>
+}
+
+@main(title = "Processos", scripts = scripts, breadcrumb = breadcrumb) {
+
+    <table class="table table-bordered table-striped">
+        <tr> 
+            @*<th>ID</th>*@
+            <th>Descrição</th>
+            <th>Acusações</th>
+            <th>Processo</th>
+            <th>Status</th>
+            <th>Defesa</th>
+        <th>Texto da Defesa</th>
+        <th>Orgão de Investigação</th>
+        @*<th colspan="2">Opções</th>*@
+        </tr>
+        @for(p <- listaProcessos){
+            <tr>
+                @*<td>@p.id</td>*@
+                <td>@p.descricao</td>
+                <td>@p.acusacoes</td>
+                <td><a href="#">Download</a></td>
+                <td>@p.status</td>
+                <td>@p.defesa</td>
+        <td>@p.textoDefesa</td>
+        <td>@p.orgaoDeInvestigacao</td>
+                @*<td><a href="@routes.Administrador.editarProcesso(p.id)">Editar</a></td>
+                <td><a href="@routes.Processo.doAdminRemoverProcesso(p.id)">Excluir</a></td>*@
+            </tr>
+        }
+
+    </table>
+
+}
