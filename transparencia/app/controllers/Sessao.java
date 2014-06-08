@@ -9,6 +9,7 @@ import java.io.*;
 
 import models.*;
 import java.util.*;
+
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.security.SecureRandom;
@@ -19,6 +20,32 @@ import views.html.*;
 public class Sessao extends Controller {
     
     static Form<models.Sessao> sessaoForm = Form.form(models.Sessao.class);
+
+    public static Result appPesqSessoes() {
+        
+        return ok(views.html.app_pesquisarSessoes.render());
+    }
+
+    public static Result appVerSessao() {
+        String ano, mes, dia;
+        ano = Form.form().bindFromRequest().get("ano");
+        mes = Form.form().bindFromRequest().get("mes");
+        dia = Form.form().bindFromRequest().get("dia");
+
+        /* Obs: por enquanto, nao foi tratado bem o mes de FEVEREIRO (testes). */
+
+        List<models.Sessao> sessoes;
+        if(dia.length() < 2) { /* Se foi nao foi determinado um dia, a consulta sera para todos os dias do mes. */
+            sessoes = models.Sessao.find.where().ilike("data_hora", ano+"-"+mes+"-%").findList();
+        }else {
+            sessoes = models.Sessao.find.where().ilike("data_hora", ano+"-"+mes+"-"+dia+"%").findList();
+        }
+        
+        if(sessoes.get(0) != null) {
+            return ok(views.html.app_verSessoes.render(sessoes));
+        }else
+            return redirect("/sessao");
+    }
 
     public static Result adminCriarSessao() {
         return ok(views.html.admin_criarSessao.render(sessaoForm));
@@ -47,8 +74,7 @@ public class Sessao extends Controller {
     }
 
     public static Result doAdminRemoverSessao(String s){
-        
-        /* Conversao necessaria para a string passada como parametro */
+        /* Conversao necessaria para a string passada como parametro */        
         SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy");
 
         try {

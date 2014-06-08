@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-xs-4">        
                     @input(sessaoForm("data_hora"), '_label -> "Data e horário", '_help -> "Id"){ (id, name, value, args) =>
-                           <input type="date" name="@name" id="@id" class="form-control" placeholder="dd/MM/aaaa hh:mm" required value="@value" @toHtmlArgs(args)>
+                           <input type="text" name="@name" id="@id" class="form-control" placeholder="dd/MM/aaaa hh:mm" required value="@value" @toHtmlArgs(args)>
                         }  
                 </div>
                         

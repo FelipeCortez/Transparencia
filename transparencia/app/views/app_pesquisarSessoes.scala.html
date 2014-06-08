@@ -1,0 +1,58 @@
+@import helper.twitterBootstrap._
+@import helper._
+
+@implicitField = @{ FieldConstructor(customFieldConstructor1.f) }
+
+@scripts = {
+    <script src="@routes.Assets.at("js/holder.js")"></script>
+}
+
+@breadcrumb = {
+    <li><a href="/">Início</a></li>
+    <li class="active">Pesquisar Sessões</li>
+}
+
+@main(title = "Pesquisar Sessões", scripts = scripts, breadcrumb = breadcrumb) {
+    <div class="row">
+
+        <div class="col-xs-12">
+            <h2 class="info-header">Pesquisar Sessões</h2>
+            <p>Informe pelo menos o ano em que a Sessão ocorreu.</p>
+            @form(routes.Sessao.appVerSessao(), 'role ->"form", 'enctype -> "multipart/form-data") {
+                <div class="row">
+
+                    <div class="col-xs-2">
+                        <h3>Ano</h3>
+                        <input type="text" name="ano" pattern="[1]{1}[9]{1}[7-9]{1}[0-9]{1}|[2]{1}[0-9]{3}" placeholder="Ano" required requiredmessage="Informe o Ano."/>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <h3>Mês</h3>
+                        <select name="mes">
+                            <option value="01">Janeiro</option>
+                            <option value="02">Fevereiro</option>
+                            <option value="03">Março</option>
+                            <option value="04">Abril</option>
+                            <option value="05">Maio</option>
+                            <option value="06">Junho</option>
+                            <option value="07">Julho</option>
+                            <option value="08">Agosto</option>
+                            <option value="09">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-xs-3">
+                        <h3>Dia</h3>
+                        <input type="text" name="dia" pattern="[0]{1}[1-9]{1}|[1-2]{1}[0-9]{1}|[3]{1}[0-1]{1}" placeholder="Dia" />
+                    </div>
+                </div>
+                
+                <h1></h1>
+                <input type="submit" value="Pesquisar" />
+            }
+        </div>
+    </div>
+}

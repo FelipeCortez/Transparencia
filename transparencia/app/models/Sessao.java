@@ -31,15 +31,15 @@ public class Sessao extends Model {
     @ManyToMany(cascade = CascadeType.REMOVE)
     public List<models.Parlamentar> parlamentares = new ArrayList<models.Parlamentar>();
 
-    /* Construtor e metodo create para auxiliar nos testes JUNIT. 
+    //Construtor e metodo create para auxiliar nos testes JUNIT. 
     public Sessao(Date dat, String d, String a, String c, String pe) {
         data_hora = dat;
         descricao = d;
         ata = a;
         carater = c;
         presidente = pe;
-        Adicionando presidente como primeiro parlamentar participante da sessao. 
-        parlamentares.add(models.Parlamentar.find.where().eq("parlamentar.nome", pe));
+        //Adicionando presidente como primeiro parlamentar participante da sessao. 
+        //parlamentares.add(models.Parlamentar.find.where().eq("parlamentar.nome", pe));
     }
     
     public static Sessao create(Date dat, String d, String a, String c, String pe) {
@@ -48,12 +48,12 @@ public class Sessao extends Model {
         s.saveManyToManyAssociations("parlamentares");
         return s;
     }
-    */
+    
 
     public static Finder<Date,Sessao> find = new Finder<Date,Sessao>(Date.class, Sessao.class);
 
-    /* PARA TESTE COM JUNIT
-    public List<Sessao> findPresent(String pa) {
-        return find.where().eq("parlamentares.nome", pa).findList();
-    }*/
+    public List<Sessao> findPresent(Long pa) {
+        return find.where().eq("parlamentares.id", pa).findList();
+    }
+
 }

@@ -14,5 +14,7 @@ public class Application extends Controller {
     public static Result verParlamentar(Long id){
         return controllers.Parlamentar.appVerParlamentar(id);
     }
-    
+    public static Result sessoes() {
+    	return controllers.Sessao.appPesqSessoes();
+    }
 }

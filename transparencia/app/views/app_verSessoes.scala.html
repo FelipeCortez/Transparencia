@@ -1,0 +1,41 @@
+@(sessoes: List[models.Sessao])
+
+@scripts = {
+    <script src="@routes.Assets.at("js/holder.js")"></script>
+}
+
+@breadcrumb = {
+    <li><a href="/">Início</a></li>
+    <li class="active">Sessões Encontradas</li>
+}
+
+@main(title = "Sessões Encontradas", scripts = scripts, breadcrumb = breadcrumb) {
+    <div class="row">
+
+        <div class="col-xs-12">
+            <h2 class="info-header">Sessões Encontradas</h2>
+            <table class="table table-bordered table-striped">
+        <tr> 
+            <th>Data e Hora</th>
+            <th>Descrição</th>
+            <th>Ata</th>
+            <th>Caráter</th>
+            <th>Presidente</th>
+            <th colspan="3">Opções</th>
+        </tr>
+        @for(s <- sessoes){
+            
+            <tr>
+                <td>@s.data_hora</td>
+                <td>@s.descricao</td>
+                <td>@s.ata</td>
+                <td>@s.carater</td>
+                <td>@s.presidente</td>
+                <td><a href="@routes.Administrador.verSessaoParlamentares(s.data_hora.toString())">Parlamentares Presentes</a></td>
+            </tr>
+        }
+
+    </table>
+        </div>
+    </div>
+}
