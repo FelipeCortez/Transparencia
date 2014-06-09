@@ -1,0 +1,30 @@
+@()
+
+@import helper._
+
+@breadcrumb = {
+    <li><a class="active">Início</a></li>
+}
+
+@main(title = "Bem-vindo ao Sistema de Transparencia da Assembleia do RN", breadcrumb = breadcrumb) {
+
+    <h1>O que você quer fazer?</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Pesquise um parlamentar</h2>
+            <p>
+                <a class="btn btn-default" href="@routes.Application.listarParlamentar()" role="button">Pesquisar</a>
+            </p>
+        </div>
+    	<div class="col-md-4">
+            <h2>Pesquise sessões</h2>
+            <p>
+                <a class="btn btn-default" href="@routes.Application.sessoes()" role="button">Pesquisar</a>
+            </p>
+        </div>
+    
+    
+    </div>
+
+}

@@ -66,6 +66,10 @@ public class Parlamentar extends Controller {
         return ok(views.html.admin_listarParlamentar.render(models.Parlamentar.find.all()));
     }
     
+    public static Result appListarParlamentar(){
+        return ok(views.html.app_listarParlamentar.render(models.Parlamentar.find.all()));
+    }
+    
     public static Result doAdminRemoverParlamentar(Long id){
         models.Parlamentar.find.ref(id).delete();
         return redirect(routes.Administrador.listarParlamentar());

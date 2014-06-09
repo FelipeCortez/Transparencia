@@ -43,6 +43,10 @@ public class Processo extends Controller {
     public static Result adminListarProcesso(models.Parlamentar p){
         return ok(views.html.admin_listarProcesso.render(p.processos, p));
     }
+
+    public static Result appVisualizarProcesso(models.Parlamentar p){
+        return ok(views.html.app_visualizarProcessos.render(p.processos, p));
+    }
     
     public static Result adminEditarProcesso(models.Processo p){   
         return ok(views.html.admin_editarProcesso.render(processoForm.fill(p), p, p.id));
