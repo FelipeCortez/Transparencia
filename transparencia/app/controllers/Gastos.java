@@ -61,5 +61,9 @@ public class Gastos extends Controller {
     		return redirect(routes.Administrador.listarGastosParlamentar(idp));
     	}
 	}
+    
+    public static Result appVisualizarGastos(models.Parlamentar p){
+        return ok(views.html.app_visualizarGastos.render(p.gastos, p));
+    }
 
 }

@@ -40,4 +40,8 @@ public class Application extends Controller {
     public static Result visualizarProcessos(Long id){
         return controllers.Processo.appVisualizarProcesso(models.Parlamentar.find.byId(id));
     }
+    
+    public static Result visualizarGastos(Long id){
+        return controllers.Gastos.appVisualizarGastos(models.Parlamentar.find.byId(id));
+    }
 }
