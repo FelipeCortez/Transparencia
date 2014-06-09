@@ -7,7 +7,8 @@
 }
 
 @breadcrumb = {
-    <li><a href="@routes.Administrador.index()">Administrador</a></li>
+    <li><a href="@routes.Application.index()">Início</a></li>
+    <li><a href="@routes.Application.sessoes()">Sessões</a></li>
     <li class="active">Parlamentares Presentes</li>
 }
 
@@ -15,7 +16,7 @@
 
     <table class="table table-bordered table-striped">
         <tr> 
-            <th>ID</th>
+            
             <th>Nome</th>
             <th>Partido</th>
             <th>Formação</th>
@@ -24,7 +25,7 @@
         </tr>
         @for(p <- parlamentares){
             <tr>
-                <td>@p.id</td>
+                
                 <td>@p.nome</td>
                 <td>@p.partido</td>
                 <td>@p.formacao</td>

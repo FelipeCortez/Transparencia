@@ -18,17 +18,19 @@
         <div class="col-xs-12">
             <h2 class="info-header">Pesquisar Sessões</h2>
             <p>Informe pelo menos o ano em que a Sessão ocorreu.</p>
+            
             @form(routes.Sessao.appVerSessao(), 'role ->"form", 'enctype -> "multipart/form-data") {
                 <div class="row">
 
-                    <div class="col-xs-2">
+                    <div class="col-xs-3">
                         <h3>Ano</h3>
                         <input type="text" name="ano" pattern="[1]{1}[9]{1}[7-9]{1}[0-9]{1}|[2]{1}[0-9]{3}" placeholder="Ano" required requiredmessage="Informe o Ano."/>
                     </div>
 
-                    <div class="col-xs-2">
+                    <div class="col-xs-3">
                         <h3>Mês</h3>
                         <select name="mes">
+                            <option value="00">Selecione o mês</option>
                             <option value="01">Janeiro</option>
                             <option value="02">Fevereiro</option>
                             <option value="03">Março</option>

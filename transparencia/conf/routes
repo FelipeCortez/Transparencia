@@ -46,7 +46,8 @@ GET   /administrador/gastos/atualizar/:id/:idp      				controllers.Gastos.doAdm
 GET 	/parlamentar/:id                           	controllers.Application.verParlamentar(id: Long)
 #GET 	/processo/:id 								controllers.Processo.listarUm(id: Long)
 GET 	/sessao										controllers.Application.sessoes()
-GET    /sessao/verSessao				controllers.Sessao.appVerSessao()
+GET    	/sessao/verSessao							controllers.Sessao.appVerSessao()
+GET		/sessao/parlamentares/:data_hora			controllers.Application.verSessaoParlamentares(data_hora)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file                               controllers.Assets.at(path="/public", file)

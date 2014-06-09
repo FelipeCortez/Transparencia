@@ -35,16 +35,21 @@ public class Sessao extends Controller {
         /* Obs: por enquanto, nao foi tratado bem o mes de FEVEREIRO (testes). */
 
         List<models.Sessao> sessoes;
-        if(dia.length() < 2) { /* Se foi nao foi determinado um dia, a consulta sera para todos os dias do mes. */
-            sessoes = models.Sessao.find.where().ilike("data_hora", ano+"-"+mes+"-%").findList();
-        }else {
-            sessoes = models.Sessao.find.where().ilike("data_hora", ano+"-"+mes+"-"+dia+"%").findList();
+        if(mes.equals("00")) { // Se nao foi determinado um mes, a consulta sera para todos os meses do ano.
+            sessoes = models.Sessao.find.where().ilike("data_hora", ano+"-%").findList();
         }
-        
-        if(sessoes.get(0) != null) {
-            return ok(views.html.app_verSessoes.render(sessoes));
-        }else
-            return redirect("/sessao");
+        else if(dia.length() < 2){ // Se foi determinado um mes, mas nao um dia, a busca sera para todos os dias do mes.
+            sessoes = models.Sessao.find.where().ilike("data_hora", ano+"-"+mes+"-%").findList();
+        }
+        else { // Consulta com todos os dados possiveis (dia,mes,ano).
+            sessoes = models.Sessao.find.where().ilike("data_hora", ano+"-"+mes+"-"+dia).findList();
+        }
+
+        return ok(views.html.app_verSessoes.render(sessoes));
+    }
+
+    public static Result appVerParlamentares(models.Sessao s) {
+        return ok(views.html.app_verSessaoParlamentares.render(s.parlamentares));        
     }
 
     public static Result adminCriarSessao() {
