@@ -17,7 +17,7 @@ public class Application extends Controller {
     public static Result verParlamentar(Long id){
         return controllers.Parlamentar.appVerParlamentar(id);
     }
-<<<<<<< HEAD
+
 
     public static Result sessoes() {
     	return controllers.Sessao.appPesqSessoes();
@@ -31,18 +31,13 @@ public class Application extends Controller {
             e.printStackTrace();
         }
         return controllers.Sessao.appVerParlamentares(models.Sessao.find.byId(tipo_data));
-=======
-    
-    public static Result sessoes() {
-    	return controllers.Sessao.appPesqSessoes();
     }
-
+    
     public static Result listarParlamentar(){
         return controllers.Parlamentar.appListarParlamentar();
     }
     
     public static Result visualizarProcessos(Long id){
         return controllers.Processo.appVisualizarProcesso(models.Parlamentar.find.byId(id));
->>>>>>> 35f90510bca31a4930b05986f477fba890eec0c1
     }
 }
