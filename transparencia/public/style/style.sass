@@ -1,6 +1,9 @@
 $sans-font: Oxygen
 $text-blue: #123CAB
 $text-green: #12AB12
+$dark-blue: #313941
+$light-blue: #59626E
+$lighter-blue: #FFFFFF
 
 body
   font-family: $sans-font
@@ -11,33 +14,41 @@ body
   height: 140px
   margin-top: 30px
   margin-bottom: 30px
+  background: url(../images/topo-destaque.jpg) no-repeat center center
 
-.info-header
-  &:first-child
-    margin-top: 0
+.al-nav
+  margin-top: 30px
+  margin-bottom: 30px
+  background-color: $dark-blue
+  border: none
 
-  border-bottom: 1px solid #EEE
+.navbar-nav
+  li
+    a
+      color: $lighter-blue
+      &:hover
+        background-color: black !important
+        color: $lighter-blue !important
 
 footer
   margin-top: 50px
-  background-color: #313941
+  background-color: $dark-blue
   border-top: 1px solid #EEE
   padding: 50px 0 50px 0
 
   a
-    color: #59626e
+    color: $light-blue
 
 footer .footer-links
   list-style-type: none
   margin: 0 0 0 0
-  padding: 0 0 15px 0
+  padding: 0 0 30px 0
   border-bottom: 1px solid #59626e
-  display: inline
 
   li
+    float: left
     margin-left: 0
     margin-right: 15px
-    display: inline
 
     &:last-child
       margin-right: 0
